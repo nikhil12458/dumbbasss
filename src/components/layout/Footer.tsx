@@ -1,0 +1,40 @@
+import Link from "next/link";
+
+export default function Footer() {
+  return (
+    <footer className="border-t-[1px] border-[var(--line)] pt-[56px] pb-[40px]">
+      <div className="wrap flex justify-between flex-wrap gap-[24px]">
+        <div className="flex flex-col gap-[10px]">
+          <span className="font-mono text-[10.5px] tracking-[0.12em] uppercase text-[var(--ink-faint)] mb-[4px]">
+            Studio
+          </span>
+          <Link href="/about" className="text-[14px] text-[var(--ink-soft)] hover:text-[var(--ink)]">About</Link>
+          <Link href="/process" className="text-[14px] text-[var(--ink-soft)] hover:text-[var(--ink)]">Process</Link>
+          <Link href="/contact" className="text-[14px] text-[var(--ink-soft)] hover:text-[var(--ink)]">Contact</Link>
+        </div>
+        <div className="flex flex-col gap-[10px]">
+          <span className="font-mono text-[10.5px] tracking-[0.12em] uppercase text-[var(--ink-faint)] mb-[4px]">
+            Work
+          </span>
+          <Link href="/projects" className="text-[14px] text-[var(--ink-soft)] hover:text-[var(--ink)]">Projects</Link>
+          <Link href="/services" className="text-[14px] text-[var(--ink-soft)] hover:text-[var(--ink)]">Services</Link>
+        </div>
+        <div className="flex flex-col gap-[10px]">
+          <span className="font-mono text-[10.5px] tracking-[0.12em] uppercase text-[var(--ink-faint)] mb-[4px]">
+            Say hello
+          </span>
+          <a href="mailto:hello@dumbbasss.studio" className="text-[14px] text-[var(--ink-soft)] hover:text-[var(--ink)]">
+            hello@dumbbasss.studio
+          </a>
+          <Link href="/consultation" className="text-[14px] text-[var(--ink-soft)] hover:text-[var(--ink)]">
+            Start a consultation
+          </Link>
+        </div>
+      </div>
+      <div className="wrap mt-[46px] pt-[20px] border-t-[1px] border-[var(--line)] font-mono text-[11px] text-[var(--ink-faint)] flex justify-between flex-wrap gap-[10px]">
+        <span>© 2026 dumbbasss studio</span>
+        <span>an unserious name, a serious studio</span>
+      </div>
+    </footer>
+  );
+}
