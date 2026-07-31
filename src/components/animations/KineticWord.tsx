@@ -16,11 +16,13 @@ type KineticWordProps = {
 export default function KineticWord({
   word = "dumbbasss",
   widthFraction = 0.88,
-  windAmp = 0.028,
-  gravity = 0.05,
+
+  windAmp = 0.012,
+  gravity = 0.008,
+
   mouseStrength = 2.2,
   spacing = 7,
-  className = ""
+  className = "",
 }: KineticWordProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
@@ -34,17 +36,17 @@ export default function KineticWord({
 
     // Wait for fonts to load
     let isCancelled = false;
-    
+
     const init = async () => {
       try {
         await document.fonts.load(`700 100px "Space Grotesk"`);
         await document.fonts.load(`600 16px "JetBrains Mono"`);
-      } catch(e) {
+      } catch (e) {
         // ignore
       }
-      
+
       if (isCancelled) return;
-      
+
       const kinetic = mountKineticWord(containerRef.current!, {
         word,
         widthFraction,
@@ -52,14 +54,14 @@ export default function KineticWord({
         gravity,
         mouseStrength,
         spacing,
-        fontFamily: "'Space Grotesk', sans-serif"
+        fontFamily: "'Space Grotesk', sans-serif",
       });
 
       return kinetic;
     };
 
     let kineticInstance: any;
-    init().then(instance => {
+    init().then((instance) => {
       kineticInstance = instance;
     });
 
