@@ -23,8 +23,10 @@ A polymorphic button/link component used for all CTAs across the site.
 | `onClick` | `() => void?` | — | Click handler |
 
 ### Variants
-- **Outline**: ink border, transparent bg → hover fills ink bg
-- **Filled**: ink bg, paper text → hover changes to accent bg
+- **Outline**: `border-ink` and `text-ink`. Hover triggers `bg-ink` and `text-paper`.
+- **Filled**: `bg-ink` and `text-paper`. Hover triggers `bg-accent`, `border-accent`, and `text-paper`.
+
+*(Note: Tailwind standard utility classes are used directly to guarantee CSS specificity over browser base link styles).*
 
 ---
 

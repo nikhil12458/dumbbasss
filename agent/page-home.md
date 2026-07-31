@@ -16,6 +16,7 @@ The landing page of the site — the first thing visitors see.
 - Left column: decorative SVG illustration (desktop only)
 - Right column: mono tagline → KineticWord canvas → subtitle → two CTAs
 - Bottom-left: "grab a letter" hint
+- **Note:** The `KineticWord` component is lazily loaded via `next/dynamic` to ensure a rapid First Contentful Paint.
 
 ### 2. Services Preview ("Five ways in")
 - 5-column grid of service cards, each linking to its detail page
@@ -37,4 +38,4 @@ The landing page of the site — the first thing visitors see.
 
 ## Dependencies
 
-- `KineticWord`, `ScrollReveal`, `Btn`, `LinkArrow`, `Eyebrow`, `SectionTitle`
+- `KineticWord` (Dynamic), `ScrollReveal`, `Btn`, `LinkArrow`, `Eyebrow`, `SectionTitle`

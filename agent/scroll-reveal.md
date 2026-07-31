@@ -1,4 +1,4 @@
-# ScrollReveal.tsx — GSAP Scroll Animation
+# ScrollReveal.tsx — Scroll Animation
 
 | Field | Value |
 |-------|-------|
@@ -8,7 +8,7 @@
 
 ## Purpose
 
-A wrapper component that fades and slides its children into view when they enter the viewport, powered by GSAP ScrollTrigger.
+A wrapper component that fades and slides its children into view when they enter the viewport, powered by Framer Motion.
 
 ## Props
 
@@ -20,13 +20,12 @@ A wrapper component that fades and slides its children into view when they enter
 
 ## How it works
 
-1. The container starts with `opacity: 0`
-2. On mount, GSAP `fromTo` animates from `{ opacity: 0, y: offset }` to `{ opacity: 1, y: 0 }`
-3. The animation triggers when the element's top crosses `88%` of the viewport
-4. Uses `@gsap/react`'s `useGSAP` hook for proper cleanup
+1. The container uses `<motion.div>`
+2. On mount, it sets `initial={{ opacity: 0, y: offset }}`
+3. When the component enters the viewport (`whileInView`), it animates to `{ opacity: 1, y: 0 }`
+4. Uses a `margin` of `-12%` on the viewport to trigger slightly before it enters the screen.
+5. The animation only runs once per component mount (`once: true`).
 
 ## Dependencies
 
-- `gsap`
-- `gsap/ScrollTrigger`
-- `@gsap/react`
+- `framer-motion`

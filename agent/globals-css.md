@@ -19,7 +19,7 @@ The central stylesheet that defines the entire visual identity of the site. It r
 - **Motion**: `--ease` cubic-bezier curve
 
 ### TailwindCSS v4 Theme Binding
-Maps CSS font variables to Tailwind's `font-sans`, `font-display`, `font-mono`, `font-serif` utilities.
+Maps CSS font variables to Tailwind's `font-sans`, `font-display`, `font-mono`, `font-serif` utilities. Also defines `--color-*` properties so standard Tailwind utilities (e.g. `bg-ink`, `text-paper`) can be used securely across the app without resorting to arbitrary values.
 
 ### Global Resets & Base Styles
 - Box-sizing, smooth scroll, reduced-motion support
