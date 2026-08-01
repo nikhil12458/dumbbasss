@@ -9,9 +9,17 @@ import { Fraunces } from "next/font/google";
 import { services } from "@/data/services";
 import { projects } from "@/data/projects";
 
-const fraunces = Fraunces({ subsets: ["latin"], weight: ["400", "500", "600"], style: ["normal", "italic"], variable: "--font-fraunces", display: "swap" });
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
 
-const KineticWord = dynamic(() => import("@/components/animations/KineticWord"));
+const KineticWord = dynamic(
+  () => import("@/components/animations/KineticWord"),
+);
 
 export default function Home() {
   return (
@@ -24,26 +32,111 @@ export default function Home() {
             aria-hidden="true"
           >
             <svg
-              viewBox="0 0 320 560"
+              viewBox="0 0 420 560"
               xmlns="http://www.w3.org/2000/svg"
-              className="w-full max-w-[280px] opacity-90"
+              className="w-full max-w-[380px] opacity-90"
             >
-              <rect x="46" y="330" width="4" height="150" fill="var(--ink)" />
-              <rect x="150" y="300" width="4" height="180" fill="var(--ink)" />
-              <rect x="256" y="330" width="4" height="150" fill="var(--ink)" />
-              <rect
-                x="70"
-                y="360"
-                width="150"
-                height="80"
-                fill="var(--ink)"
-                opacity=".07"
-              />
+              {/* kasagi — top beam, wider and more torii-like */}
               <path
-                d="M20,300 C90,280 230,280 300,300 L300,316 C230,298 90,298 20,316 Z"
-                fill="var(--ink)"
+                d="M46 110
+       L74 78
+       L346 78
+       L374 110
+       L374 132
+       L346 100
+       L74 100
+       L46 132
+       Z"
+                fill="var(--torii-red, #B24A2A)"
               />
-              <rect x="10" y="480" width="300" height="6" fill="var(--ink)" />
+
+              {/* shimaki — secondary beam beneath the kasagi */}
+              <rect
+                x="78"
+                y="142"
+                width="264"
+                height="14"
+                fill="var(--torii-dark, #2A221B)"
+                opacity="0.95"
+              />
+
+              {/* gakuzuka — center post */}
+              <rect
+                x="202"
+                y="156"
+                width="16"
+                height="34"
+                fill="var(--torii-dark, #2A221B)"
+              />
+
+              {/* nuki — lower crossbeam */}
+              <rect
+                x="90"
+                y="194"
+                width="240"
+                height="18"
+                fill="var(--torii-dark, #2A221B)"
+              />
+
+              {/* hashira — pillars */}
+              <rect
+                x="104"
+                y="212"
+                width="18"
+                height="264"
+                fill="var(--torii-dark, #2A221B)"
+              />
+              <rect
+                x="298"
+                y="212"
+                width="18"
+                height="264"
+                fill="var(--torii-dark, #2A221B)"
+              />
+
+              {/* accent caps at the base of pillars */}
+              <rect
+                x="98"
+                y="466"
+                width="30"
+                height="16"
+                fill="var(--torii-red, #B24A2A)"
+              />
+              <rect
+                x="292"
+                y="466"
+                width="30"
+                height="16"
+                fill="var(--torii-red, #B24A2A)"
+              />
+
+              {/* stone footings */}
+              <rect
+                x="84"
+                y="486"
+                width="42"
+                height="12"
+                fill="var(--ink, #1C1712)"
+                opacity="0.9"
+              />
+              <rect
+                x="294"
+                y="486"
+                width="42"
+                height="12"
+                fill="var(--ink, #1C1712)"
+                opacity="0.9"
+              />
+
+              {/* ground line */}
+              <rect
+                x="58"
+                y="506"
+                width="304"
+                height="8"
+                fill="var(--ink, #1C1712)"
+                opacity="0.95"
+              />
             </svg>
           </div>
           <div className="flex flex-col justify-center items-center text-center px-[20px]">
@@ -52,7 +145,9 @@ export default function Home() {
             </p>
 
             <ScrollReveal className="w-full max-w-[760px] h-[230px] md:h-[280px]">
-              <KineticWord />
+              <KineticWord
+                spacing={8}
+              />
             </ScrollReveal>
 
             <p className="mt-[22px] font-sans font-light text-[17px] leading-[1.6] text-[var(--ink-soft)] max-w-[380px]">
@@ -63,10 +158,7 @@ export default function Home() {
               </strong>
             </p>
             <div className="mt-[30px] flex gap-[26px] items-center flex-wrap justify-center">
-              <Btn
-                href="/consultation"
-                variant="filled"
-              >
+              <Btn href="/consultation" variant="filled">
                 start something →
               </Btn>
               <LinkArrow href="/projects">see the stuff →</LinkArrow>
@@ -88,7 +180,7 @@ export default function Home() {
               <Link
                 key={i}
                 href={`/services/${service.slug}`}
-                className={`p-[30px_22px] border-b border-[var(--line)] transition-colors duration-300 ease-[var(--ease)] hover:bg-[var(--paper-deep)] ${i < 4 ? 'md:border-r' : ''} ${i % 2 === 0 ? 'sm:border-r' : ''}`}
+                className={`p-[30px_22px] border-b border-[var(--line)] transition-colors duration-300 ease-[var(--ease)] hover:bg-[var(--paper-deep)] ${i < 4 ? "md:border-r" : ""} ${i % 2 === 0 ? "sm:border-r" : ""}`}
               >
                 <span className="font-mono text-[11px] text-[var(--accent)]">
                   {service.index}
@@ -140,9 +232,11 @@ export default function Home() {
               <Link
                 key={i}
                 href={`/projects/${project.slug}`}
-                className={`group relative border border-[var(--line-strong)] min-h-[340px] p-[28px] flex flex-col justify-end overflow-hidden ${i === 1 ? 'text-[var(--ink)]' : ''}`}
+                className={`group relative border border-[var(--line-strong)] min-h-[340px] p-[28px] flex flex-col justify-end overflow-hidden ${i === 1 ? "text-[var(--ink)]" : ""}`}
               >
-                <div className={`absolute inset-0 -z-10 transition-transform duration-500 ease-[var(--ease)] group-hover:scale-105 ${i === 0 ? 'bg-gradient-to-br from-[var(--paper-deep)] to-[var(--paper)]' : 'bg-gradient-to-br from-[#d9cba7] to-[#e5dabf]'}`}></div>
+                <div
+                  className={`absolute inset-0 -z-10 transition-transform duration-500 ease-[var(--ease)] group-hover:scale-105 ${i === 0 ? "bg-gradient-to-br from-[var(--paper-deep)] to-[var(--paper)]" : "bg-gradient-to-br from-[#d9cba7] to-[#e5dabf]"}`}
+                ></div>
                 <span className="relative font-mono text-[11px] tracking-[0.08em] uppercase text-[var(--ink-soft)]">
                   {project.meta.category}
                 </span>

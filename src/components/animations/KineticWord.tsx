@@ -57,6 +57,7 @@ export default function KineticWord({
 
     let kineticInstance: any;
     init().then((instance) => {
+      if (!instance) return;
       kineticInstance = instance;
       
       const observer = new IntersectionObserver((entries) => {

@@ -20,36 +20,60 @@ export default function ServicesOverview() {
             Five categories. No maze.
           </h1>
           <p className="section-lede mt-[20px]">
-            Everything we do lives in one of these. Pick the one closest to your problem — we'll sort the rest out together.
+            Everything we do lives in one of these. Pick the one closest to your
+            problem — we'll sort the rest out together.
           </p>
         </ScrollReveal>
         <ScrollReveal className="border border-[var(--line-strong)] p-[26px_28px] max-w-[300px] flex flex-col gap-[14px]">
-          <h4 className="font-display text-[16px] font-bold">Not sure where you fit?</h4>
+          <h4 className="font-display text-[16px] font-bold">
+            Not sure where you fit?
+          </h4>
           <p className="text-[13px] text-[var(--ink-soft)] leading-[1.6]">
-            Answer five short questions and we'll point you to the right place — no sales pitch attached.
+            Answer five short questions and we'll point you to the right place —
+            no sales pitch attached.
           </p>
-          <Btn href="/consultation" variant="filled" className="justify-center">What do you need? →</Btn>
+          <Btn href="/consultation" variant="filled" className="justify-center">
+            What do you need? →
+          </Btn>
         </ScrollReveal>
       </section>
 
       <section className="wrap border-t border-[var(--line)]">
         {services.map((svc) => (
-          <ScrollReveal key={svc.slug} className="py-[56px] border-b border-[var(--line)] grid grid-cols-1 md:grid-cols-[0.8fr_2fr] gap-[40px]">
+          <ScrollReveal
+            key={svc.slug}
+            className="py-[56px] border-b border-[var(--line)] grid grid-cols-1 md:grid-cols-[0.8fr_2fr] gap-[40px]"
+          >
             <div className="flex flex-col gap-[14px]">
-              <span className="font-mono text-[12px] text-[var(--accent)]">{svc.index}</span>
+              <span className="font-mono text-[12px] text-[var(--accent)]">
+                {svc.index}
+              </span>
               <h2 className="font-display font-bold text-[clamp(24px,2.6vw,34px)] leading-[1.08] tracking-[-0.01em]">
-                <Link href={`/services/${svc.slug}`} className="hover:text-[var(--accent)] transition-colors">{svc.title}</Link>
+                <Link
+                  href={`/services/${svc.slug}`}
+                  className="hover:text-[var(--accent)] transition-colors"
+                >
+                  {svc.title}
+                </Link>
               </h2>
               <div className="mt-[6px]">
-                <LinkArrow href={`/services/${svc.slug}`}>Full details →</LinkArrow>
+                <LinkArrow href={`/services/${svc.slug}`}>
+                  Full details →
+                </LinkArrow>
               </div>
-              <p className="text-[14px] text-[var(--ink-soft)] max-w-[32ch] leading-[1.7]">{svc.shortDesc}</p>
+              <p className="text-[14px] text-[var(--ink-soft)] max-w-[32ch] leading-[1.7]">
+                {svc.shortDesc}
+              </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-[1px] bg-[var(--line)] border border-[var(--line)] content-start">
               {svc.subItems.map((item, i) => (
                 <div key={i} className="bg-[var(--paper)] p-[20px_22px]">
-                  <h4 className="font-sans text-[15px] font-semibold mb-[6px]">{item.title}</h4>
-                  <p className="text-[13px] text-[var(--ink-soft)] leading-[1.6]">{item.desc}</p>
+                  <h4 className="font-sans text-[15px] font-semibold mb-[6px]">
+                    {item.title}
+                  </h4>
+                  <p className="text-[13px] text-[var(--ink-soft)] leading-[1.6]">
+                    {item.desc}
+                  </p>
                 </div>
               ))}
             </div>
@@ -59,11 +83,16 @@ export default function ServicesOverview() {
 
       <section className="py-[110px] text-center">
         <ScrollReveal className="wrap">
-          <Eyebrow accent className="justify-center">— still not sure —</Eyebrow>
+          <Eyebrow accent className="justify-center">
+            — still not sure —
+          </Eyebrow>
           <h2 className="font-display font-bold text-[clamp(28px,4vw,44px)] leading-[1.08] tracking-[-0.01em] max-w-[680px] mx-auto mb-[30px]">
-            Most projects touch more than one category. That's normal — let's talk it through.
+            Most projects touch more than one category. That's normal — let's
+            talk it through.
           </h2>
-          <Btn href="/consultation" variant="filled">Start a consultation</Btn>
+          <Btn href="/consultation" variant="filled" className="mt-3">
+            Start a consultation
+          </Btn>
         </ScrollReveal>
       </section>
     </>

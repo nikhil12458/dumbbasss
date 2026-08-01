@@ -187,7 +187,8 @@ export function mountKineticWord(container: HTMLElement, opts?: any) {
     heightPx = 0,
     running = true,
     isPaused = false,
-    lastDelta = 0;
+    lastDelta = 0,
+    timeAccumulator = 0;
 
   function measureAndBuildMask(stageW: number, stageH: number) {
     const probe = document.createElement("canvas").getContext("2d")!;
@@ -345,6 +346,19 @@ export function mountKineticWord(container: HTMLElement, opts?: any) {
 
     if (cfg.interactive) {
       input = new Input({ canvas, particles: particleList, cfg });
+      
+      // Artificial poke to create a satisfying load wobble
+      // Delayed by 350ms so it happens just as the ScrollReveal fade completes
+      setTimeout(() => {
+        if (!running || isPaused) return;
+        particleList.forEach((p) => {
+          if (!p.pinned) {
+            // Nudge positions slightly to trigger the constraints and spring physics
+            p.pos.x += (Math.random() * 8) - 4;
+            p.pos.y += (Math.random() * 4) + 6; // Stronger downward pull to mimic drop
+          }
+        });
+      }, 350);
     }
 
     function draw() {
@@ -385,23 +399,30 @@ export function mountKineticWord(container: HTMLElement, opts?: any) {
       if (isPaused) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       let delta = t - lastDelta;
-      if (lastDelta === 0) delta = 16.6;
+      if (lastDelta === 0) delta = 16.666;
       delta = Math.min(delta, 50);
       lastDelta = t;
-      particleList.forEach((p) =>
-        p.update(
-          delta,
-          cfg.gravity,
-          cfg.damping,
-          cfg.windAmp,
-          cfg.windFreq,
-          t,
-          cfg.restoreStrength,
-        ),
-      );
-      for (let k = 0; k < cfg.iterations; k++) {
-        for (let j = 0; j < constraints.length; j++) constraints[j].solve();
+      
+      timeAccumulator += delta;
+      
+      while (timeAccumulator >= 16.666) {
+        particleList.forEach((p) =>
+          p.update(
+            16.666,
+            cfg.gravity,
+            cfg.damping,
+            cfg.windAmp,
+            cfg.windFreq,
+            t,
+            cfg.restoreStrength,
+          ),
+        );
+        for (let k = 0; k < cfg.iterations; k++) {
+          for (let j = 0; j < constraints.length; j++) constraints[j].solve();
+        }
+        timeAccumulator -= 16.666;
       }
+      
       draw();
     }
     rafId = requestAnimationFrame(loop);
@@ -496,6 +517,7 @@ export function mountKineticWord(container: HTMLElement, opts?: any) {
     resume() {
       isPaused = false;
       lastDelta = 0;
+      timeAccumulator = 0;
     },
     destroy() {
       running = false;
