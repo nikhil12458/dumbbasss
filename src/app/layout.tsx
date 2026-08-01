@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/nav/Navbar";
 import Footer from "@/components/layout/Footer";
 import ConsultPanel from "@/components/consultation/ConsultPanel";
-import { inter, spaceGrotesk, jetbrainsMono, fraunces } from "@/app/font";
+import { inter, spaceGrotesk, jetbrainsMono } from "@/app/font";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dumbbasss.studio"),
@@ -48,7 +48,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${fraunces.variable}`}
+      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <body className="min-h-full flex flex-col relative">
         <Navbar />

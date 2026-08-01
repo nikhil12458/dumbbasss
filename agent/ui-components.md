@@ -6,6 +6,8 @@
 | **Author** | 🤖 AI |
 | **Category** | Component / UI Primitives |
 
+*Note: All UI components use the `cn()` utility from `@/utils/cn` to safely merge default tailwind classes with optional `className` props.*
+
 ---
 
 ## Btn.tsx
@@ -21,6 +23,8 @@ A polymorphic button/link component used for all CTAs across the site.
 | `children` | `ReactNode` | — | Button label |
 | `className` | `string?` | `""` | Additional classes |
 | `onClick` | `() => void?` | — | Click handler |
+
+*(Additionally accepts all standard HTML `<button>` and `<a>` attributes via spread, defaulting to `type="button"` when used as a button).*
 
 ### Variants
 - **Outline**: `border-ink` and `text-ink`. Hover triggers `bg-ink` and `text-paper`.
@@ -51,7 +55,7 @@ A small mono-font section label with a leading horizontal dash.
 
 ## LinkArrow.tsx
 
-An animated inline link with monospaced uppercase styling and a gap that expands on hover.
+An inline link with monospaced uppercase styling.
 
 ### Props
 

@@ -2,6 +2,11 @@ import ScrollReveal from "@/components/animations/ScrollReveal";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Btn from "@/components/ui/Btn";
 
+export const metadata = {
+  title: "Contact | dumbbasss",
+  description: "Get in touch with dumbbasss studio.",
+};
+
 export default function Contact() {
   return (
     <>

@@ -1,16 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ConsultFlow from "./ConsultFlow";
 
 export default function ConsultPanel() {
   const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const prevIsOpen = useRef(isOpen);
 
   useEffect(() => {
-    setMounted(true);
-    
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setIsOpen(false);
     };
@@ -19,11 +19,19 @@ export default function ConsultPanel() {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  if (!mounted) return null;
+  useEffect(() => {
+    if (isOpen) {
+      closeRef.current?.focus();
+    } else if (prevIsOpen.current) {
+      triggerRef.current?.focus();
+    }
+    prevIsOpen.current = isOpen;
+  }, [isOpen]);
 
   return (
     <>
       <button
+        ref={triggerRef}
         onClick={() => setIsOpen(true)}
         className="fixed right-[28px] bottom-[28px] z-[500] flex items-center gap-[10px] bg-[var(--ink)] text-[var(--paper)] font-mono text-[12px] tracking-[0.06em] uppercase p-[15px_20px] border-none cursor-pointer shadow-[0_18px_36px_-18px_rgba(24,20,15,0.45)] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[var(--accent)] group"
       >
@@ -43,6 +51,9 @@ export default function ConsultPanel() {
             />
             
             <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="consult-title"
               initial={{ x: "100%", opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "100%", opacity: 0 }}
@@ -51,10 +62,11 @@ export default function ConsultPanel() {
             >
               <div className="flex justify-between items-start mb-[20px]">
                 <div>
-                  <h3 className="text-[19px] font-display font-bold tracking-[-0.01em]">Let's figure out what you need.</h3>
+                  <h3 id="consult-title" className="text-[19px] font-display font-bold tracking-[-0.01em]">Let's figure out what you need.</h3>
                   <p className="font-mono text-[11px] text-[var(--ink-soft)] mt-[6px] tracking-[0.04em]">five quick questions — no pressure</p>
                 </div>
                 <button
+                  ref={closeRef}
                   onClick={() => setIsOpen(false)}
                   className="bg-transparent border-none font-mono text-[12px] text-[var(--ink-soft)] cursor-pointer p-[6px] hover:text-[var(--ink)] transition-colors"
                 >

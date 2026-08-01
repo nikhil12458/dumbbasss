@@ -38,6 +38,8 @@ const Navbar = () => {
           className="md:hidden flex flex-col gap-[5px] bg-transparent border-none cursor-pointer p-[8px]"
           onClick={toggleMenu}
           aria-label="Toggle menu"
+          aria-expanded={isOpen}
+          aria-controls="mobile-nav"
         >
           <motion.span
             animate={isOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
@@ -58,6 +60,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.nav
+            id="mobile-nav"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}

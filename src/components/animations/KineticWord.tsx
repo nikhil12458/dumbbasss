@@ -25,14 +25,9 @@ export default function KineticWord({
   className = "",
 }: KineticWordProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted || !containerRef.current) return;
+    if (!containerRef.current) return;
 
     // Wait for fonts to load
     let isCancelled = false;
@@ -63,15 +58,31 @@ export default function KineticWord({
     let kineticInstance: any;
     init().then((instance) => {
       kineticInstance = instance;
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            kineticInstance.resume();
+          } else {
+            kineticInstance.pause();
+          }
+        });
+      }, { rootMargin: "50px" });
+      
+      if (containerRef.current) {
+        observer.observe(containerRef.current);
+      }
+      kineticInstance._observer = observer;
     });
 
     return () => {
       isCancelled = true;
       if (kineticInstance) {
+        if (kineticInstance._observer) kineticInstance._observer.disconnect();
         kineticInstance.destroy();
       }
     };
-  }, [mounted, word, widthFraction, windAmp, gravity, mouseStrength, spacing]);
+  }, [word, widthFraction, windAmp, gravity, mouseStrength, spacing]);
 
   return (
     <div ref={containerRef} className={`w-full h-full ${className}`}></div>

@@ -1,3 +1,4 @@
+import React from "react";
 import { projects } from "@/data/projects";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -50,7 +51,11 @@ export default async function ProjectDetail(props: { params: Promise<{ slug: str
       <section className="wrap py-[20px] pb-[70px]">
         <ScrollReveal>
           <Eyebrow accent>— project {project.index} · systems map —</Eyebrow>
-          <h1 className="poster-title text-[clamp(44px,8vw,110px)] leading-[0.95] whitespace-pre-line" dangerouslySetInnerHTML={{ __html: project.title.replace(' ', '<br/>') }}></h1>
+          <h1 className="poster-title text-[clamp(44px,8vw,110px)] leading-[0.95]">
+            {project.title.split(' ').map((word, i) => (
+              <React.Fragment key={i}>{i > 0 && <br />}{word}</React.Fragment>
+            ))}
+          </h1>
           <p className="mt-[26px] max-w-[640px] text-[17px] text-[var(--ink-soft)] leading-[1.75]">{project.context}</p>
           <TagRow tags={project.tags} className="mt-[26px]" />
         </ScrollReveal>
@@ -91,8 +96,8 @@ export default async function ProjectDetail(props: { params: Promise<{ slug: str
       )}
 
       {project.narrative.map((narr, i) => (
-        <section key={i} className={`wrap py-[90px] grid grid-cols-1 md:grid-cols-[0.4fr_1fr] gap-[50px] ${i > 0 || !project.systemMap ? 'border-t border-[var(--line)]' : ''}`}>
-          <ScrollReveal className="contents">
+        <section key={i} className={`wrap py-[90px] ${i > 0 || !project.systemMap ? 'border-t border-[var(--line)]' : ''}`}>
+          <ScrollReveal className="grid grid-cols-1 md:grid-cols-[0.4fr_1fr] gap-[50px]">
             <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--ink-faint)]">{narr.label}</div>
             <div>
               {narr.content.map((p, j) => (

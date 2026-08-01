@@ -5,6 +5,11 @@ import Eyebrow from "@/components/ui/Eyebrow";
 import Btn from "@/components/ui/Btn";
 import LinkArrow from "@/components/ui/LinkArrow";
 
+export const metadata = {
+  title: "Services | dumbbasss",
+  description: "Our services. Everything from layout to launch.",
+};
+
 export default function ServicesOverview() {
   return (
     <>

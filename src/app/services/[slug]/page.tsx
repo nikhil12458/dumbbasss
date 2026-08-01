@@ -11,6 +11,28 @@ export async function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
 }
 
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
+  const service = services.find((s) => s.slug === params.slug);
+  
+  if (!service) return { title: "Service Not Found" };
+  
+  return {
+    title: service.title,
+    description: service.shortDesc,
+    openGraph: {
+      title: `${service.title} | dumbbasss`,
+      description: service.shortDesc,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${service.title} | dumbbasss`,
+      description: service.shortDesc,
+    },
+  };
+}
+
 export default async function ServiceDetail(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params;
   const service = services.find((s) => s.slug === params.slug);

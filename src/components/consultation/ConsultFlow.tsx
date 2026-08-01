@@ -29,7 +29,7 @@ const STEPS = [
   {
     key: 'timeline',
     q: "Rough timeline?",
-    options: ["As soon as possible", "1–2 months", "Flexible, no rush"]
+    options: ["As soon as possible", "3-5 days", "1–2 months", "Flexible, no rush"]
   }
 ];
 
@@ -56,6 +56,7 @@ export default function ConsultFlow() {
     if (answers.need === "A website") return { label: "Web design & development", href: "/services/websites" };
     return { label: "All services", href: "/services" };
   };
+  const suggestion = routeSuggestion();
 
   const mailtoLink = () => {
     const subject = encodeURIComponent(`New project inquiry — ${answers.need || ''}`);
@@ -86,11 +87,13 @@ export default function ConsultFlow() {
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.25, ease: [0.65, 0, 0.35, 1] }}
             >
-              <div className="text-[18px] sm:text-[22px] font-display font-bold mb-[18px] leading-[1.3]">{STEPS[stepIndex].q}</div>
-              <div className="flex flex-col gap-[10px]">
+              <div id="question-label" className="text-[18px] sm:text-[22px] font-display font-bold mb-[18px] leading-[1.3]">{STEPS[stepIndex].q}</div>
+              <div role="radiogroup" aria-labelledby="question-label" className="flex flex-col gap-[10px]">
                 {STEPS[stepIndex].options.map((o) => (
                   <button
                     key={o}
+                    role="radio"
+                    aria-checked={answers[STEPS[stepIndex].key] === o}
                     onClick={() => handleSelect(STEPS[stepIndex].key, o)}
                     className="text-left bg-transparent border border-[var(--line-strong)] p-[14px_16px] font-sans text-[14px] sm:text-[15px] text-[var(--ink)] cursor-pointer transition-colors duration-250 hover:border-[var(--ink)]"
                   >
@@ -118,7 +121,7 @@ export default function ConsultFlow() {
               <div className="mt-[26px] flex flex-col gap-[12px]">
                 <Btn href={mailtoLink()} variant="filled" className="justify-center">Send this to us →</Btn>
                 <div className="flex justify-center mt-[4px]">
-                  <LinkArrow href={routeSuggestion().href}>Or browse {routeSuggestion().label} →</LinkArrow>
+                  <LinkArrow href={suggestion.href}>Or browse {suggestion.label} →</LinkArrow>
                 </div>
               </div>
             </motion.div>

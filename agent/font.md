@@ -20,3 +20,8 @@ Configures four Google Fonts via Next.js's `next/font/google` module for automat
 | `fraunces` | Fraunces | `--font-fraunces` | Editorial accents (`font-serif`) |
 
 All fonts use `display: "swap"` and the `"latin"` subset.
+
+## Usage Notes
+
+- `inter`, `spaceGrotesk`, and `jetbrainsMono` are injected globally in `src/app/layout.tsx`.
+- `fraunces` is instantiated and injected only in `src/app/page.tsx` to optimize performance on secondary pages.

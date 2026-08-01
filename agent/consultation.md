@@ -16,7 +16,7 @@ A standalone page that renders the `ConsultFlow` wizard inside a bordered contai
 
 ## ConsultFlow.tsx
 
-A multi-step intake wizard with 5 questions, animated transitions, and a summary/routing screen.
+A multi-step intake wizard with 5 questions, animated transitions, and a summary/routing screen. Uses semantic `role="radiogroup"` and `role="radio"` attributes for option selection.
 
 ### Steps
 
@@ -47,6 +47,6 @@ A floating "Start a project" button fixed to the bottom-right corner of every pa
 ### Features
 - **Trigger button**: Fixed position, ink background, accent dot, hover lifts and changes color
 - **Overlay**: Semi-transparent ink backdrop with blur
-- **Panel**: Framer Motion slide-in from the right (`x: 100%` → `x: 0`)
+- **Panel**: Framer Motion slide-in from the right (`x: 100%` → `x: 0`). Uses `role="dialog"` and `aria-modal="true"`.
 - **Close**: Click overlay, press Escape, or click "Close ✕"
-- **SSR-safe**: Only mounts after `useEffect` sets `mounted = true`
+- **Focus Management**: Automatically focuses the close button when opened, and restores focus to the trigger button when closed.

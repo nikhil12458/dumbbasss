@@ -20,7 +20,7 @@ The landing page of the site — the first thing visitors see.
 
 ### 2. Services Preview ("Five ways in")
 - 5-column grid of service cards, each linking to its detail page
-- Numbered 01–05 with accent color
+- Dynamically populated by slicing the first 5 entries from `src/data/services.ts`
 - Hover: background darkens to `paper-deep`
 
 ### 3. Dark Stats Section ("The deal")
@@ -29,7 +29,8 @@ The landing page of the site — the first thing visitors see.
 - Three stat blocks: "40+ screens shipped", "100% self-taught", "0 ten-slide decks"
 
 ### 4. Projects Preview ("A few recent ones")
-- 2-column grid showing GuardianTrack and Vastraa
+- 2-column grid showing recent work
+- Dynamically populated by slicing the first 2 entries from `src/data/projects.ts`
 - Hover: background scale-up effect
 - "See the full archive" link
 

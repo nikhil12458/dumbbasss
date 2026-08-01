@@ -185,7 +185,9 @@ export function mountKineticWord(container: HTMLElement, opts?: any) {
     resizeObs: any;
   let widthPx = 0,
     heightPx = 0,
-    running = true;
+    running = true,
+    isPaused = false,
+    lastDelta = 0;
 
   function measureAndBuildMask(stageW: number, stageH: number) {
     const probe = document.createElement("canvas").getContext("2d")!;
@@ -377,15 +379,18 @@ export function mountKineticWord(container: HTMLElement, opts?: any) {
       ctx.setTransform(1, 0, 0, 1, 0, 0);
     }
 
-    let lastDelta = 0;
     function loop(t: number) {
       if (!running) return;
       rafId = requestAnimationFrame(loop);
+      if (isPaused) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const delta = t - lastDelta;
+      let delta = t - lastDelta;
+      if (lastDelta === 0) delta = 16.6;
+      delta = Math.min(delta, 50);
+      lastDelta = t;
       particleList.forEach((p) =>
         p.update(
-          16.6,
+          delta,
           cfg.gravity,
           cfg.damping,
           cfg.windAmp,
@@ -394,7 +399,6 @@ export function mountKineticWord(container: HTMLElement, opts?: any) {
           cfg.restoreStrength,
         ),
       );
-      lastDelta = t;
       for (let k = 0; k < cfg.iterations; k++) {
         for (let j = 0; j < constraints.length; j++) constraints[j].solve();
       }
@@ -478,19 +482,27 @@ export function mountKineticWord(container: HTMLElement, opts?: any) {
 
   build();
 
-  let resizeRAF: number;
+  let resizeTimer: ReturnType<typeof setTimeout>;
   const handleResize = () => {
-    cancelAnimationFrame(resizeRAF);
-    resizeRAF = requestAnimationFrame(build);
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(build, 250);
   };
   window.addEventListener("resize", handleResize);
 
   return {
+    pause() {
+      isPaused = true;
+    },
+    resume() {
+      isPaused = false;
+      lastDelta = 0;
+    },
     destroy() {
       running = false;
       if (rafId) cancelAnimationFrame(rafId);
       if (input) input.unbind();
       window.removeEventListener("resize", handleResize);
+      clearTimeout(resizeTimer);
     },
   };
 }

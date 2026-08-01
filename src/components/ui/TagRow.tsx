@@ -1,13 +1,14 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 
 type TagRowProps = {
   tags: string[];
   className?: string;
 };
 
-export default function TagRow({ tags, className = "" }: TagRowProps) {
+export default function TagRow({ tags, className }: TagRowProps) {
   return (
-    <div className={`flex flex-wrap gap-[8px] ${className}`}>
+    <div className={cn("flex flex-wrap gap-[8px]", className)}>
       {tags.map((tag, index) => (
         <span
           key={index}

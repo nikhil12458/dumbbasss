@@ -5,6 +5,11 @@ import Eyebrow from "@/components/ui/Eyebrow";
 import TagRow from "@/components/ui/TagRow";
 import LinkArrow from "@/components/ui/LinkArrow";
 
+export const metadata = {
+  title: "Projects | dumbbasss",
+  description: "Our work and projects.",
+};
+
 export default function ProjectsArchive() {
   return (
     <>
@@ -23,18 +28,15 @@ export default function ProjectsArchive() {
 
       <section className="pb-[130px] wrap">
         {projects.map((proj, i) => {
-          // Determine layout style based on original index.html mapping:
-          // 1, 2, 4, 5 are split (1,4 normal; 2,5 reverse)
-          // 3, 6 are wide
           let layoutClass = "";
           let visualClass = "";
           let textClass = "";
 
-          if (i === 2 || i === 5) {
+          if (proj.layout === "wide") {
             layoutClass = "grid-cols-1";
             visualClass = "aspect-[21/8]";
           } else {
-            const isReverse = i === 1 || i === 4;
+            const isReverse = proj.layout === "reverse";
             layoutClass = "grid-cols-1 md:grid-cols-2 items-center";
             if (isReverse) {
               visualClass = "aspect-[4/3] order-0 md:order-2";

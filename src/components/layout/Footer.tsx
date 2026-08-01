@@ -32,7 +32,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="wrap mt-[46px] pt-[20px] border-t-[1px] border-[var(--line)] font-mono text-[11px] text-[var(--ink-faint)] flex justify-between flex-wrap gap-[10px]">
-        <span>© 2026 dumbbasss studio</span>
+        <span>© {new Date().getFullYear()} dumbbasss studio</span>
         <span>an unserious name, a serious studio</span>
       </div>
     </footer>

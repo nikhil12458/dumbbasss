@@ -3,9 +3,14 @@ import Eyebrow from "@/components/ui/Eyebrow";
 import Link from "next/link";
 import ConsultFlow from "@/components/consultation/ConsultFlow";
 
+export const metadata = {
+  title: "Start a Consultation | dumbbasss",
+  description: "Start a project consultation with dumbbasss studio.",
+};
+
 export default function Consultation() {
   return (
-    <main className="max-w-[640px] mx-auto px-[var(--gutter)] py-[90px] pb-[140px]">
+    <div className="max-w-[640px] mx-auto px-[var(--gutter)] py-[90px] pb-[140px]">
       <div className="text-center mb-[56px]">
         <ScrollReveal>
           <Eyebrow accent className="justify-center">— consultation —</Eyebrow>
@@ -25,6 +30,6 @@ export default function Consultation() {
       <p className="text-center mt-[30px] font-mono text-[11.5px] text-[var(--ink-faint)]">
         prefer to just talk? <a href="mailto:hello@dumbbasss.studio" className="text-[var(--ink-soft)] border-b border-[var(--line-strong)] pb-px">email us directly</a>
       </p>
-    </main>
+    </div>
   );
 }

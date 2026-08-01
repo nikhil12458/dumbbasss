@@ -1,4 +1,5 @@
 export type ProjectData = {
+  layout: "wide" | "split" | "reverse";
   slug: string;
   index: string;
   title: string;
@@ -32,6 +33,7 @@ export type ProjectData = {
 
 export const projects: ProjectData[] = [
   {
+    layout: "split",
     slug: "guardiantrack",
     index: "01",
     title: "GuardianTrack",
@@ -89,6 +91,7 @@ export const projects: ProjectData[] = [
     }
   },
   {
+    layout: "reverse",
     slug: "vastraa",
     index: "02",
     title: "Vastraa",
@@ -121,6 +124,7 @@ export const projects: ProjectData[] = [
     }
   },
   {
+    layout: "wide",
     slug: "omniagent",
     index: "03",
     title: "OmniAgent AI",
@@ -153,6 +157,7 @@ export const projects: ProjectData[] = [
     }
   },
   {
+    layout: "split",
     slug: "kessho",
     index: "04",
     title: "Kessho",
@@ -185,6 +190,7 @@ export const projects: ProjectData[] = [
     }
   },
   {
+    layout: "reverse",
     slug: "instagram-studio",
     index: "05",
     title: "Instagram Studio",
@@ -217,6 +223,7 @@ export const projects: ProjectData[] = [
     }
   },
   {
+    layout: "wide",
     slug: "fieldnotes",
     index: "06",
     title: "Fieldnotes",

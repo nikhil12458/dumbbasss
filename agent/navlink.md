@@ -8,7 +8,7 @@
 
 ## Purpose
 
-A client-side `Link` wrapper that compares the current `pathname` to its `href` and applies active styling — darker text and an animated bottom underline that scales from `0` to `100%`.
+A client-side `Link` wrapper that compares the current `pathname` to its `href` and applies active styling — darker text and an animated bottom underline that scales from `0` to `100%`. Includes `aria-current="page"` for accessibility and exact-match routing logic to prevent active-state collisions.
 
 ## Props
 

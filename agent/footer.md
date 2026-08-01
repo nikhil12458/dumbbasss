@@ -19,7 +19,7 @@ The global site footer rendered on every page via `layout.tsx`. Three-column lin
 │  ├ Process         └ Services        └ Consult   │
 │  └ Contact                                       │
 ├──────────────────────────────────────────────────┤
-│  © 2026 dumbbasss studio    an unserious name... │
+│  © [Year] dumbbasss studio  an unserious name... │
 └──────────────────────────────────────────────────┘
 ```
 
@@ -28,4 +28,4 @@ The global site footer rendered on every page via `layout.tsx`. Three-column lin
 - Top border, `.wrap` container, flexbox with wrapping
 - Column headers: mono, uppercase, faint
 - Links: soft ink color with hover-to-ink transition
-- Bottom bar: thin top border, mono 11px, space-between
+- Bottom bar: thin top border, mono 11px, space-between. The copyright year is dynamically generated using `new Date().getFullYear()`.

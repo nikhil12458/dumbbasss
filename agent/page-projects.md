@@ -12,10 +12,10 @@
 
 ### Layout
 - Hero section with title, lede, and date range
-- Vertical list of all 6 projects, alternating between:
-  - **Split layout** (2-column with image placeholder + text): projects 1, 2, 4, 5
-  - **Wide layout** (single-column panoramic): projects 3, 6
-  - **Reversed order** for projects 2 and 5 (image right, text left)
+- Vertical list of all 6 projects, with layout dictated by `project.layout`:
+  - **Split layout** (2-column with image placeholder + text)
+  - **Wide layout** (single-column panoramic)
+  - **Reversed layout** (image right, text left)
 
 ### Per-project card
 - Index number (accent)

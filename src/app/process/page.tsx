@@ -2,6 +2,11 @@ import ScrollReveal from "@/components/animations/ScrollReveal";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Btn from "@/components/ui/Btn";
 
+export const metadata = {
+  title: "Process | dumbbasss",
+  description: "How we work at dumbbasss.",
+};
+
 export default function Process() {
   const steps = [
     {

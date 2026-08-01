@@ -26,13 +26,16 @@ A self-contained physics engine ported from the original vanilla JS and recently
   3. Creates a `Particle` for each grid cell; top-row particles are pinned
   4. Connects particles with horizontal and vertical `Constraint`s
   5. Renders individual characters as pre-rasterized glyph atlas sprites
-  6. Runs a `requestAnimationFrame` loop
+  6. Runs a `requestAnimationFrame` loop, with a capped `delta` time to prevent tab-away physics explosions.
+  7. Exposes `pause()` and `resume()` methods.
+  8. Debounces `resize` events using `setTimeout` to prevent layout thrashing.
 
 ### `KineticWord.tsx` (React wrapper)
 A `"use client"` component that:
 1. Waits for fonts to load (`document.fonts.load`)
 2. Calls `mountKineticWord()` with the container ref
-3. Cleans up on unmount (cancels RAF, removes event listeners)
+3. Wraps the canvas in an `IntersectionObserver` to automatically `pause()` and `resume()` the simulation when scrolled out of view.
+4. Cleans up on unmount (disconnects observer, cancels RAF, removes event listeners).
 4. *Note:* In `page.tsx`, this component is lazily loaded via `next/dynamic` to ensure rapid page loading and non-blocking HTML rendering.
 
 ## Props (KineticWord)

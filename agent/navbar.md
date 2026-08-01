@@ -22,7 +22,7 @@ The user created the initial Navbar with desktop-only navigation links. The AI a
 
 - **Sticky header** — `sticky top-0 z-200` with a semi-transparent paper background and backdrop blur
 - **Desktop nav** — Hidden below `md` breakpoint; shows 6 NavLink items
-- **Mobile toggle** — Three `<motion.span>` bars that animate into an X when open
+- **Mobile toggle** — Three `<motion.span>` bars that animate into an X when open. Includes `aria-controls` and `aria-expanded` for accessibility.
 - **Mobile panel** — `AnimatePresence` + `motion.nav` with height/opacity animation
 - **Auto-close** — Clicking any link in mobile nav closes the menu
 

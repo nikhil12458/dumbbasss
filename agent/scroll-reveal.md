@@ -20,8 +20,9 @@ A wrapper component that fades and slides its children into view when they enter
 
 ## How it works
 
-1. The container uses `<motion.div>`
-2. On mount, it sets `initial={{ opacity: 0, y: offset }}`
+1. The container uses `<motion.div>`.
+2. Checks user preferences using `useReducedMotion()`. If true, skips animations entirely.
+3. On mount, it sets `initial={{ opacity: 0, y: offset }}` (or instantly visible if reduced motion).
 3. When the component enters the viewport (`whileInView`), it animates to `{ opacity: 1, y: 0 }`
 4. Uses a `margin` of `-12%` on the viewport to trigger slightly before it enters the screen.
 5. The animation only runs once per component mount (`once: true`).

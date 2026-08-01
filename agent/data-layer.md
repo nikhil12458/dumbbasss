@@ -18,6 +18,7 @@ Typed data files that serve as the content source for all project and service pa
 
 | Field | Type | Description |
 |-------|------|-------------|
+| `layout` | `"wide" \| "split" \| "reverse"` | Project layout type in archive view |
 | `slug` | `string` | URL segment |
 | `index` | `string` | Display number ("01"–"06") |
 | `title` | `string` | Project name |
