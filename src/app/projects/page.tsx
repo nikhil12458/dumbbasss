@@ -48,9 +48,16 @@ export default function ProjectsArchive() {
 
           return (
             <ScrollReveal key={proj.slug}>
-              <article className={`border-t border-[var(--line)] py-[64px] grid gap-[40px] ${layoutClass} ${i === projects.length - 1 ? 'border-b border-[var(--line)]' : ''}`}>
+              <Link href={`/projects/${proj.slug}`} className="group block">
+                <article className={`border-t border-[var(--line)] py-[64px] grid gap-[40px] ${layoutClass} ${i === projects.length - 1 ? 'border-b border-[var(--line)]' : ''}`}>
                 <div className={`relative bg-gradient-to-br from-[var(--paper-deep)] to-[var(--paper)] border border-[var(--line)] overflow-hidden ${visualClass}`}>
-                  <div className="absolute inset-0 opacity-60 bg-[repeating-linear-gradient(90deg,var(--line)_0_1px,transparent_1px_46px)]"></div>
+                  {proj.images?.[0] && (
+                    <img 
+                      src={proj.images[0]} 
+                      alt={proj.title} 
+                      className="absolute inset-0 w-full h-full object-cover grayscale mix-blend-luminosity opacity-40 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0"
+                    />
+                  )}
                 </div>
                 <div className={`${textClass}`}>
                   <span className="font-mono text-[12px] text-[var(--accent)] mb-[14px] block">{proj.index}</span>
@@ -59,10 +66,13 @@ export default function ProjectsArchive() {
                   <p className="text-[15.5px] text-[var(--ink-soft)] leading-[1.75] max-w-[52ch] mb-[22px]">{proj.context}</p>
                   <TagRow tags={proj.tags} className="mt-[4px]" />
                   <div className="mt-[20px] inline-flex">
-                    <LinkArrow href={`/projects/${proj.slug}`}>View full case →</LinkArrow>
+                    <span className="inline-flex items-center font-mono text-[12.5px] tracking-[0.05em] uppercase text-[var(--ink)] border-b border-[var(--line-strong)] pb-[3px] transition-all duration-300 ease-[var(--ease)] group-hover:border-[var(--ink)]">
+                      View full case →
+                    </span>
                   </div>
                 </div>
-              </article>
+                </article>
+              </Link>
             </ScrollReveal>
           );
         })}

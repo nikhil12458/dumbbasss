@@ -234,21 +234,31 @@ export default function Home() {
                 href={`/projects/${project.slug}`}
                 className={`group relative border border-[var(--line-strong)] min-h-[340px] p-[28px] flex flex-col justify-end overflow-hidden ${i === 1 ? "text-[var(--ink)]" : ""}`}
               >
+                {project.images && project.images.length > 0 && (
+                  <div
+                    className="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-500 ease-[var(--ease)] group-hover:opacity-100"
+                    style={{ backgroundImage: `url(${project.images[0]})` }}
+                  >
+                    <div className="absolute inset-0 bg-[var(--paper)]/80 backdrop-blur-[2px]"></div>
+                  </div>
+                )}
                 <div
-                  className={`absolute inset-0 -z-10 transition-transform duration-500 ease-[var(--ease)] group-hover:scale-105 ${i === 0 ? "bg-gradient-to-br from-[var(--paper-deep)] to-[var(--paper)]" : "bg-gradient-to-br from-[#d9cba7] to-[#e5dabf]"}`}
+                  className={`absolute inset-0 -z-10 transition-all duration-500 ease-[var(--ease)] group-hover:scale-105 ${project.images && project.images.length > 0 ? "group-hover:opacity-0" : ""} ${i === 0 ? "bg-gradient-to-br from-[var(--paper-deep)] to-[var(--paper)]" : "bg-gradient-to-br from-[#d9cba7] to-[#e5dabf]"}`}
                 ></div>
-                <span className="relative font-mono text-[11px] tracking-[0.08em] uppercase text-[var(--ink-soft)]">
-                  {project.meta.category}
-                </span>
-                <h3 className="relative text-[26px] mt-[12px] mb-[8px]">
-                  {project.title}
-                </h3>
-                <p className="relative text-[13.5px] text-[var(--ink-soft)] max-w-[34ch]">
-                  {project.context}
-                </p>
-                <span className="link-arrow mt-[18px] self-start">
-                  View case →
-                </span>
+                <div className="relative z-10">
+                  <span className={`font-mono text-[11px] tracking-[0.08em] uppercase transition-colors duration-500 text-[var(--ink-soft)] ${project.images && project.images.length > 0 ? 'group-hover:text-[var(--ink)]' : ''}`}>
+                    {project.meta.category}
+                  </span>
+                  <h3 className={`text-[26px] mt-[12px] mb-[8px] transition-colors duration-500 ${project.images && project.images.length > 0 ? 'group-hover:text-[var(--accent)]' : ''}`}>
+                    {project.title}
+                  </h3>
+                  <p className={`text-[13.5px] max-w-[34ch] transition-colors duration-500 text-[var(--ink-soft)] ${project.images && project.images.length > 0 ? 'group-hover:text-[var(--ink)] font-medium' : ''}`}>
+                    {project.context}
+                  </p>
+                  <span className={`link-arrow mt-[18px] self-start inline-block transition-colors duration-500 ${project.images && project.images.length > 0 ? 'group-hover:text-[var(--accent)]' : ''}`}>
+                    View case →
+                  </span>
+                </div>
               </Link>
             ))}
           </ScrollReveal>

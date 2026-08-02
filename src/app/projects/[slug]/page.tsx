@@ -7,6 +7,8 @@ import Eyebrow from "@/components/ui/Eyebrow";
 import TagRow from "@/components/ui/TagRow";
 import Btn from "@/components/ui/Btn";
 
+import ProjectCarousel from "@/components/ui/ProjectCarousel";
+
 // Generate static params for all project slugs
 export async function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -49,16 +51,24 @@ export default async function ProjectDetail(props: { params: Promise<{ slug: str
       </div>
 
       <section className="wrap py-[20px] pb-[70px]">
-        <ScrollReveal>
-          <Eyebrow accent>— project {project.index} · systems map —</Eyebrow>
-          <h1 className="poster-title text-[clamp(44px,8vw,110px)] leading-[0.95]">
-            {project.title.split(' ').map((word, i) => (
-              <React.Fragment key={i}>{i > 0 && <br />}{word}</React.Fragment>
-            ))}
-          </h1>
-          <p className="mt-[26px] max-w-[640px] text-[17px] text-[var(--ink-soft)] leading-[1.75]">{project.context}</p>
-          <TagRow tags={project.tags} className="mt-[26px]" />
-        </ScrollReveal>
+        <div className={`grid grid-cols-1 ${project.images && project.images.length > 0 ? "lg:grid-cols-[0.9fr_1.1fr] gap-[40px] lg:gap-[60px]" : ""}`}>
+          <ScrollReveal>
+            <Eyebrow accent>— project {project.index} · systems map —</Eyebrow>
+            <h1 className="poster-title text-[clamp(44px,8vw,110px)] leading-[0.95]">
+              {project.title.split(' ').map((word, i) => (
+                <React.Fragment key={i}>{i > 0 && <br />}{word}</React.Fragment>
+              ))}
+            </h1>
+            <p className="mt-[26px] max-w-[640px] text-[17px] text-[var(--ink-soft)] leading-[1.75]">{project.context}</p>
+            <TagRow tags={project.tags} className="mt-[26px]" />
+          </ScrollReveal>
+
+          {project.images && project.images.length > 0 && (
+            <ScrollReveal className="w-full flex items-center lg:items-start lg:pt-[24px]">
+              <ProjectCarousel images={project.images} liveLink={project.liveLink} />
+            </ScrollReveal>
+          )}
+        </div>
       </section>
 
       <section className="wrap">

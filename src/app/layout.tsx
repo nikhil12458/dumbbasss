@@ -4,6 +4,7 @@ import Navbar from "@/components/nav/Navbar";
 import Footer from "@/components/layout/Footer";
 import ConsultPanel from "@/components/consultation/ConsultPanel";
 import { inter, spaceGrotesk, jetbrainsMono } from "@/app/font";
+import AgentationProvider from "@/components/dev/AgentationProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dumbbasss.studio"),
@@ -11,7 +12,8 @@ export const metadata: Metadata = {
     template: "%s | dumbbasss",
     default: "dumbbasss — a very serious studio, unseriously named",
   },
-  description: "A small studio building websites, software, and AI systems — with an unserious name and unusually crafted work.",
+  description:
+    "A small studio building websites, software, and AI systems — with an unserious name and unusually crafted work.",
   openGraph: {
     title: "dumbbasss — a very serious studio, unseriously named",
     description: "A small studio building websites, software, and AI systems.",
@@ -37,7 +39,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-  }
+  },
 };
 
 export default function RootLayout({
@@ -54,6 +56,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">
           {children}
+          <AgentationProvider />
         </main>
         <Footer />
         <ConsultPanel />
