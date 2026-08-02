@@ -28,23 +28,26 @@ export const services: ServiceData[] = [
   {
     slug: "websites",
     index: "01",
-    title: "Websites",
-    shortDesc: "Marketing sites, portfolios, and product pages — designed first, coded properly second.",
+    title: "Websites & Web Apps",
+    shortDesc: "Custom sites, storefronts, and product experiences — designed to look distinct, built to work properly. No templates pretending to be strategy.",
     detail: {
-      heroLede: "Marketing sites, portfolios, and product pages — designed first, coded properly second. Nothing here comes out of a theme marketplace.",
-      whatIsIt: "A fully custom website — from layout and typography to the actual front-end build — for anyone whose site needs to look like nobody else's. Not a page builder with your logo on it.",
-      whoIsItFor: "Founders and small teams who need a site that reads as considered, not assembled — especially if the last one came from a template that three competitors are also using.",
+      heroLede: "Custom sites, storefronts, and product experiences — designed to look distinct, built to work properly. No templates pretending to be strategy.",
+      whatIsIt: "A full custom build for brands that need more than a pretty homepage. From marketing sites and portfolios to ecommerce, product flows, and full-stack web apps — I handle the design, the front end, and the technical side end to end.\n\nThis is for when the website is not just a page. It is the product, the sales tool, or the system behind the business.",
+      whoIsItFor: "Founders, small teams, and businesses that want a site or app that feels considered, fast, and reliable — not something assembled from a theme and held together with hope.",
       included: [
-        "Custom design, reviewed before any code exists",
-        "Responsive build across every screen size",
-        "Copy structure & content layout guidance",
-        "Basic technical SEO baked in from the start",
-        "A staging link from week one",
-        "Handoff documentation you can actually read"
+        "Custom layout, typography, and UI direction",
+        "Responsive development across all screen sizes",
+        "Marketing sites, portfolios, and product pages",
+        "Ecommerce flows, product pages, and checkout journeys",
+        "Web apps, dashboards, and internal tools",
+        "Payments, auth, integrations, and API-driven features",
+        "Basic technical SEO and performance tuning",
+        "Deployment support, handoff docs, and clean code structure"
       ],
       outcomes: [
         { label: "Branding · Landing page", title: "Kessho — a launch page built in two weeks", link: "/projects/kessho" },
-        { label: "Ecommerce", title: "Vastraa — a storefront built around AI try-on", link: "/projects/vastraa" }
+        { label: "Ecommerce", title: "Vastraa — a storefront built around AI try-on", link: "/projects/vastraa" },
+        { label: "Full-stack build", title: "Snitch — a custom ecommerce system with payments and admin tools", link: "/projects/snitch" }
       ],
       nextService: {
         slug: "software",
@@ -62,21 +65,25 @@ export const services: ServiceData[] = [
     slug: "software",
     index: "02",
     title: "Software systems",
-    shortDesc: "Internal tools and custom platforms for problems off-the-shelf software doesn't quite solve.",
+    shortDesc: "Internal tools and custom platforms for problems off-the-shelf software does not quite solve.",
     detail: {
-      heroLede: "Internal tools and custom platforms for problems off-the-shelf software doesn't quite solve.",
-      whatIsIt: "Custom web applications and internal tools built specifically for your team's workflow. We build the missing pieces that connect your existing systems, or replace the complex spreadsheets entirely.",
-      whoIsItFor: "Operations teams, agencies, and businesses that have outgrown off-the-shelf SaaS and need software that bends to their process, rather than the other way around.",
+      heroLede: "Internal tools and custom platforms for problems off-the-shelf software does not quite solve.",
+      whatIsIt: "Custom web applications, native Android apps, dashboards, and internal tools built around how your team actually works. I build unified systems where a mobile app and a web dashboard share the exact same backend effortlessly.\n\nInstead of forcing your process into generic SaaS, I build the missing piece, replace messy spreadsheet workflows, or connect the systems you already use into something that feels smooth and usable.",
+      whoIsItFor: "Operations teams, founders, agencies, and growing businesses that have outgrown off-the-shelf tools and need software shaped around their workflow — not the other way around.",
       included: [
-        "Requirements gathering and system architecture",
-        "Custom API development and third-party integrations",
-        "Role-based access control and admin panels",
-        "Scalable database design",
-        "Comprehensive testing and documentation"
+        "Requirements gathering and workflow mapping",
+        "Native Android app development (Kotlin)",
+        "Custom web dashboards and admin panels",
+        "Unified APIs serving both mobile and web",
+        "Auth, roles, permissions, and access control",
+        "Database design built for scale",
+        "Core-flow testing before launch",
+        "Deployment setup, documentation, and handoff"
       ],
       outcomes: [
         { label: "Android · Full-stack", title: "GuardianTrack — anti-theft tracking system", link: "/projects/guardiantrack" },
-        { label: "Internal tooling", title: "Instagram Studio — automated content pipeline", link: "/projects/instagram-studio" }
+        { label: "Internal tooling", title: "Instagram Studio — automated content pipeline", link: "/projects/instagram-studio" },
+        { label: "Operations", title: "Custom back-office systems and workflow tools", link: "/projects" }
       ],
       nextService: {
         slug: "ai",

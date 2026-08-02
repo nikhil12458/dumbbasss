@@ -60,14 +60,14 @@ export default async function ServiceDetail(props: { params: Promise<{ slug: str
       <section className="wrap py-[70px] border-t border-[var(--line)]">
         <ScrollReveal className="grid grid-cols-1 md:grid-cols-[0.4fr_1fr] gap-[44px]">
           <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--ink-faint)]">What this is</div>
-          <p className="text-[16.5px] leading-[1.8] font-light max-w-[58ch]">{service.detail.whatIsIt}</p>
+          <p className="text-[16.5px] leading-[1.8] font-light max-w-[58ch] whitespace-pre-wrap">{service.detail.whatIsIt}</p>
         </ScrollReveal>
       </section>
 
       <section className="wrap py-[70px] border-t border-[var(--line)]">
         <ScrollReveal className="grid grid-cols-1 md:grid-cols-[0.4fr_1fr] gap-[44px]">
           <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--ink-faint)]">Who it's for</div>
-          <p className="text-[16.5px] leading-[1.8] font-light max-w-[58ch]">{service.detail.whoIsItFor}</p>
+          <p className="text-[16.5px] leading-[1.8] font-light max-w-[58ch] whitespace-pre-wrap">{service.detail.whoIsItFor}</p>
         </ScrollReveal>
       </section>
 
