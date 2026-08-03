@@ -206,18 +206,18 @@ export default function Home() {
             The name gets to be ridiculous.{" "}
             <span className="text-[var(--accent)]">The build does not.</span>
           </p>
-          <div className="flex gap-[60px] mt-[56px] flex-wrap">
-            <div>
-              <div className="poster-title text-[40px]">40+</div>
-              <span className="eyebrow mt-[10px]">screens shipped</span>
+          <div className="flex gap-[50px] mt-[64px] flex-wrap">
+            <div className="flex-1 min-w-[240px]">
+              <div className="font-display font-bold text-[24px] md:text-[28px] leading-[1.2] mb-[12px]">No templates</div>
+              <p className="text-[15px] opacity-80 leading-[1.6]">Because your competitors already bought them.</p>
             </div>
-            <div>
-              <div className="poster-title text-[40px]">100%</div>
-              <span className="eyebrow mt-[10px]">self-taught, built solo</span>
+            <div className="flex-1 min-w-[240px]">
+              <div className="font-display font-bold text-[24px] md:text-[28px] leading-[1.2] mb-[12px]">No unnecessary meetings</div>
+              <p className="text-[15px] opacity-80 leading-[1.6]">We'd rather build than schedule another call.</p>
             </div>
-            <div>
-              <div className="poster-title text-[40px]">0</div>
-              <span className="eyebrow mt-[10px]">ten-slide decks</span>
+            <div className="flex-1 min-w-[240px]">
+              <div className="font-display font-bold text-[24px] md:text-[28px] leading-[1.2] mb-[12px]">No buzzwords</div>
+              <p className="text-[15px] opacity-80 leading-[1.6]">If AI, automation, or custom software won't help, we'll tell you.</p>
             </div>
           </div>
         </ScrollReveal>
