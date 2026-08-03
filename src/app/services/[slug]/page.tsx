@@ -95,6 +95,27 @@ export default async function ServiceDetail(props: { params: Promise<{ slug: str
         </ScrollReveal>
       </section>
 
+      {service.detail.extraSection && (
+        <section className="wrap py-[70px] border-t border-[var(--line)]">
+          <ScrollReveal>
+            <Eyebrow>{service.detail.extraSection.title}</Eyebrow>
+            <SectionTitle>{service.detail.extraSection.desc}</SectionTitle>
+            <div className="mt-[30px] grid grid-cols-1 sm:grid-cols-2 bg-[var(--line)] border border-[var(--line)] gap-[1px]">
+              {service.detail.extraSection.items.map((item, i) => (
+                <div key={i} className="bg-[var(--paper)] p-[22px_24px] text-[14.5px] text-[var(--ink)] flex gap-[12px] items-center">
+                  {item}
+                </div>
+              ))}
+            </div>
+            {service.detail.extraSection.footer && (
+              <p className="mt-[30px] text-[15px] text-[var(--ink-soft)] font-light italic">
+                {service.detail.extraSection.footer}
+              </p>
+            )}
+          </ScrollReveal>
+        </section>
+      )}
+
       {service.detail.outcomes.length > 0 && (
         <section className="wrap py-[70px] border-t border-[var(--line)]">
           <ScrollReveal>
