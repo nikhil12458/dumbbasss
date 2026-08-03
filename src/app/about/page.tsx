@@ -26,6 +26,7 @@ export default function About() {
       <div className="my-[50px] mb-[90px]">
         <ScrollReveal className="w-full max-w-[640px] h-[150px] mx-auto">
           <KineticWord
+            word="dumbbasss"
             widthFraction={0.9}
             windAmp={0.012}
             gravity={0.03}

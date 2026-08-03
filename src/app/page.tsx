@@ -146,6 +146,7 @@ export default function Home() {
 
             <ScrollReveal className="w-full max-w-[760px] h-[230px] md:h-[280px]">
               <KineticWord
+                word="dumbbasss"
                 spacing={8}
               />
             </ScrollReveal>
