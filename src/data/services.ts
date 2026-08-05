@@ -123,8 +123,8 @@ export const services: ServiceData[] = [
         { label: "Automation", title: "Instagram engagement and workflow automation", link: "/projects/instagram-studio" }
       ],
       nextService: {
-        slug: "restaurant",
-        title: "Restaurant systems — making the dining room run smoothly"
+        slug: "business-systems",
+        title: "Business systems — making your operations run smoothly"
       }
     },
     subItems: [
@@ -135,7 +135,7 @@ export const services: ServiceData[] = [
     ]
   },
   {
-    slug: "restaurant",
+    slug: "business-systems",
     index: "04",
     title: "Business Systems",
     shortDesc: "Custom operational software for businesses that have outgrown spreadsheets, paper, and disconnected tools.",

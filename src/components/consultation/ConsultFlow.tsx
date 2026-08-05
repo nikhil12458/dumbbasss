@@ -9,7 +9,7 @@ const STEPS = [
   {
     key: 'need',
     q: "What are you here to build?",
-    options: ["A website", "A software system", "AI or automation", "A restaurant system", "Not sure yet"]
+    options: ["A website", "A software system", "AI or automation", "A business system", "Not sure yet"]
   },
   {
     key: 'business',
@@ -50,7 +50,7 @@ export default function ConsultFlow() {
 
   // Suggestion logic based on answer
   const routeSuggestion = () => {
-    if (answers.need === "A restaurant system") return { label: "Restaurant systems", href: "/services/restaurant" };
+    if (answers.need === "A business system") return { label: "Business systems", href: "/services/business-systems" };
     if (answers.need === "AI or automation") return { label: "AI & automation services", href: "/services/ai" };
     if (answers.need === "A software system") return { label: "Software systems", href: "/services/software" };
     if (answers.need === "A website") return { label: "Web design & development", href: "/services/websites" };

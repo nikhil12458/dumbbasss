@@ -7,7 +7,7 @@ import { inter, spaceGrotesk, jetbrainsMono } from "@/app/font";
 import AgentationProvider from "@/components/dev/AgentationProvider";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://dumbbasss.studio"),
+  metadataBase: new URL("https://dumbbasss.vercel.app"),
   title: {
     template: "%s | dumbbasss",
     default: "dumbbasss — a very serious studio, unseriously named",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "dumbbasss — a very serious studio, unseriously named",
     description: "A small studio building websites, software, and AI systems.",
-    url: "https://dumbbasss.studio",
+    url: "https://dumbbasss.vercel.app",
     siteName: "dumbbasss studio",
     images: [
       {
