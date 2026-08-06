@@ -1,5 +1,6 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import ToriiGate from "@/components/animations/ToriiGate";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Btn from "@/components/ui/Btn";
 import LinkArrow from "@/components/ui/LinkArrow";
@@ -27,117 +28,10 @@ export default function Home() {
       {/* Hero */}
       <section className="pt-[64px] pb-[40px] relative overflow-hidden">
         <div className="wrap grid grid-cols-1 md:grid-cols-[0.62fr_1.38fr] gap-0 items-stretch min-h-[640px]">
-          <div
-            className="hidden md:flex relative items-end pb-[36px]"
-            aria-hidden="true"
-          >
-            <svg
-              viewBox="0 0 420 560"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-full max-w-[380px] opacity-90"
-            >
-              {/* kasagi — top beam, wider and more torii-like */}
-              <path
-                d="M46 110
-       L74 78
-       L346 78
-       L374 110
-       L374 132
-       L346 100
-       L74 100
-       L46 132
-       Z"
-                fill="var(--torii-red, #B24A2A)"
-              />
-
-              {/* shimaki — secondary beam beneath the kasagi */}
-              <rect
-                x="78"
-                y="142"
-                width="264"
-                height="14"
-                fill="var(--torii-dark, #2A221B)"
-                opacity="0.95"
-              />
-
-              {/* gakuzuka — center post */}
-              <rect
-                x="202"
-                y="156"
-                width="16"
-                height="34"
-                fill="var(--torii-dark, #2A221B)"
-              />
-
-              {/* nuki — lower crossbeam */}
-              <rect
-                x="90"
-                y="194"
-                width="240"
-                height="18"
-                fill="var(--torii-dark, #2A221B)"
-              />
-
-              {/* hashira — pillars */}
-              <rect
-                x="104"
-                y="212"
-                width="18"
-                height="264"
-                fill="var(--torii-dark, #2A221B)"
-              />
-              <rect
-                x="298"
-                y="212"
-                width="18"
-                height="264"
-                fill="var(--torii-dark, #2A221B)"
-              />
-
-              {/* accent caps at the base of pillars */}
-              <rect
-                x="98"
-                y="466"
-                width="30"
-                height="16"
-                fill="var(--torii-red, #B24A2A)"
-              />
-              <rect
-                x="292"
-                y="466"
-                width="30"
-                height="16"
-                fill="var(--torii-red, #B24A2A)"
-              />
-
-              {/* stone footings */}
-              <rect
-                x="84"
-                y="486"
-                width="42"
-                height="12"
-                fill="var(--ink, #1C1712)"
-                opacity="0.9"
-              />
-              <rect
-                x="294"
-                y="486"
-                width="42"
-                height="12"
-                fill="var(--ink, #1C1712)"
-                opacity="0.9"
-              />
-
-              {/* ground line */}
-              <rect
-                x="58"
-                y="506"
-                width="304"
-                height="8"
-                fill="var(--ink, #1C1712)"
-                opacity="0.95"
-              />
-            </svg>
+          <div className="hidden md:block relative" aria-hidden="true">
+            <div className="absolute inset-x-0 bottom-8 md:bottom-12 flex justify-center md:-translate-x-32">
+              <ToriiGate />
+            </div>
           </div>
           <div className="flex flex-col justify-center items-center text-center px-[20px]">
             <p className="font-mono text-[11.5px] tracking-[0.16em] uppercase text-[var(--ink-faint)] mb-[2px]">
