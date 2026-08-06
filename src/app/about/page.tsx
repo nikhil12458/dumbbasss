@@ -5,16 +5,19 @@ import SectionTitle from "@/components/ui/SectionTitle";
 
 export const metadata = {
   title: "About",
-  description: "Learn more about dumbbasss, a very serious studio, unseriously named.",
+  description:
+    "Learn more about dumbbasss, a very serious studio, unseriously named.",
   openGraph: {
     title: "About | dumbbasss",
-    description: "Learn more about dumbbasss, a very serious studio, unseriously named.",
+    description:
+      "Learn more about dumbbasss, a very serious studio, unseriously named.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "About | dumbbasss",
-    description: "Learn more about dumbbasss, a very serious studio, unseriously named.",
+    description:
+      "Learn more about dumbbasss, a very serious studio, unseriously named.",
   },
 };
 
@@ -33,7 +36,11 @@ export default function About() {
         </ScrollReveal>
       </section>
 
-      <div className="my-[50px] mb-[90px]">
+      <div
+        data-cursor="drag"
+        data-cursor-label="Drag"
+        className="my-[50px] mb-[90px]"
+      >
         <ScrollReveal className="w-full max-w-[640px] h-[150px] mx-auto">
           <KineticWord
             word="dumbbasss"

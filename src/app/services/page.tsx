@@ -42,7 +42,7 @@ export default function ServicesOverview() {
             Answer five short questions and we'll point you to the right place —
             no sales pitch attached.
           </p>
-          <Btn href="/consultation" variant="filled" className="justify-center">
+          <Btn href="/consultation" variant="filled" className="justify-center" data-cursor="button">
             What do you need? →
           </Btn>
         </ScrollReveal>

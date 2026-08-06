@@ -39,7 +39,7 @@ export default function Contact() {
           <p className="text-[14.5px] text-[var(--ink-soft)] leading-[1.7] max-w-[36ch]">
             Send a note. A real person reads every message, usually within a day.
           </p>
-          <Btn href="mailto:hello@dumbbasss.studio" variant="filled" className="self-start mt-[8px]">Email hello@dumbbasss.studio</Btn>
+          <Btn href="mailto:hello@dumbbasss.studio" variant="filled" className="self-start mt-[8px]" data-cursor="button">Email hello@dumbbasss.studio</Btn>
         </ScrollReveal>
         
         <ScrollReveal className="bg-[var(--paper)] p-[52px_44px] flex flex-col gap-[18px]">
@@ -48,7 +48,7 @@ export default function Contact() {
           <p className="text-[14.5px] text-[var(--ink-soft)] leading-[1.7] max-w-[36ch]">
             Five short questions, no pressure — we'll point you in the right direction either way.
           </p>
-          <Btn href="/consultation" className="self-start mt-[8px]">Start a consultation</Btn>
+          <Btn href="/consultation" className="self-start mt-[8px]" data-cursor="button">Start a consultation</Btn>
         </ScrollReveal>
       </section>
 
@@ -56,13 +56,13 @@ export default function Contact() {
         <ScrollReveal className="contents">
           <div>
             <div className="font-mono text-[10.5px] tracking-[0.12em] uppercase text-[var(--ink-faint)] mb-[10px]">Email</div>
-            <a href="mailto:hello@dumbbasss.studio" className="font-display text-[19px] font-medium border-b border-[var(--line-strong)] pb-[4px] hover:border-[var(--ink)] transition-colors">
+            <a href="mailto:hello@dumbbasss.studio" className="font-display text-[19px] font-medium border-b border-[var(--line-strong)] pb-[4px] hover:border-[var(--ink)] transition-colors" data-cursor="link">
               hello@dumbbasss.studio
             </a>
           </div>
           <div>
             <div className="font-mono text-[10.5px] tracking-[0.12em] uppercase text-[var(--ink-faint)] mb-[10px]">Instagram</div>
-            <a href="#" className="font-display text-[19px] font-medium border-b border-[var(--line-strong)] pb-[4px] hover:border-[var(--ink)] transition-colors">
+            <a href="#" className="font-display text-[19px] font-medium border-b border-[var(--line-strong)] pb-[4px] hover:border-[var(--ink)] transition-colors" data-cursor="link">
               @dumbbasss.studio
             </a>
           </div>
