@@ -6,8 +6,18 @@ import Btn from "@/components/ui/Btn";
 import LinkArrow from "@/components/ui/LinkArrow";
 
 export const metadata = {
-  title: "Services | dumbbasss",
+  title: "Services",
   description: "Our services. Everything from layout to launch.",
+  openGraph: {
+    title: "Services | dumbbasss",
+    description: "Our services. Everything from layout to launch.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Services | dumbbasss",
+    description: "Our services. Everything from layout to launch.",
+  },
 };
 
 export default function ServicesOverview() {
@@ -42,7 +52,7 @@ export default function ServicesOverview() {
         {services.map((svc) => (
           <ScrollReveal
             key={svc.slug}
-            className="py-[56px] border-b border-[var(--line)] grid grid-cols-1 md:grid-cols-[0.8fr_2fr] gap-[40px]"
+            className="py-[56px] border-b border-[var(--line)] grid grid-cols-1 md:grid-cols-[0.8fr_2fr] gap-[40px] items-start"
           >
             <div className="flex flex-col gap-[14px]">
               <span className="font-mono text-[12px] text-[var(--accent)]">

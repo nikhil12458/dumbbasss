@@ -31,3 +31,7 @@ A timeline-style breakdown of the studio's 6-step engagement process.
 - Vertical line using absolute positioning
 - Circle markers on each step (first one filled with accent color)
 - 3-column grid on desktop: number | content | output sidebar
+
+## SEO & Metadata
+
+Exports static metadata (including `openGraph` and `twitter` cards), ensuring correct title formatting and social sharing previews without falling back to site-wide defaults.

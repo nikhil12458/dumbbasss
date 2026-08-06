@@ -1,4 +1,4 @@
-# UI Components — Btn, Eyebrow, LinkArrow, SectionTitle, TagRow
+# UI Components — Btn, Eyebrow, LinkArrow, ProjectCarousel, SectionTitle, TagRow
 
 | Field | Value |
 |-------|-------|
@@ -90,3 +90,23 @@ A row of bordered tag chips, used for project technology stacks and service cate
 |------|------|-------------|
 | `tags` | `string[]` | Array of tag labels |
 | `className` | `string?` | Additional classes |
+
+---
+
+## ProjectCarousel.tsx
+
+An automated image slideshow component built with Framer Motion, used for project detail pages. 
+
+### Props
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `images` | `string[]` | Array of image URLs |
+| `liveLink` | `string?` | Optional URL. If provided, the entire carousel becomes a clickable link. |
+
+### Features
+- **Auto-play**: Automatically cycles through images every 4 seconds.
+- **Crossfade**: Uses `AnimatePresence` to crossfade smoothly between images.
+- **Pagination**: Displays a floating counter (e.g., `01 / 03`) in the bottom right corner if multiple images exist.
+- **Scale effect**: Includes a slow, continuous scale-up effect (`group-hover:scale-105`) while hovering over the image.
+- **Single image fallback**: If only one image is passed, it renders statically without the crossfade interval or pagination counter.

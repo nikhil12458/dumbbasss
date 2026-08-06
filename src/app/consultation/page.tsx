@@ -4,8 +4,18 @@ import Link from "next/link";
 import ConsultFlow from "@/components/consultation/ConsultFlow";
 
 export const metadata = {
-  title: "Start a Consultation | dumbbasss",
+  title: "Start a Consultation",
   description: "Start a project consultation with dumbbasss studio.",
+  openGraph: {
+    title: "Start a Consultation | dumbbasss",
+    description: "Start a project consultation with dumbbasss studio.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Start a Consultation | dumbbasss",
+    description: "Start a project consultation with dumbbasss studio.",
+  },
 };
 
 export default function Consultation() {

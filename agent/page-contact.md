@@ -22,3 +22,7 @@ Two-path contact page — either email directly or go through the guided consult
 
 - 2-column grid separated by a 1px gap in `--line` color
 - Each column has its own Eyebrow + heading + description + CTA
+
+## SEO & Metadata
+
+Exports static metadata (including `openGraph` and `twitter` cards), ensuring correct title formatting and social sharing previews without falling back to site-wide defaults.

@@ -6,8 +6,18 @@ import TagRow from "@/components/ui/TagRow";
 import LinkArrow from "@/components/ui/LinkArrow";
 
 export const metadata = {
-  title: "Projects | dumbbasss",
+  title: "Projects",
   description: "Our work and projects.",
+  openGraph: {
+    title: "Projects | dumbbasss",
+    description: "Our work and projects.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projects | dumbbasss",
+    description: "Our work and projects.",
+  },
 };
 
 export default function ProjectsArchive() {

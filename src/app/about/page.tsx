@@ -4,8 +4,18 @@ import Eyebrow from "@/components/ui/Eyebrow";
 import SectionTitle from "@/components/ui/SectionTitle";
 
 export const metadata = {
-  title: "About | dumbbasss",
+  title: "About",
   description: "Learn more about dumbbasss, a very serious studio, unseriously named.",
+  openGraph: {
+    title: "About | dumbbasss",
+    description: "Learn more about dumbbasss, a very serious studio, unseriously named.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About | dumbbasss",
+    description: "Learn more about dumbbasss, a very serious studio, unseriously named.",
+  },
 };
 
 export default function About() {

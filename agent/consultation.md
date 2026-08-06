@@ -22,7 +22,7 @@ A multi-step intake wizard with 5 questions, animated transitions, and a summary
 
 | # | Key | Question | Options |
 |---|-----|----------|---------|
-| 1 | `need` | What are you here to build? | A website, A software system, AI or automation, A restaurant system, Not sure yet |
+| 1 | `need` | What are you here to build? | A website, A software system, AI or automation, A business system, Not sure yet |
 | 2 | `business` | What kind of business? | Restaurant/hospitality, Retail/ecommerce, Startup/SaaS, Personal brand, Something else |
 | 3 | `help` | What do you need most? | Design, Development, SEO, A chatbot, AI integration, The whole build |
 | 4 | `content` | Already have content? | Yes all, Some, Starting from scratch |
@@ -50,3 +50,4 @@ A floating "Start a project" button fixed to the bottom-right corner of every pa
 - **Panel**: Framer Motion slide-in from the right (`x: 100%` → `x: 0`). Uses `role="dialog"` and `aria-modal="true"`.
 - **Close**: Click overlay, press Escape, or click "Close ✕"
 - **Focus Management**: Automatically focuses the close button when opened, and restores focus to the trigger button when closed.
+- **Auto-hide**: Uses an IntersectionObserver to automatically fade and hide the button when the footer enters the viewport, preventing overlap.

@@ -63,5 +63,5 @@ Typed data files that serve as the content source for all project and service pa
 | 01 | `websites` | Websites |
 | 02 | `software` | Software systems |
 | 03 | `ai` | AI & automation |
-| 04 | `restaurant` | Restaurant systems |
+| 04 | `business-systems` | Business Systems |
 | 05 | `growth` | Growth & SEO |

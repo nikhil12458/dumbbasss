@@ -13,12 +13,15 @@
 ### Layout
 - Hero with title + lede
 - Sidebar card: "Not sure where you fit?" → links to consultation
-- Full service list: each service is a 2-column row:
+- Full service list: each service is a 2-column row (`items-start` prevents columns from stretching and exposing background gaps):
   - Left: index, title, description, "Full details" LinkArrow
   - Right: 2-column grid of sub-items (e.g. "Web design", "Full-stack development")
 
 ### Bottom CTA
 "Most projects touch more than one category" → Start a consultation
+
+### SEO & Metadata
+Exports explicit static metadata for the archive page to ensure the correct OpenGraph and Twitter cards are shown when shared.
 
 ---
 

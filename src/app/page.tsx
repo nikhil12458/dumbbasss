@@ -145,10 +145,7 @@ export default function Home() {
             </p>
 
             <ScrollReveal className="w-full max-w-[760px] h-[230px] md:h-[280px]">
-              <KineticWord
-                word="dumbbasss"
-                spacing={8}
-              />
+              <KineticWord word="dumbbasss" spacing={8} />
             </ScrollReveal>
 
             <p className="mt-[22px] font-sans font-light text-[17px] leading-[1.6] text-[var(--ink-soft)] max-w-[380px]">
@@ -172,7 +169,7 @@ export default function Home() {
       </section>
 
       {/* Services Preview */}
-      <section className="py-[110px]">
+      <section className="pt-[60px] pb-[110px]">
         <ScrollReveal variant="up-strong" className="wrap">
           <Eyebrow accent>— what we do —</Eyebrow>
           <SectionTitle>Five ways in.</SectionTitle>
@@ -181,7 +178,7 @@ export default function Home() {
               <Link
                 key={i}
                 href={`/services/${service.slug}`}
-                className={`p-[30px_22px] border-b border-[var(--line)] transition-colors duration-300 ease-[var(--ease)] hover:bg-[var(--paper-deep)] ${i < 4 ? "md:border-r" : ""} ${i % 2 === 0 ? "sm:border-r" : ""}`}
+                className={`p-[30px_22px] border-b border-[var(--line)] transition-colors duration-300 ease-[var(--ease)] hover:bg-[var(--paper-deep)] ${i < 4 ? "md:border-r" : ""}`}
               >
                 <span className="font-mono text-[11px] text-[var(--accent)]">
                   {service.index}
@@ -208,16 +205,29 @@ export default function Home() {
           </p>
           <div className="flex gap-[50px] mt-[64px] flex-wrap">
             <div className="flex-1 min-w-[240px]">
-              <div className="font-display font-bold text-[24px] md:text-[28px] leading-[1.2] mb-[12px]">No templates</div>
-              <p className="text-[15px] opacity-80 leading-[1.6]">Because your competitors already bought them.</p>
+              <div className="font-display font-bold text-[24px] md:text-[28px] leading-[1.2] mb-[12px]">
+                No templates
+              </div>
+              <p className="text-[15px] opacity-80 leading-[1.6]">
+                Because your competitors already bought them.
+              </p>
             </div>
             <div className="flex-1 min-w-[240px]">
-              <div className="font-display font-bold text-[24px] md:text-[28px] leading-[1.2] mb-[12px]">No unnecessary meetings</div>
-              <p className="text-[15px] opacity-80 leading-[1.6]">We'd rather build than schedule another call.</p>
+              <div className="font-display font-bold text-[24px] md:text-[28px] leading-[1.2] mb-[12px]">
+                No unnecessary meetings
+              </div>
+              <p className="text-[15px] opacity-80 leading-[1.6]">
+                We'd rather build than schedule another call.
+              </p>
             </div>
             <div className="flex-1 min-w-[240px]">
-              <div className="font-display font-bold text-[24px] md:text-[28px] leading-[1.2] mb-[12px]">No buzzwords</div>
-              <p className="text-[15px] opacity-80 leading-[1.6]">If AI, automation, or custom software won't help, we'll tell you.</p>
+              <div className="font-display font-bold text-[24px] md:text-[28px] leading-[1.2] mb-[12px]">
+                No buzzwords
+              </div>
+              <p className="text-[15px] opacity-80 leading-[1.6]">
+                If AI, automation, or custom software won't help, we'll tell
+                you.
+              </p>
             </div>
           </div>
         </ScrollReveal>
@@ -247,16 +257,24 @@ export default function Home() {
                   className={`absolute inset-0 -z-10 transition-all duration-500 ease-[var(--ease)] group-hover:scale-105 ${project.images && project.images.length > 0 ? "group-hover:opacity-0" : ""} ${i === 0 ? "bg-gradient-to-br from-[var(--paper-deep)] to-[var(--paper)]" : "bg-gradient-to-br from-[#d9cba7] to-[#e5dabf]"}`}
                 ></div>
                 <div className="relative z-10">
-                  <span className={`font-mono text-[11px] tracking-[0.08em] uppercase transition-colors duration-500 text-[var(--ink-soft)] ${project.images && project.images.length > 0 ? 'group-hover:text-[var(--ink)]' : ''}`}>
+                  <span
+                    className={`font-mono text-[11px] tracking-[0.08em] uppercase transition-colors duration-500 text-[var(--ink-soft)] ${project.images && project.images.length > 0 ? "group-hover:text-[var(--ink)]" : ""}`}
+                  >
                     {project.meta.category}
                   </span>
-                  <h3 className={`text-[26px] mt-[12px] mb-[8px] transition-colors duration-500 ${project.images && project.images.length > 0 ? 'group-hover:text-[var(--accent)]' : ''}`}>
+                  <h3
+                    className={`text-[26px] mt-[12px] mb-[8px] transition-colors duration-500 ${project.images && project.images.length > 0 ? "group-hover:text-[var(--accent)]" : ""}`}
+                  >
                     {project.title}
                   </h3>
-                  <p className={`text-[13.5px] max-w-[34ch] transition-colors duration-500 text-[var(--ink-soft)] ${project.images && project.images.length > 0 ? 'group-hover:text-[var(--ink)] font-medium' : ''}`}>
+                  <p
+                    className={`text-[13.5px] max-w-[34ch] transition-colors duration-500 text-[var(--ink-soft)] ${project.images && project.images.length > 0 ? "group-hover:text-[var(--ink)] font-medium" : ""}`}
+                  >
                     {project.context}
                   </p>
-                  <span className={`link-arrow mt-[18px] self-start inline-block transition-colors duration-500 ${project.images && project.images.length > 0 ? 'group-hover:text-[var(--accent)]' : ''}`}>
+                  <span
+                    className={`link-arrow mt-[18px] self-start inline-block transition-colors duration-500 ${project.images && project.images.length > 0 ? "group-hover:text-[var(--accent)]" : ""}`}
+                  >
                     View case →
                   </span>
                 </div>

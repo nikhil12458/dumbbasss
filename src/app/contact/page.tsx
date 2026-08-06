@@ -3,8 +3,18 @@ import Eyebrow from "@/components/ui/Eyebrow";
 import Btn from "@/components/ui/Btn";
 
 export const metadata = {
-  title: "Contact | dumbbasss",
+  title: "Contact",
   description: "Get in touch with dumbbasss studio.",
+  openGraph: {
+    title: "Contact | dumbbasss",
+    description: "Get in touch with dumbbasss studio.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact | dumbbasss",
+    description: "Get in touch with dumbbasss studio.",
+  },
 };
 
 export default function Contact() {

@@ -47,7 +47,6 @@ export const projects: ProjectData[] = [
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1555421689-491a97ff2040?q=80&w=1000&auto=format&fit=crop"
     ],
-    liveLink: "https://github.com",
     meta: {
       category: "Android · Full-stack",
       role: "Design + full build",
@@ -144,7 +143,7 @@ export const projects: ProjectData[] = [
     category: "AI & automation · Software tool",
     context: "A multi-tenant WhatsApp Business automation platform — spec'd from a blank page to a full IEEE-style requirements document, then built end to end.",
     tags: ["Node.js", "TypeScript", "Express", "WhatsApp API"],
-    images: ["https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop"],
+    images: ["https://images.unsplash.com/photo-1531297172864-82245b08fb26?q=80&w=1000&auto=format&fit=crop"],
     meta: {
       category: "AI & automation",
       role: "Systems architecture + build",
@@ -178,7 +177,7 @@ export const projects: ProjectData[] = [
     category: "Branding · Landing page",
     context: "A single-product skincare launch that needed to feel expensive on a launch-week budget — brand, copy, and a one-page site built as one unit.",
     tags: ["Design system", "Copywriting", "HTML/CSS"],
-    images: ["https://images.unsplash.com/photo-1555421689-491a97ff2040?q=80&w=1000&auto=format&fit=crop"],
+    images: ["https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=1000&auto=format&fit=crop"],
     meta: {
       category: "Branding · Landing page",
       role: "Brand + copy + design",
@@ -212,7 +211,7 @@ export const projects: ProjectData[] = [
     category: "Software tool · Internal tooling",
     context: "A scraping and viewing pipeline built for a content research workflow that needed to move faster than manual browsing ever could.",
     tags: ["Playwright", "Node.js", "Local tooling"],
-    images: ["https://images.unsplash.com/photo-1618761714954-0b8cd0026356?q=80&w=1000&auto=format&fit=crop"],
+    images: ["https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop"],
     meta: {
       category: "Internal tooling",
       role: "Full build",
@@ -246,7 +245,7 @@ export const projects: ProjectData[] = [
     category: "Experimental · Interactive visual",
     context: "A small interactive piece exploring physical typography — letters that behave like cloth instead of pixels. This site's own kinetic wordmark grew out of it.",
     tags: ["Canvas", "Custom physics", "Typography"],
-    images: ["https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1000&auto=format&fit=crop"],
+    images: ["https://images.unsplash.com/photo-1517430816045-cad18c67a4c5?q=80&w=1000&auto=format&fit=crop"],
     meta: {
       category: "Experimental",
       role: "Research + development",

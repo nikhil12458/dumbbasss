@@ -10,6 +10,8 @@ export default function ConsultPanel() {
   const closeRef = useRef<HTMLButtonElement>(null);
   const prevIsOpen = useRef(isOpen);
 
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setIsOpen(false);
@@ -17,6 +19,18 @@ export default function ConsultPanel() {
     
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  useEffect(() => {
+    const footer = document.querySelector('footer');
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsFooterVisible(entry.isIntersecting),
+      { root: null, threshold: 0 }
+    );
+    observer.observe(footer);
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -33,7 +47,7 @@ export default function ConsultPanel() {
       <button
         ref={triggerRef}
         onClick={() => setIsOpen(true)}
-        className="fixed right-[28px] bottom-[28px] z-[500] flex items-center gap-[10px] bg-[var(--ink)] text-[var(--paper)] font-mono text-[12px] tracking-[0.06em] uppercase p-[15px_20px] border-none cursor-pointer shadow-[0_18px_36px_-18px_rgba(24,20,15,0.45)] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[var(--accent)] group"
+        className={`fixed right-[28px] bottom-[28px] z-[500] flex items-center gap-[10px] bg-[var(--ink)] text-[var(--paper)] font-mono text-[12px] tracking-[0.06em] uppercase p-[15px_20px] border-none cursor-pointer shadow-[0_18px_36px_-18px_rgba(24,20,15,0.45)] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[var(--accent)] group ${isFooterVisible ? 'opacity-0 translate-y-8 pointer-events-none' : 'opacity-100'}`}
       >
         <span className="w-[6px] h-[6px] rounded-full bg-[var(--accent)] group-hover:bg-[var(--paper)] transition-colors duration-300" />
         Start a project

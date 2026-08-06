@@ -18,3 +18,7 @@ The studio's identity page — explains the name, the philosophy, and the fit.
 4. **Who this is for** — Same 2-column layout
 5. **Good fit / Not a great fit** — Side-by-side numbered lists
 6. **How we think** — "A studio of one, built like a team of ten." + 4-row principle grid (Design before code, Staging link always, Plain-language calls, Small scope shipped properly)
+
+## SEO & Metadata
+
+Exports static metadata (including `openGraph` and `twitter` cards), ensuring correct title formatting and social sharing previews without falling back to site-wide defaults.

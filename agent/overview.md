@@ -19,6 +19,8 @@ src/
 │   ├── globals.css          # 🤖 AI — Design system tokens & shared styles
 │   ├── layout.tsx           # 🤖 AI — Root layout (metadata, fonts, chrome)
 │   ├── page.tsx             # 🤖 AI — Home page
+│   ├── robots.ts            # 🤖 AI — Search engine indexing config
+│   ├── sitemap.ts           # 🤖 AI — Search engine XML sitemap
 │   ├── about/page.tsx       # 🤖 AI — About page
 │   ├── contact/page.tsx     # 🤖 AI — Contact page
 │   ├── consultation/page.tsx# 🤖 AI — Consultation intake page
@@ -36,6 +38,8 @@ src/
 │   ├── consultation/
 │   │   ├── ConsultFlow.tsx  # 🤖 AI — Multi-step intake wizard
 │   │   └── ConsultPanel.tsx # 🤖 AI — Floating slide-out panel
+│   ├── dev/
+│   │   └── AgentationProvider.tsx # 🤖 AI — Development wrapper
 │   ├── layout/
 │   │   └── Footer.tsx       # 🤖 AI — Site footer
 │   ├── nav/
@@ -44,6 +48,7 @@ src/
 │       ├── Btn.tsx          # 🤖 AI — Button component
 │       ├── Eyebrow.tsx      # 🤖 AI — Section eyebrow label
 │       ├── LinkArrow.tsx    # 🤖 AI — Animated link arrow
+│       ├── ProjectCarousel.tsx # 🤖 AI — Project image slideshow
 │       ├── SectionTitle.tsx # 🤖 AI — Reusable section heading
 │       └── TagRow.tsx       # 🤖 AI — Tag/chip row
 ├── data/
@@ -107,17 +112,21 @@ src/
 - `src/app/process/page.tsx` — Process page
 - `src/app/projects/page.tsx` — Projects archive
 - `src/app/projects/[slug]/page.tsx` — Project detail (dynamic)
+- `src/app/robots.ts` — Search engine robots config
 - `src/app/services/page.tsx` — Services overview
 - `src/app/services/[slug]/page.tsx` — Service detail (dynamic)
+- `src/app/sitemap.ts` — Search engine sitemap
 - `src/components/animations/KineticWord.tsx` — Canvas physics wrapper
 - `src/components/animations/ScrollReveal.tsx` — Framer Motion scroll reveal
 - `src/components/consultation/ConsultFlow.tsx` — Intake wizard
 - `src/components/consultation/ConsultPanel.tsx` — Floating panel
+- `src/components/dev/AgentationProvider.tsx` — Development wrapper
 - `src/components/layout/Footer.tsx` — Footer
 - `src/components/nav/Navbar.tsx` — Navbar (upgraded from user original)
 - `src/components/ui/Btn.tsx` — Button
 - `src/components/ui/Eyebrow.tsx` — Eyebrow label
 - `src/components/ui/LinkArrow.tsx` — Arrow link
+- `src/components/ui/ProjectCarousel.tsx` — Image carousel
 - `src/components/ui/SectionTitle.tsx` — Section title
 - `src/components/ui/TagRow.tsx` — Tag row
 - `src/data/projects.ts` — Project data

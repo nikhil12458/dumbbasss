@@ -3,8 +3,18 @@ import Eyebrow from "@/components/ui/Eyebrow";
 import Btn from "@/components/ui/Btn";
 
 export const metadata = {
-  title: "Process | dumbbasss",
+  title: "Process",
   description: "How we work at dumbbasss.",
+  openGraph: {
+    title: "Process | dumbbasss",
+    description: "How we work at dumbbasss.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Process | dumbbasss",
+    description: "How we work at dumbbasss.",
+  },
 };
 
 export default function Process() {

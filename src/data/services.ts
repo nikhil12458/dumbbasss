@@ -38,7 +38,7 @@ export const services: ServiceData[] = [
     shortDesc: "Custom marketing sites, portfolios, product pages, and ecommerce experiences — built to look distinct and work properly.",
     detail: {
       heroLede: "Custom websites, storefronts, and product experiences — designed to look sharp, built to turn attention into action.",
-      whatIsIt: "A fully custom website for brands that need more than a template with their logo on it.\nFrom landing pages and portfolios to ecommerce and product pages, I handle the design, the front end, and the build so the final result feels polished, fast, and intentional.",
+      whatIsIt: "A fully custom website for brands that need more than a template with their logo on it.\nFrom landing pages and portfolios to ecommerce and product pages, we handle the design, the front end, and the build so the final result feels polished, fast, and intentional.",
       whoIsItFor: "Founders, creators, and businesses that want a site that feels premium, loads well, and actually supports the business instead of just sitting there.",
       included: [
         "Custom layout, typography, and visual direction",
@@ -71,7 +71,7 @@ export const services: ServiceData[] = [
     shortDesc: "Custom internal tools, dashboards, and web apps for workflows that generic software does not handle well.",
     detail: {
       heroLede: "Custom tools and internal platforms built around how your business actually works.",
-      whatIsIt: "When spreadsheets, off-the-shelf SaaS, and patchwork tools stop being enough, I build the missing system.\nThat could be an internal dashboard, an admin panel, a workflow tool, a client portal, or a full web app that replaces messy manual processes.",
+      whatIsIt: "When spreadsheets, off-the-shelf SaaS, and patchwork tools stop being enough, we build the missing system.\nThat could be an internal dashboard, an admin panel, a workflow tool, a client portal, or a full web app that replaces messy manual processes.",
       whoIsItFor: "Teams, agencies, and businesses that have outgrown generic software and need something built around their process instead of forced into someone else’s product.",
       included: [
         "Workflow mapping and system planning",
@@ -141,7 +141,7 @@ export const services: ServiceData[] = [
     shortDesc: "Custom operational software for businesses that have outgrown spreadsheets, paper, and disconnected tools.",
     detail: {
       heroLede: "Custom operational software that helps businesses run smoother—from the front desk to the warehouse floor.",
-      whatIsIt: "Every growing business eventually reaches the point where WhatsApp messages, Excel sheets, notebooks, and disconnected software stop working together.\n\nThat's usually when mistakes increase, information gets lost, and everyone starts asking the same question:\n\n\"Who updated this?\"\n\nI build custom business systems that replace those messy workflows with software designed around how your business actually operates—not how generic software expects you to work.\n\nWhether it's one location or twenty, the goal is simple:\n\nMake daily operations easier.",
+      whatIsIt: "Every growing business eventually reaches the point where WhatsApp messages, Excel sheets, notebooks, and disconnected software stop working together.\n\nThat's usually when mistakes increase, information gets lost, and everyone starts asking the same question:\n\n\"Who updated this?\"\n\nWe build custom business systems that replace those messy workflows with software designed around how your business actually operates—not how generic software expects you to work.\n\nWhether it's one location or twenty, the goal is simple:\n\nMake daily operations easier.",
       whoIsItFor: "Businesses that are spending too much time managing operations manually.\n\nWhether you run a restaurant, warehouse, retail store, clinic, hospital, manufacturing unit, service company, franchise, or multi-branch business, the software should fit your workflow—not force you to change it.",
       included: [
         "Inventory & stock management",
@@ -170,11 +170,11 @@ export const services: ServiceData[] = [
         footer: "If your business has a process that feels harder than it should, we can probably build something better."
       },
       outcomes: [
-        { label: "Retail", title: "Inventory & billing systems", link: "/projects" },
-        { label: "Healthcare", title: "Appointment and patient management", link: "/projects" },
-        { label: "Warehousing", title: "Stock tracking and operational dashboards", link: "/projects" },
-        { label: "Hospitality", title: "Order and staff management", link: "/projects" },
-        { label: "Manufacturing", title: "Production workflow systems", link: "/projects" }
+        { label: "Retail", title: "Inventory & billing systems", link: "/projects/vastraa" },
+        { label: "Healthcare", title: "Appointment and patient management", link: "/consultation" },
+        { label: "Warehousing", title: "Stock tracking and operational dashboards", link: "/consultation" },
+        { label: "Hospitality", title: "Order and staff management", link: "/consultation" },
+        { label: "Manufacturing", title: "Production workflow systems", link: "/consultation" }
       ],
       nextService: {
         slug: "growth",
@@ -182,10 +182,10 @@ export const services: ServiceData[] = [
       }
     },
     subItems: [
-      { title: "QR scan menus", desc: "No app download, just a scan and a clean menu." },
-      { title: "Table booking", desc: "A reservation flow simple enough to replace the phone." },
-      { title: "Ordering & reservations", desc: "End-to-end flow from table to kitchen to bill." },
-      { title: "Admin systems", desc: "Staff-side views for managing tables, menus, and orders." }
+      { title: "Inventory & stock", desc: "Track levels in real time across multiple locations." },
+      { title: "Billing & order systems", desc: "End-to-end flow from the customer to your back office." },
+      { title: "Staff dashboards", desc: "Internal views for managing shifts, permissions, and roles." },
+      { title: "Booking & scheduling", desc: "A reservation flow simple enough to replace the phone." }
     ]
   },
   {
@@ -195,7 +195,7 @@ export const services: ServiceData[] = [
     shortDesc: "Search-friendly sites, landing pages, and content structure that help the right people actually find you.",
     detail: {
       heroLede: "Making the good work show up in the right places.",
-      whatIsIt: "A good website is useless if no one finds it.\nI help structure websites, pages, and content so they have a better chance of showing up in search, reading clearly, and converting once people land there.\n\nThis is not spammy SEO.\nIt is about building a site that is understandable to both humans and search engines.",
+      whatIsIt: "A good website is useless if no one finds it.\nWe help structure websites, pages, and content so they have a better chance of showing up in search, reading clearly, and converting once people land there.\n\nThis is not spammy SEO.\nIt is about building a site that is understandable to both humans and search engines.",
       whoIsItFor: "Businesses that already have a website, or are about to launch one, and want stronger visibility, cleaner structure, and better performance over time.",
       included: [
         "Page structure and content hierarchy",
@@ -207,9 +207,9 @@ export const services: ServiceData[] = [
         "Support for launch-ready discoverability"
       ],
       outcomes: [
-        { label: "SEO", title: "Content structure and landing page optimization", link: "/projects" },
-        { label: "Growth", title: "Visibility improvements for service pages", link: "/projects" },
-        { label: "Content", title: "Search-friendly site architecture", link: "/projects" }
+        { label: "SEO", title: "Content structure and landing page optimization", link: "/consultation" },
+        { label: "Growth", title: "Visibility improvements for service pages", link: "/consultation" },
+        { label: "Content", title: "Search-friendly site architecture", link: "/consultation" }
       ],
       nextService: {
         slug: "websites",

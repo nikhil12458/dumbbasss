@@ -30,7 +30,8 @@
 
 ### Routing & SEO
 - Uses `generateStaticParams()` to pre-render all 6 project slugs at build time.
-- Uses `generateMetadata()` to dynamically inject `<title>`, OpenGraph tags, and Twitter Cards tailored to the specific case study being viewed, greatly improving social sharing previews.
+- The static archive page (`/projects/page.tsx`) explicitly exports its own `openGraph` and `twitter` metadata.
+- The dynamic detail pages (`/projects/[slug]/page.tsx`) use `generateMetadata()` to dynamically inject `<title>`, OpenGraph tags, and Twitter Cards tailored to the specific case study being viewed, greatly improving social sharing previews.
 
 ### Sections
 1. **Back link** — "← Back to archive"
