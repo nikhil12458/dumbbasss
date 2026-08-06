@@ -39,6 +39,8 @@ src/
 │   ├── consultation/
 │   │   ├── ConsultFlow.tsx  # 🤖 AI — Multi-step intake wizard
 │   │   └── ConsultPanel.tsx # 🤖 AI — Floating slide-out panel
+│   ├── cursor/
+│   │   └── CustomCursor.tsx # 🤖 AI — Custom cursor component
 │   ├── dev/
 │   │   └── AgentationProvider.tsx # 🤖 AI — Development wrapper
 │   ├── layout/
@@ -122,6 +124,7 @@ src/
 - `src/components/animations/ToriiGate.tsx` — Animated hero illustration
 - `src/components/consultation/ConsultFlow.tsx` — Intake wizard
 - `src/components/consultation/ConsultPanel.tsx` — Floating panel
+- `src/components/cursor/CustomCursor.tsx` — Custom cursor component
 - `src/components/dev/AgentationProvider.tsx` — Development wrapper
 - `src/components/layout/Footer.tsx` — Footer
 - `src/components/nav/Navbar.tsx` — Navbar (upgraded from user original)
