@@ -13,7 +13,7 @@ The landing page of the site — the first thing visitors see.
 ## Sections
 
 ### 1. Hero
-- Left column: decorative SVG illustration (desktop only)
+- Left column: `<ToriiGate />` animated SVG illustration (desktop only)
 - Right column: mono tagline → KineticWord canvas → subtitle → two CTAs
 - Bottom-left: "grab a letter" hint
 - **Note:** The `KineticWord` component is lazily loaded via `next/dynamic` to ensure a rapid First Contentful Paint.
@@ -39,4 +39,4 @@ The landing page of the site — the first thing visitors see.
 
 ## Dependencies
 
-- `KineticWord` (Dynamic), `ScrollReveal`, `Btn`, `LinkArrow`, `Eyebrow`, `SectionTitle`
+- `KineticWord` (Dynamic), `ToriiGate`, `ScrollReveal`, `Btn`, `LinkArrow`, `Eyebrow`, `SectionTitle`

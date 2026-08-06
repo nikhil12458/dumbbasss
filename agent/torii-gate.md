@@ -12,7 +12,7 @@ A decorative, animated SVG torii gate used in the left column of the homepage he
 
 ## Features
 
-1. **Grounded ViewBox**: The SVG `viewBox` is cropped tightly to the bottom (`0 70 420 460`), forcing the gate to sit firmly on its container's baseline rather than floating in vertical center.
+1. **Absolute Grounding**: The gate wrapper uses absolute positioning (`absolute inset-x-0 bottom-8 md:bottom-12`) to pin it precisely to the floor of its container, bypassing unpredictable flex-stretch behaviors. The SVG `viewBox` is cropped tightly to the bottom (`0 70 420 460`), forcing the drawing to sit firmly on its own baseline.
 2. **Depth & Texture**:
    - `pillarShade`: A subtle linear gradient simulating light falloff on the pillars and crossbeams.
    - `kasagiShade`: A top-to-bottom gradient on the red upper beam.

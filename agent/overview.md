@@ -34,7 +34,8 @@ src/
 ├── components/
 │   ├── animations/
 │   │   ├── KineticWord.tsx  # 🤖 AI — Canvas physics typography wrapper
-│   │   └── ScrollReveal.tsx # 🤖 AI — Framer Motion scroll reveal
+│   │   ├── ScrollReveal.tsx # 🤖 AI — Framer Motion scroll reveal
+│   │   └── ToriiGate.tsx    # 🤖 AI — Animated SVG hero illustration
 │   ├── consultation/
 │   │   ├── ConsultFlow.tsx  # 🤖 AI — Multi-step intake wizard
 │   │   └── ConsultPanel.tsx # 🤖 AI — Floating slide-out panel
@@ -118,6 +119,7 @@ src/
 - `src/app/sitemap.ts` — Search engine sitemap
 - `src/components/animations/KineticWord.tsx` — Canvas physics wrapper
 - `src/components/animations/ScrollReveal.tsx` — Framer Motion scroll reveal
+- `src/components/animations/ToriiGate.tsx` — Animated hero illustration
 - `src/components/consultation/ConsultFlow.tsx` — Intake wizard
 - `src/components/consultation/ConsultPanel.tsx` — Floating panel
 - `src/components/dev/AgentationProvider.tsx` — Development wrapper
