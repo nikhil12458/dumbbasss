@@ -126,8 +126,9 @@ export default function CustomCursor() {
       <motion.div
         className="absolute flex items-center justify-center border transition-[width,height,border-radius,background-color,border-color,color] duration-300 ease-out"
         style={{
-          width: ringSize,
-          height: ringSize,
+          width: state === "view" ? "auto" : ringSize,
+          height: state === "view" ? "auto" : ringSize,
+          padding: state === "view" ? "8px 14px" : 0,
           x: ringX,
           y: ringY,
           translateX: "-50%",
@@ -138,7 +139,7 @@ export default function CustomCursor() {
           borderRadius: state === "view" ? 6 : 999,
           borderStyle: state === "drag" || state === "grabbing" ? "dashed" : "solid",
           borderColor: state === "button" ? "var(--accent)" : primaryColor,
-          backgroundColor: state === "button" ? "var(--accent)" : "transparent",
+          backgroundColor: "transparent",
           opacity: state === "button" ? undefined : 1,
         }}
       >

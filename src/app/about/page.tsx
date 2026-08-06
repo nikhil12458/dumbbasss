@@ -39,7 +39,7 @@ export default function About() {
       <div
         data-cursor="drag"
         data-cursor-label="Drag"
-        className="my-[50px] mb-[90px]"
+        className="my-[50px] mb-[90px] cursor-none"
       >
         <ScrollReveal className="w-full max-w-[640px] h-[150px] mx-auto">
           <KineticWord
