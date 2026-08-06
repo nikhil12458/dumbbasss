@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/nav/Navbar";
 import Footer from "@/components/layout/Footer";
 import ConsultPanel from "@/components/consultation/ConsultPanel";
+import CustomCursor from "@/components/cursor/CustomCursor";
 import { inter, spaceGrotesk, jetbrainsMono } from "@/app/font";
 import AgentationProvider from "@/components/dev/AgentationProvider";
 
@@ -60,6 +61,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <ConsultPanel />
+        <CustomCursor />
       </body>
     </html>
   );

@@ -65,7 +65,7 @@ export default function Process() {
           <h1 className="font-display font-bold text-[clamp(36px,6vw,64px)] leading-[1.08] tracking-[-0.01em]">
             Six steps. Drawn out<br />like a blueprint, not a pitch.
           </h1>
-          <p className="section-lede mt-[22px] max-w-[520px]">
+          <p className="section-lede mt-[22px] max-w-[520px]" data-cursor="text">
             No phase names invented to sound impressive. Just the actual sequence, in order, with what to expect at each one.
           </p>
         </ScrollReveal>
@@ -84,7 +84,7 @@ export default function Process() {
               </div>
               <div>
                 <h2 className="font-display text-[26px] font-bold tracking-[-0.01em] mb-[10px]">{step.title}</h2>
-                <p className="text-[15px] text-[var(--ink-soft)] leading-[1.75] max-w-[48ch]">{step.desc}</p>
+                <p className="text-[15px] text-[var(--ink-soft)] leading-[1.75] max-w-[48ch]" data-cursor="text">{step.desc}</p>
               </div>
               <div className="col-span-full md:col-span-1 font-mono text-[11.5px] text-[var(--ink-faint)] leading-[1.7] pt-[14px] md:pt-[6px] border-t md:border-t-0 md:border-l border-dashed border-[var(--line-strong)] mt-[6px] md:mt-0 md:pl-[18px]">
                 <span className="text-[var(--ink-soft)] block mb-[2px] uppercase tracking-[0.06em] text-[10px]">Output</span>
@@ -101,7 +101,7 @@ export default function Process() {
           <h2 className="font-display font-bold text-[clamp(26px,3.6vw,40px)] leading-[1.08] tracking-[-0.01em] max-w-[640px] mx-auto mb-[30px]">
             Six steps is the whole process. No hidden seventh phase.
           </h2>
-          <Btn href="/consultation" variant="filled">Start a consultation</Btn>
+          <Btn href="/consultation" variant="filled" data-cursor="button">Start a consultation</Btn>
         </ScrollReveal>
       </section>
     </>

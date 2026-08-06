@@ -58,7 +58,7 @@ export default function ProjectsArchive() {
 
           return (
             <ScrollReveal key={proj.slug}>
-              <Link href={`/projects/${proj.slug}`} className="group block">
+              <Link href={`/projects/${proj.slug}`} data-cursor="view" data-cursor-label="View case" className="group block">
                 <article className={`border-t border-[var(--line)] py-[64px] grid gap-[40px] ${layoutClass} ${i === projects.length - 1 ? 'border-b border-[var(--line)]' : ''}`}>
                 <div className={`relative bg-gradient-to-br from-[var(--paper-deep)] to-[var(--paper)] border border-[var(--line)] overflow-hidden ${visualClass}`}>
                   {proj.images?.[0] && (

@@ -119,6 +119,14 @@ a {
   background: var(--ink);
   color: var(--paper);
 }
+
+.has-custom-cursor,
+.has-custom-cursor * {
+  cursor: none !important;
+}
+.has-custom-cursor [data-cursor="text"] {
+  cursor: text !important;
+}
 :focus-visible {
   outline: 1.5px solid var(--accent);
   outline-offset: 3px;

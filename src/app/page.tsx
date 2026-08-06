@@ -39,7 +39,9 @@ export default function Home() {
             </p>
 
             <ScrollReveal className="w-full max-w-[760px] h-[230px] md:h-[280px]">
-              <KineticWord word="dumbbasss" spacing={8} />
+              <div data-cursor="drag" data-cursor-label="Drag" className="h-full w-full cursor-none">
+                <KineticWord word="dumbbasss" spacing={8} />
+              </div>
             </ScrollReveal>
 
             <p className="mt-[22px] font-sans font-light text-[17px] leading-[1.6] text-[var(--ink-soft)] max-w-[380px]">
@@ -50,10 +52,10 @@ export default function Home() {
               </strong>
             </p>
             <div className="mt-[30px] flex gap-[26px] items-center flex-wrap justify-center">
-              <Btn href="/consultation" variant="filled">
+              <Btn href="/consultation" variant="filled" data-cursor="button">
                 start something →
               </Btn>
-              <LinkArrow href="/projects">see the stuff →</LinkArrow>
+              <LinkArrow href="/projects" data-cursor="link">see the stuff →</LinkArrow>
             </div>
           </div>
         </div>
@@ -72,6 +74,8 @@ export default function Home() {
               <Link
                 key={i}
                 href={`/services/${service.slug}`}
+                data-cursor="view"
+                data-cursor-label="EXPLORE"
                 className={`p-[30px_22px] border-b border-[var(--line)] transition-colors duration-300 ease-[var(--ease)] hover:bg-[var(--paper-deep)] ${i < 4 ? "md:border-r" : ""}`}
               >
                 <span className="font-mono text-[11px] text-[var(--accent)]">
@@ -137,6 +141,8 @@ export default function Home() {
               <Link
                 key={i}
                 href={`/projects/${project.slug}`}
+                data-cursor="view"
+                data-cursor-label="View case"
                 className={`group relative border border-[var(--line-strong)] min-h-[340px] p-[28px] flex flex-col justify-end overflow-hidden ${i === 1 ? "text-[var(--ink)]" : ""}`}
               >
                 {project.images && project.images.length > 0 && (
@@ -176,7 +182,7 @@ export default function Home() {
             ))}
           </ScrollReveal>
           <div className="mt-[40px]">
-            <LinkArrow href="/projects">See the full archive →</LinkArrow>
+            <LinkArrow href="/projects" data-cursor="link">See the full archive →</LinkArrow>
           </div>
         </div>
       </section>
@@ -193,10 +199,10 @@ export default function Home() {
             We'll tell you what it needs.
           </h2>
           <div className="flex gap-[20px] justify-center flex-wrap">
-            <Btn href="/consultation" variant="filled">
+            <Btn href="/consultation" variant="filled" data-cursor="button">
               Start a consultation
             </Btn>
-            <Btn href="/contact">Just say hello</Btn>
+            <Btn href="/contact" data-cursor="button">Just say hello</Btn>
           </div>
         </ScrollReveal>
       </section>
