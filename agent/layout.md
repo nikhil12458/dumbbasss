@@ -14,7 +14,7 @@ The root layout wrapping every page. It provides the HTML skeleton, font class i
 
 1. **Font classes** — Applies CSS variable classes from `font.ts` onto `<html>` so all Tailwind font utilities resolve correctly.
 2. **Metadata** — Sets the global `<title>`, `<meta description>`, `metadataBase`, OpenGraph tags, and Twitter Cards to ensure social links unfurl correctly with the `og-image.png`.
-3. **Global structure** — Renders `<Navbar />` at the top, `<main>` for page content (flex-grow), `<Footer />` at the bottom, and `<ConsultPanel />` as a floating overlay. It also renders the `<AgentationProvider />` development wrapper inside `<main>`.
+3. **Global structure** — Renders `<Navbar />` at the top, `<main>` for page content (flex-grow), `<Footer />` at the bottom, and `<ConsultPanel />` as a floating overlay. Everything inside `<body>` is wrapped in `<SmoothScrolling>` to enable Lenis smooth scrolling site-wide. It also renders the `<AgentationProvider />` development wrapper inside `<main>`.
 
 ## Dependencies
 
@@ -22,4 +22,5 @@ The root layout wrapping every page. It provides the HTML skeleton, font class i
 - `@/components/layout/Footer`
 - `@/components/consultation/ConsultPanel`
 - `@/components/dev/AgentationProvider`
+- `@/components/layout/SmoothScrolling`
 - `@/app/font` (Inter, Space Grotesk, JetBrains Mono, Fraunces)

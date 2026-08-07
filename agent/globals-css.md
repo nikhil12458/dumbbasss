@@ -24,7 +24,7 @@ Maps CSS font variables to Tailwind's `font-sans`, `font-display`, `font-mono`, 
 ### Global Resets & Base Styles
 - Box-sizing, smooth scroll, reduced-motion support
 - Body: paper background, ink text, anti-aliased rendering
-- A subtle fixed SVG noise overlay via `body::before`
+- A subtle fixed SVG noise overlay via `body::before` (positioned with `z-index: -1` and `body` `z-index: 0` so it sits nicely behind the content)
 - Selection colors, focus-visible outlines
 
 ### Shared Utility Classes
@@ -34,6 +34,9 @@ Maps CSS font variables to Tailwind's `font-sans`, `font-display`, `font-mono`, 
 - `.section-dark` — inverted dark theme section with full color overrides
 - `.serif-display`, `.serif-italic`, `.poster-title` — editorial typography
 - `.detail-back`, `.proj-meta`, `.proj-next` — project/service detail page chrome
+
+### Keyframe Animations
+- `@keyframes kakemono-sway` — gentle swaying animation used for hanging elements like testimonial cards
 
 ## Key Decision
 

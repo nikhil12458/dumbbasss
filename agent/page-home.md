@@ -34,9 +34,16 @@ The landing page of the site — the first thing visitors see.
 - Hover: background scale-up effect
 - "See the full archive" link
 
-### 5. CTA Band ("Start here")
+### 5. Testimonials ("Kind words")
+- 3-column hanging kakemono-card layout swaying gently
+- Real quotes from clients
+
+### 6. FAQ ("Questions people actually have")
+- Accordion list of common questions (e.g., pricing, timelines)
+
+### 7. CTA Band ("Start here")
 - Centered headline + two buttons (consultation + contact)
 
 ## Dependencies
 
-- `KineticWord` (Dynamic), `ToriiGate`, `ScrollReveal`, `Btn`, `LinkArrow`, `Eyebrow`, `SectionTitle`
+- `KineticWord` (Dynamic), `ToriiGate`, `ScrollReveal`, `Btn`, `LinkArrow`, `Eyebrow`, `SectionTitle`, `Testimonials`, `Faq`

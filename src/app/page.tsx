@@ -1,6 +1,7 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import ToriiGate from "@/components/animations/ToriiGate";
+import Parallax from "@/components/animations/Parallax";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Btn from "@/components/ui/Btn";
 import LinkArrow from "@/components/ui/LinkArrow";
@@ -9,6 +10,8 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import { Fraunces } from "next/font/google";
 import { services } from "@/data/services";
 import { projects } from "@/data/projects";
+import Faq from "@/components/sections/Faq";
+import Testimonials from "@/components/sections/Testimonials";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -29,9 +32,9 @@ export default function Home() {
       <section className="pt-[64px] pb-[40px] relative overflow-hidden">
         <div className="wrap grid grid-cols-1 md:grid-cols-[0.62fr_1.38fr] gap-0 items-stretch min-h-[640px]">
           <div className="hidden md:block relative" aria-hidden="true">
-            <div className="absolute inset-x-0 bottom-8 md:bottom-12 flex justify-center md:-translate-x-32">
+            <Parallax offset={100} startScroll="start start" endScroll="end start" className="absolute inset-x-0 bottom-8 md:bottom-12 flex justify-center md:-translate-x-32">
               <ToriiGate />
-            </div>
+            </Parallax>
           </div>
           <div className="flex flex-col justify-center items-center text-center px-[20px]">
             <p className="font-mono text-[11.5px] tracking-[0.16em] uppercase text-[var(--ink-faint)] mb-[2px]">
@@ -186,6 +189,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials */}
+      <Testimonials />
+
+      {/* FAQ */}
+      <Faq />
 
       {/* CTA Band */}
       <section className="py-[120px] text-center border-t border-[var(--line)]">
