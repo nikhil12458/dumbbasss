@@ -320,3 +320,8 @@ p {
   0%, 100% { transform: rotate(-0.6deg); }
   50% { transform: rotate(0.6deg); }
 }
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}

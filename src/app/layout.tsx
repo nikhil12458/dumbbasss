@@ -7,6 +7,8 @@ import CustomCursor from "@/components/cursor/CustomCursor";
 import { inter, spaceGrotesk, jetbrainsMono } from "@/app/font";
 import AgentationProvider from "@/components/dev/AgentationProvider";
 import SmoothScrolling from "@/components/layout/SmoothScrolling";
+import AmbientGrid from "@/components/layout/AmbientGrid";
+import EasterEgg from "@/components/layout/EasterEgg";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dumbbasss.vercel.app"),
@@ -56,6 +58,8 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col relative">
         <SmoothScrolling>
+          <AmbientGrid />
+          <EasterEgg />
           <Navbar />
           <main className="flex-1">
             {children}

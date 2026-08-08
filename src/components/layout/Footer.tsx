@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Mail } from "lucide-react";
 import { FiInstagram, FiGithub } from "react-icons/fi";
 import LinkArrow from "@/components/ui/LinkArrow";
+import { EasterEggHint } from "@/components/layout/EasterEgg";
 
 export default function Footer() {
   return (
@@ -43,7 +44,10 @@ export default function Footer() {
         </div>
       </div>
       <div className="wrap mt-[46px] pt-[20px] border-t-[1px] border-[var(--line)] font-mono text-[11px] text-[var(--ink-faint)] flex justify-between flex-wrap gap-[10px]">
-        <span>© {new Date().getFullYear()} dumbbasss studio</span>
+        <div className="flex items-center">
+          <span className="footer-mark">© {new Date().getFullYear()} dumbbasss studio</span>
+          <EasterEggHint />
+        </div>
         <span>an unserious name, a serious studio</span>
       </div>
     </footer>
