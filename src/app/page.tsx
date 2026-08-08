@@ -14,7 +14,13 @@ import Faq from "@/components/sections/Faq";
 import Testimonials from "@/components/sections/Testimonials";
 import AnimatedNumber from "@/components/animations/AnimatedNumber";
 import Magnetic from "@/components/animations/Magnetic";
-import { WebsiteIcon, SoftwareIcon, AiIcon, BusinessSystemsIcon, GrowthIcon } from "@/components/icons/ServiceIcons";
+import {
+  WebsiteIcon,
+  SoftwareIcon,
+  AiIcon,
+  BusinessSystemsIcon,
+  GrowthIcon,
+} from "@/components/icons/ServiceIcons";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -35,7 +41,12 @@ export default function Home() {
       <section className="pt-[64px] pb-[40px] relative overflow-hidden">
         <div className="wrap grid grid-cols-1 md:grid-cols-[0.62fr_1.38fr] gap-0 items-stretch min-h-[640px]">
           <div className="hidden md:block relative" aria-hidden="true">
-            <Parallax offset={100} startScroll="start start" endScroll="end start" className="absolute inset-x-0 bottom-8 md:bottom-12 flex justify-center md:-translate-x-32">
+            <Parallax
+              offset={100}
+              startScroll="start start"
+              endScroll="end start"
+              className="absolute inset-x-0 bottom-8 md:bottom-12 flex justify-center md:-translate-x-32"
+            >
               <ToriiGate />
             </Parallax>
           </div>
@@ -45,7 +56,11 @@ export default function Home() {
             </p>
 
             <ScrollReveal className="w-full max-w-[760px] h-[230px] md:h-[280px]">
-              <div data-cursor="drag" data-cursor-label="Drag" className="h-full w-full cursor-none">
+              <div
+                data-cursor="drag"
+                data-cursor-label="Drag"
+                className="h-full w-full cursor-none"
+              >
                 <KineticWord word="dumbbasss" spacing={8} />
               </div>
             </ScrollReveal>
@@ -63,7 +78,9 @@ export default function Home() {
                   start something →
                 </Btn>
               </Magnetic>
-              <LinkArrow href="/projects" data-cursor="link">see the stuff →</LinkArrow>
+              <LinkArrow href="/projects" data-cursor="link">
+                see the stuff →
+              </LinkArrow>
             </div>
           </div>
         </div>
@@ -90,7 +107,9 @@ export default function Home() {
                   {service.slug === "websites" && <WebsiteIcon />}
                   {service.slug === "software" && <SoftwareIcon />}
                   {service.slug === "ai" && <AiIcon />}
-                  {service.slug === "business-systems" && <BusinessSystemsIcon />}
+                  {service.slug === "business-systems" && (
+                    <BusinessSystemsIcon />
+                  )}
                   {service.slug === "growth" && <GrowthIcon />}
                 </div>
                 <span className="font-mono text-[11px] text-[var(--accent)]">
@@ -197,7 +216,9 @@ export default function Home() {
             ))}
           </ScrollReveal>
           <div className="mt-[40px]">
-            <LinkArrow href="/projects" data-cursor="link">See the full archive →</LinkArrow>
+            <LinkArrow href="/projects" data-cursor="link">
+              See the full archive →
+            </LinkArrow>
           </div>
         </div>
       </section>
@@ -226,7 +247,9 @@ export default function Home() {
               </Btn>
             </Magnetic>
             <Magnetic>
-              <Btn href="/contact" data-cursor="button">Just say hello</Btn>
+              <Btn href="/contact" data-cursor="button">
+                Just say hello
+              </Btn>
             </Magnetic>
           </div>
         </ScrollReveal>
