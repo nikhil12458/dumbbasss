@@ -1,6 +1,8 @@
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Btn from "@/components/ui/Btn";
+import Magnetic from "@/components/animations/Magnetic";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 export const metadata = {
   title: "Contact",
@@ -32,6 +34,8 @@ export default function Contact() {
         </ScrollReveal>
       </section>
 
+      <SectionDivider />
+
       <section className="wrap grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-[var(--line)] border border-[var(--line)] mb-[80px]">
         <ScrollReveal className="bg-[var(--paper)] p-[52px_44px] flex flex-col gap-[18px]">
           <Eyebrow className="mb-[6px]">— direct —</Eyebrow>
@@ -39,7 +43,9 @@ export default function Contact() {
           <p className="text-[14.5px] text-[var(--ink-soft)] leading-[1.7] max-w-[36ch]">
             Send a note. A real person reads every message, usually within a day.
           </p>
-          <Btn href="mailto:hello@dumbbasss.studio" variant="filled" className="self-start mt-[8px]" data-cursor="button">Email hello@dumbbasss.studio</Btn>
+          <Magnetic>
+            <Btn href="mailto:hello@dumbbasss.studio" variant="filled" className="self-start mt-[8px]" data-cursor="button">Email hello@dumbbasss.studio</Btn>
+          </Magnetic>
         </ScrollReveal>
         
         <ScrollReveal className="bg-[var(--paper)] p-[52px_44px] flex flex-col gap-[18px]">
@@ -48,9 +54,13 @@ export default function Contact() {
           <p className="text-[14.5px] text-[var(--ink-soft)] leading-[1.7] max-w-[36ch]">
             Five short questions, no pressure — we'll point you in the right direction either way.
           </p>
-          <Btn href="/consultation" className="self-start mt-[8px]" data-cursor="button">Start a consultation</Btn>
+          <Magnetic>
+            <Btn href="/consultation" className="self-start mt-[8px]" data-cursor="button">Start a consultation</Btn>
+          </Magnetic>
         </ScrollReveal>
       </section>
+
+      <SectionDivider />
 
       <section className="flex justify-center gap-[60px] flex-wrap pb-[120px] text-center">
         <ScrollReveal className="contents">

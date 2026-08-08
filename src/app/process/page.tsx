@@ -1,6 +1,8 @@
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Btn from "@/components/ui/Btn";
+import Magnetic from "@/components/animations/Magnetic";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 export const metadata = {
   title: "Process",
@@ -71,6 +73,8 @@ export default function Process() {
         </ScrollReveal>
       </section>
 
+      <SectionDivider />
+
       <section className="wrap pb-[120px] relative">
         {/* The vertical line */}
         <div className="absolute left-[calc(var(--gutter)+15px)] md:left-[calc(var(--gutter)+47px)] top-0 bottom-[80px] w-[1px] bg-[var(--line-strong)]"></div>
@@ -95,13 +99,17 @@ export default function Process() {
         ))}
       </section>
 
+      <SectionDivider />
+
       <section className="pb-[130px] text-center">
         <ScrollReveal className="wrap">
           <Eyebrow accent className="justify-center">— ready when you are —</Eyebrow>
           <h2 className="font-display font-bold text-[clamp(26px,3.6vw,40px)] leading-[1.08] tracking-[-0.01em] max-w-[640px] mx-auto mb-[30px]">
             Six steps is the whole process. No hidden seventh phase.
           </h2>
-          <Btn href="/consultation" variant="filled" data-cursor="button">Start a consultation</Btn>
+          <Magnetic>
+            <Btn href="/consultation" variant="filled" data-cursor="button">Start a consultation</Btn>
+          </Magnetic>
         </ScrollReveal>
       </section>
     </>

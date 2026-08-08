@@ -4,6 +4,7 @@ import ScrollReveal from "@/components/animations/ScrollReveal";
 import Eyebrow from "@/components/ui/Eyebrow";
 import TagRow from "@/components/ui/TagRow";
 import LinkArrow from "@/components/ui/LinkArrow";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 export const metadata = {
   title: "Projects",
@@ -35,6 +36,8 @@ export default function ProjectsArchive() {
           01 — 06 · updated 2026
         </p>
       </section>
+
+      <SectionDivider />
 
       <section className="pb-[130px] wrap">
         {projects.map((proj, i) => {

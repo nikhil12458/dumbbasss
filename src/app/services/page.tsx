@@ -4,6 +4,8 @@ import ScrollReveal from "@/components/animations/ScrollReveal";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Btn from "@/components/ui/Btn";
 import LinkArrow from "@/components/ui/LinkArrow";
+import Magnetic from "@/components/animations/Magnetic";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 export const metadata = {
   title: "Services",
@@ -42,13 +44,16 @@ export default function ServicesOverview() {
             Answer five short questions and we'll point you to the right place —
             no sales pitch attached.
           </p>
-          <Btn href="/consultation" variant="filled" className="justify-center" data-cursor="button">
-            What do you need? →
-          </Btn>
+          <Magnetic>
+            <Btn href="/consultation" variant="filled" className="justify-center" data-cursor="button">
+              What do you need? →
+            </Btn>
+          </Magnetic>
         </ScrollReveal>
       </section>
 
-      <section className="wrap border-t border-[var(--line)]">
+      <SectionDivider />
+      <section className="wrap">
         {services.map((svc) => (
           <ScrollReveal
             key={svc.slug}
@@ -100,9 +105,11 @@ export default function ServicesOverview() {
             Most projects touch more than one category. That's normal — let's
             talk it through.
           </h2>
-          <Btn href="/consultation" variant="filled" className="mt-3">
-            Start a consultation
-          </Btn>
+          <Magnetic>
+            <Btn href="/consultation" variant="filled" className="mt-3">
+              Start a consultation
+            </Btn>
+          </Magnetic>
         </ScrollReveal>
       </section>
     </>

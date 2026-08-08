@@ -12,6 +12,8 @@ import { services } from "@/data/services";
 import { projects } from "@/data/projects";
 import Faq from "@/components/sections/Faq";
 import Testimonials from "@/components/sections/Testimonials";
+import AnimatedNumber from "@/components/animations/AnimatedNumber";
+import Magnetic from "@/components/animations/Magnetic";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -55,9 +57,11 @@ export default function Home() {
               </strong>
             </p>
             <div className="mt-[30px] flex gap-[26px] items-center flex-wrap justify-center">
-              <Btn href="/consultation" variant="filled" data-cursor="button">
-                start something →
-              </Btn>
+              <Magnetic>
+                <Btn href="/consultation" variant="filled" data-cursor="button">
+                  start something →
+                </Btn>
+              </Magnetic>
               <LinkArrow href="/projects" data-cursor="link">see the stuff →</LinkArrow>
             </div>
           </div>
@@ -107,7 +111,7 @@ export default function Home() {
           <div className="flex gap-[50px] mt-[64px] flex-wrap">
             <div className="flex-1 min-w-[240px]">
               <div className="font-display font-bold text-[24px] md:text-[28px] leading-[1.2] mb-[12px]">
-                No templates
+                <AnimatedNumber value="0" /> templates
               </div>
               <p className="text-[15px] opacity-80 leading-[1.6]">
                 Because your competitors already bought them.
@@ -115,7 +119,7 @@ export default function Home() {
             </div>
             <div className="flex-1 min-w-[240px]">
               <div className="font-display font-bold text-[24px] md:text-[28px] leading-[1.2] mb-[12px]">
-                No unnecessary meetings
+                <AnimatedNumber value="0" /> unnecessary meetings
               </div>
               <p className="text-[15px] opacity-80 leading-[1.6]">
                 We'd rather build than schedule another call.
@@ -123,7 +127,7 @@ export default function Home() {
             </div>
             <div className="flex-1 min-w-[240px]">
               <div className="font-display font-bold text-[24px] md:text-[28px] leading-[1.2] mb-[12px]">
-                No buzzwords
+                <AnimatedNumber value="0" /> buzzwords
               </div>
               <p className="text-[15px] opacity-80 leading-[1.6]">
                 If AI, automation, or custom software won't help, we'll tell
@@ -208,10 +212,14 @@ export default function Home() {
             We'll tell you what it needs.
           </h2>
           <div className="flex gap-[20px] justify-center flex-wrap">
-            <Btn href="/consultation" variant="filled" data-cursor="button">
-              Start a consultation
-            </Btn>
-            <Btn href="/contact" data-cursor="button">Just say hello</Btn>
+            <Magnetic>
+              <Btn href="/consultation" variant="filled" data-cursor="button">
+                Start a consultation
+              </Btn>
+            </Magnetic>
+            <Magnetic>
+              <Btn href="/contact" data-cursor="button">Just say hello</Btn>
+            </Magnetic>
           </div>
         </ScrollReveal>
       </section>
