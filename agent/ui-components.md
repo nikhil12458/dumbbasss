@@ -110,3 +110,51 @@ An automated image slideshow component built with Framer Motion, used for projec
 - **Pagination**: Displays a floating counter (e.g., `01 / 03`) in the bottom right corner if multiple images exist.
 - **Scale effect**: Includes a slow, continuous scale-up effect (`group-hover:scale-105`) while hovering over the image.
 - **Single image fallback**: If only one image is passed, it renders statically without the crossfade interval or pagination counter.
+
+---
+
+## SectionDivider.tsx
+
+A standardized visual separator used between major sections of a page.
+
+### Props
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `className` | `string?` | Additional classes |
+
+### Behavior
+Renders a full-width container with a top border (`border-[var(--line)]`). Typically used to add visual structure to pages lacking illustrations or heavy background changes.
+
+---
+
+## TechTag.tsx
+
+A small visual indicator for a specific technology, featuring an icon and a label.
+
+### Props
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `icon` | `React.ElementType` | The SVG icon component (e.g., from `lucide-react` or `react-icons`) |
+| `label` | `string` | The text label for the technology |
+| `className` | `string?` | Additional classes |
+
+### Behavior
+Renders a small flex pill with a dashed border (`border-[var(--line-strong)]`) and soft ink text. Designed to fit inline within service descriptions or project spec lists.
+
+---
+
+## AnimatedNumber.tsx
+
+A number that animates (counts up) from zero to its target value when it scrolls into the viewport.
+
+### Props
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `value` | `number \| string` | The target value. If a string (e.g., "40+"), it parses the number for animation and appends the non-numeric suffix ("+") automatically. |
+| `className` | `string?` | Additional classes |
+
+### Behavior
+Uses `framer-motion`'s `useInView` and `animate()` to tween a numeric state from 0 to the parsed target value over a spring physics duration. Can handle raw numbers or suffixed strings like `15x` or `40+`.

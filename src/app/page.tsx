@@ -14,6 +14,7 @@ import Faq from "@/components/sections/Faq";
 import Testimonials from "@/components/sections/Testimonials";
 import AnimatedNumber from "@/components/animations/AnimatedNumber";
 import Magnetic from "@/components/animations/Magnetic";
+import { WebsiteIcon, SoftwareIcon, AiIcon, BusinessSystemsIcon, GrowthIcon } from "@/components/icons/ServiceIcons";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -83,8 +84,15 @@ export default function Home() {
                 href={`/services/${service.slug}`}
                 data-cursor="view"
                 data-cursor-label="EXPLORE"
-                className={`p-[30px_22px] border-b border-[var(--line)] transition-colors duration-300 ease-[var(--ease)] hover:bg-[var(--paper-deep)] ${i < 4 ? "md:border-r" : ""}`}
+                className={`group p-[30px_22px] border-b border-[var(--line)] transition-colors duration-300 ease-[var(--ease)] hover:bg-[var(--paper-deep)] ${i < 4 ? "md:border-r" : ""}`}
               >
+                <div className="text-[var(--ink-faint)] transition-colors duration-300 group-hover:text-[var(--accent)] mb-[12px]">
+                  {service.slug === "websites" && <WebsiteIcon />}
+                  {service.slug === "software" && <SoftwareIcon />}
+                  {service.slug === "ai" && <AiIcon />}
+                  {service.slug === "business-systems" && <BusinessSystemsIcon />}
+                  {service.slug === "growth" && <GrowthIcon />}
+                </div>
                 <span className="font-mono text-[11px] text-[var(--accent)]">
                   {service.index}
                 </span>

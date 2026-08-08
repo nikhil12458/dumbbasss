@@ -1,5 +1,6 @@
 import React from "react";
 import { cn } from "@/utils/cn";
+import TechTag from "./TechTag";
 
 type TagRowProps = {
   tags: string[];
@@ -10,12 +11,7 @@ export default function TagRow({ tags, className }: TagRowProps) {
   return (
     <div className={cn("flex flex-wrap gap-[8px]", className)}>
       {tags.map((tag, index) => (
-        <span
-          key={index}
-          className="font-mono text-[11px] tracking-[0.04em] border border-[var(--line-strong)] py-[5px] px-[10px] text-[var(--ink-soft)]"
-        >
-          {tag}
-        </span>
+        <TechTag key={index} tag={tag} />
       ))}
     </div>
   );

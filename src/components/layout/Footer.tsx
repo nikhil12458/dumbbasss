@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { Mail } from "lucide-react";
+import { FiInstagram, FiGithub } from "react-icons/fi";
+import LinkArrow from "@/components/ui/LinkArrow";
 
 export default function Footer() {
   return (
@@ -23,12 +26,20 @@ export default function Footer() {
           <span className="font-mono text-[10.5px] tracking-[0.12em] uppercase text-[var(--ink-faint)] mb-[4px]">
             Say hello
           </span>
-          <a href="mailto:hello@dumbbasss.studio" className="text-[14px] text-[var(--ink-soft)] hover:text-[var(--ink)]">
-            hello@dumbbasss.studio
+          <a href="mailto:hello@dumbbasss.studio" className="text-[14px] text-[var(--ink-soft)] hover:text-[var(--ink)] flex items-center">
+            <Mail size={14} className="mr-[8px] opacity-70" /> hello@dumbbasss.studio
           </a>
-          <Link href="/consultation" className="text-[14px] text-[var(--ink-soft)] hover:text-[var(--ink)]">
-            Start a consultation
-          </Link>
+          <a href="#" className="text-[14px] text-[var(--ink-soft)] hover:text-[var(--ink)] flex items-center">
+            <FiInstagram size={14} className="mr-[8px] opacity-70" /> @dumbbasss.studio
+          </a>
+          <a href="#" className="text-[14px] text-[var(--ink-soft)] hover:text-[var(--ink)] flex items-center">
+            <FiGithub size={14} className="mr-[8px] opacity-70" /> dumbbasss
+          </a>
+          <div className="mt-[8px]">
+            <LinkArrow href="/consultation">
+              Start a consultation →
+            </LinkArrow>
+          </div>
         </div>
       </div>
       <div className="wrap mt-[46px] pt-[20px] border-t-[1px] border-[var(--line)] font-mono text-[11px] text-[var(--ink-faint)] flex justify-between flex-wrap gap-[10px]">

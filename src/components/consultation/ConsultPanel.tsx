@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import FocusTrap from "focus-trap-react";
 import ConsultFlow from "./ConsultFlow";
 
 export default function ConsultPanel() {
@@ -64,32 +65,34 @@ export default function ConsultPanel() {
               className="absolute inset-0 bg-[rgba(24,20,15,0.28)] backdrop-blur-[2px]"
             />
             
-            <motion.div
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="consult-title"
-              initial={{ x: "100%", opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "100%", opacity: 0 }}
-              transition={{ duration: 0.35, ease: [0.65, 0, 0.35, 1] }}
-              className="relative z-10 w-full sm:w-[420px] h-full bg-[var(--paper)] border-l border-[var(--line-strong)] flex flex-col p-[28px_30px_24px]"
-            >
-              <div className="flex justify-between items-start mb-[20px]">
-                <div>
-                  <h3 id="consult-title" className="text-[19px] font-display font-bold tracking-[-0.01em]">Let's figure out what you need.</h3>
-                  <p className="font-mono text-[11px] text-[var(--ink-soft)] mt-[6px] tracking-[0.04em]">five quick questions — no pressure</p>
+            <FocusTrap active={isOpen}>
+              <motion.div
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="consult-title"
+                initial={{ x: "100%", opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: "100%", opacity: 0 }}
+                transition={{ duration: 0.35, ease: [0.65, 0, 0.35, 1] }}
+                className="relative z-10 w-full sm:w-[420px] h-full bg-[var(--paper)] border-l border-[var(--line-strong)] flex flex-col p-[28px_30px_24px]"
+              >
+                <div className="flex justify-between items-start mb-[20px]">
+                  <div>
+                    <h3 id="consult-title" className="text-[19px] font-display font-bold tracking-[-0.01em]">Let's figure out what you need.</h3>
+                    <p className="font-mono text-[11px] text-[var(--ink-soft)] mt-[6px] tracking-[0.04em]">five quick questions — no pressure</p>
+                  </div>
+                  <button
+                    ref={closeRef}
+                    onClick={() => setIsOpen(false)}
+                    className="bg-transparent border-none font-mono text-[12px] text-[var(--ink-soft)] cursor-pointer p-[6px] hover:text-[var(--ink)] transition-colors"
+                  >
+                    Close ✕
+                  </button>
                 </div>
-                <button
-                  ref={closeRef}
-                  onClick={() => setIsOpen(false)}
-                  className="bg-transparent border-none font-mono text-[12px] text-[var(--ink-soft)] cursor-pointer p-[6px] hover:text-[var(--ink)] transition-colors"
-                >
-                  Close ✕
-                </button>
-              </div>
-              
-              <ConsultFlow />
-            </motion.div>
+                
+                <ConsultFlow />
+              </motion.div>
+            </FocusTrap>
           </div>
         )}
       </AnimatePresence>

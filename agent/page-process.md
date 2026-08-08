@@ -28,8 +28,10 @@ A timeline-style breakdown of the studio's 6-step engagement process.
 
 ## Design
 
-- Vertical line using absolute positioning
-- Circle markers on each step (first one filled with accent color)
+- **Pinned Timeline Slider**: The entire section pins to the screen using a sticky container over a `600vh` scroll runway.
+- **Scroll Tracking**: A single moving dot travels down the vertical line based on scroll progress.
+- **Sliding Steps**: Steps are absolute-positioned and mapped to scroll progress to slide in vertically (from 400px to -400px). They plateau at 100% opacity in the center of the screen, ensuring readability without text overlap.
+- **Transparent Texture**: The sticky container explicitly uses pointer-events logic and a transparent background so the global site texture remains uninterrupted.
 - 3-column grid on desktop: number | content | output sidebar
 
 ## SEO & Metadata

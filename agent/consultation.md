@@ -49,5 +49,5 @@ A floating "Start a project" button fixed to the bottom-right corner of every pa
 - **Overlay**: Semi-transparent ink backdrop with blur
 - **Panel**: Framer Motion slide-in from the right (`x: 100%` → `x: 0`). Uses `role="dialog"` and `aria-modal="true"`.
 - **Close**: Click overlay, press Escape, or click "Close ✕"
-- **Focus Management**: Automatically focuses the close button when opened, and restores focus to the trigger button when closed.
+- **Focus Management**: Wraps the panel in `<FocusTrap>` from `focus-trap-react` to prevent the user from tabbing out of the modal. Automatically focuses the close button when opened, and restores focus to the trigger button when closed.
 - **Auto-hide**: Uses an IntersectionObserver to automatically fade and hide the button when the footer enters the viewport, preventing overlap.

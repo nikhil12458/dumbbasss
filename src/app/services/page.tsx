@@ -6,6 +6,7 @@ import Btn from "@/components/ui/Btn";
 import LinkArrow from "@/components/ui/LinkArrow";
 import Magnetic from "@/components/animations/Magnetic";
 import SectionDivider from "@/components/ui/SectionDivider";
+import { WebsiteIcon, SoftwareIcon, AiIcon, BusinessSystemsIcon, GrowthIcon } from "@/components/icons/ServiceIcons";
 
 export const metadata = {
   title: "Services",
@@ -60,7 +61,14 @@ export default function ServicesOverview() {
             className="py-[56px] border-b border-[var(--line)] grid grid-cols-1 md:grid-cols-[0.8fr_2fr] gap-[40px] items-start"
           >
             <div className="flex flex-col gap-[14px]">
-              <span className="font-mono text-[12px] text-[var(--accent)]">
+              <div className="text-[var(--ink-faint)] transition-colors duration-300 hover:text-[var(--accent)] w-max">
+                {svc.slug === "websites" && <WebsiteIcon />}
+                {svc.slug === "software" && <SoftwareIcon />}
+                {svc.slug === "ai" && <AiIcon />}
+                {svc.slug === "business-systems" && <BusinessSystemsIcon />}
+                {svc.slug === "growth" && <GrowthIcon />}
+              </div>
+              <span className="font-mono text-[12px] text-[var(--accent)] -mt-[4px]">
                 {svc.index}
               </span>
               <h2 className="font-display font-bold text-[clamp(24px,2.6vw,34px)] leading-[1.08] tracking-[-0.01em]">
