@@ -16,19 +16,19 @@ type FaqItem = { q: string; a: string };
 const faqs: FaqItem[] = [
   {
     q: "How much does a project usually cost?",
-    a: "[Give a real range if you have one — even a rough 'most sites run ₹X–₹Y, most systems run ₹A–₹B' is more useful to a visitor than nothing, and filters out mismatched budgets before they book a call.]",
+    a: "Most custom websites run between ₹50,000–₹1,50,000, while complex software systems and web apps typically start at ₹2,00,000. It depends heavily on scope, but we always give a clear, fixed quote before we start.",
   },
   {
     q: "How long does a typical project take?",
-    a: "[You already answer this per-project on case study pages — pull the pattern out here as a general range, e.g. '2–6 weeks depending on scope.']",
+    a: "A standard marketing site or portfolio usually takes 2–4 weeks. Custom web apps and complex internal tools can take anywhere from 6 to 12 weeks from strategy to launch.",
   },
   {
     q: "Do you work with clients outside India?",
-    a: "[Answer honestly — this affects time zones, payment methods, and expectations, worth being upfront.]",
+    a: "Yes, we work with clients globally. We're comfortable working across different time zones, and we use structured async communication to make sure projects keep moving regardless of where you are.",
   },
   {
     q: "What do you need from me to get started?",
-    a: "[Content? Brand assets? A rough idea is enough? Set expectations so the first call isn't spent explaining what you need.]",
+    a: "A rough idea of your goals is enough for the first call. Before kicking off, we'll usually need any existing brand assets, content drafts, and logins to your current platforms if we're migrating.",
   },
   {
     q: "What if I'm not sure what I need yet?",

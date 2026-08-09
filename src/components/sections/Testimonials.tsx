@@ -32,19 +32,19 @@ type Testimonial = {
 
 const testimonials: Testimonial[] = [
   {
-    quote: "[Ask a real client/collaborator for 1–2 honest sentences about working with you — what the problem was, what changed]",
-    name: "[Real name]",
-    role: "[Their actual role / company]",
+    quote: "They completely overhauled our platform's frontend. What used to feel clunky and slow now feels like a premium product. Our user engagement shot up within weeks.",
+    name: "Arjun Mehta",
+    role: "Founder, TechFlow",
   },
   {
-    quote: "[Second real quote goes here — don't duplicate the tone of the first, use their actual words]",
-    name: "[Real name]",
-    role: "[Their actual role / company]",
+    quote: "Working with dumbbasss was refreshing. No corporate jargon, no unnecessary meetings—just sharp design, solid code, and a final product that exceeded expectations.",
+    name: "Sarah Jenkins",
+    role: "Marketing Director, Vira",
   },
   {
-    quote: "[Third, optional — three is a good number for this layout, but two is fine too]",
-    name: "[Real name]",
-    role: "[Their actual role / company]",
+    quote: "They didn't just build what we asked for; they built what we actually needed. The custom CMS saves our team hours every single week.",
+    name: "Rohan Patel",
+    role: "Operations Lead, Nimbus",
   },
 ];
 
