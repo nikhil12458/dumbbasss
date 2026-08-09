@@ -9,6 +9,7 @@ import AgentationProvider from "@/components/dev/AgentationProvider";
 import SmoothScrolling from "@/components/layout/SmoothScrolling";
 import AmbientGrid from "@/components/layout/AmbientGrid";
 import EasterEgg from "@/components/layout/EasterEgg";
+import IntroLoader from "@/components/animations/IntroLoader";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dumbbasss.vercel.app"),
@@ -57,6 +58,7 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <body className="min-h-full flex flex-col relative">
+        <IntroLoader />
         <SmoothScrolling>
           <AmbientGrid />
           <EasterEgg />

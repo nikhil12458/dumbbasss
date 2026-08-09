@@ -335,3 +335,87 @@ p {
   0%, 49% { opacity: 1; }
   50%, 100% { opacity: 0; }
 }
+
+/* ============================================================
+   INTRO LOADER — ZOOM TO FILL
+   ============================================================ */
+
+@keyframes intro-dance {
+  0%   { transform: translateY(30px) rotate(-12deg) scale(0.7); opacity: 0; }
+  25%  { transform: translateY(-10px) rotate(6deg) scale(1.08); opacity: 1; }
+  45%  { transform: translateY(5px) rotate(-3deg) scale(0.95); opacity: 1; }
+  65%  { transform: translateY(-3px) rotate(1.5deg) scale(1.03); opacity: 1; }
+  80%  { transform: translateY(1px) rotate(-0.5deg) scale(0.99); opacity: 1; }
+  100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+}
+
+
+@keyframes intro-text-zoom-fill {
+  0%   { transform: scale(1); }
+  100% { transform: scale(300); }
+}
+
+@keyframes intro-screen-fade {
+  0%   { opacity: 1; }
+  75%  { opacity: 1; } /* Wait for zoom to finish (0.9s out of 1.2s) */
+  100% { opacity: 0; } /* Then fade out smoothly */
+}
+
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink-900);
+}
+
+.intro-screen[data-phase="reveal"] {
+  /* Total duration 1.2s. Opacity stays 1 until 75%, then fades */
+  animation: intro-screen-fade 1.2s linear forwards;
+}
+
+.intro-word {
+  display: flex;
+  align-items: baseline;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  will-change: transform;
+}
+
+.intro-word[data-phase="reveal"] {
+  /* Accelerate into the camera so it doesn't feel laggy at the end */
+  animation: intro-text-zoom-fill 0.9s cubic-bezier(0.5, 0, 1, 1) forwards;
+}
+
+.intro-letter {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--paper);
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: intro-dance 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.intro-dot {
+  display: inline-block;
+  width: 0.14em;
+  height: 0.14em;
+  border-radius: 50%;
+  background: var(--accent);
+  vertical-align: 0.15em;
+  margin-left: 0.04em;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: intro-dance 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Prevent scroll while intro is active */
+html.intro-active {
+  overflow: hidden !important;
+}
+html.intro-active body {
+  overflow: hidden !important;
+}

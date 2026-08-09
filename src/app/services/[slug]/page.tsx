@@ -4,8 +4,20 @@ import Link from "next/link";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Btn from "@/components/ui/Btn";
-import LinkArrow from "@/components/ui/LinkArrow";
 import SectionTitle from "@/components/ui/SectionTitle";
+import { WebsiteIcon, SoftwareIcon, AiIcon, BusinessSystemsIcon, GrowthIcon } from "@/components/icons/ServiceIcons";
+import { Check } from "lucide-react";
+
+const getServiceIcon = (slug: string) => {
+  switch (slug) {
+    case "websites": return <WebsiteIcon />;
+    case "software": return <SoftwareIcon />;
+    case "ai": return <AiIcon />;
+    case "business-systems": return <BusinessSystemsIcon />;
+    case "growth": return <GrowthIcon />;
+    default: return null;
+  }
+};
 
 export async function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -50,7 +62,12 @@ export default async function ServiceDetail(props: { params: Promise<{ slug: str
       <section className="wrap py-[26px] pb-[70px]">
         <ScrollReveal>
           <Eyebrow accent>— service {service.index} · 05 —</Eyebrow>
-          <h1 className="poster-title text-[clamp(44px,8vw,100px)] leading-[0.94]">{service.title}</h1>
+          <h1 className="poster-title text-[clamp(44px,8vw,100px)] leading-[0.94] flex items-center gap-[24px]">
+            <span className="text-[var(--ink-faint)] [&>svg]:w-[1em] [&>svg]:h-[1em]">
+              {getServiceIcon(service.slug)}
+            </span>
+            {service.title}
+          </h1>
           <p className="mt-[24px] max-w-[600px] text-[16.5px] text-[var(--ink-soft)] leading-[1.75]">
             {service.detail.heroLede}
           </p>
@@ -58,16 +75,15 @@ export default async function ServiceDetail(props: { params: Promise<{ slug: str
       </section>
 
       <section className="wrap py-[70px] border-t border-[var(--line)]">
-        <ScrollReveal className="grid grid-cols-1 md:grid-cols-[0.4fr_1fr] gap-[44px]">
-          <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--ink-faint)]">What this is</div>
-          <p className="text-[16.5px] leading-[1.8] font-light max-w-[58ch] whitespace-pre-wrap">{service.detail.whatIsIt}</p>
-        </ScrollReveal>
-      </section>
-
-      <section className="wrap py-[70px] border-t border-[var(--line)]">
-        <ScrollReveal className="grid grid-cols-1 md:grid-cols-[0.4fr_1fr] gap-[44px]">
-          <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--ink-faint)]">Who it's for</div>
-          <p className="text-[16.5px] leading-[1.8] font-light max-w-[58ch] whitespace-pre-wrap">{service.detail.whoIsItFor}</p>
+        <ScrollReveal className="grid grid-cols-1 md:grid-cols-2 gap-[50px]">
+          <div>
+            <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--ink-faint)] mb-[14px]">What this is</div>
+            <p className="text-[15.5px] leading-[1.8] font-light whitespace-pre-wrap">{service.detail.whatIsIt}</p>
+          </div>
+          <div>
+            <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--ink-faint)] mb-[14px]">Who it's for</div>
+            <p className="text-[15.5px] leading-[1.8] font-light whitespace-pre-wrap">{service.detail.whoIsItFor}</p>
+          </div>
         </ScrollReveal>
       </section>
 
@@ -77,7 +93,10 @@ export default async function ServiceDetail(props: { params: Promise<{ slug: str
           <SectionTitle>Everything from layout to launch.</SectionTitle>
           <div className="mt-[30px] grid grid-cols-1 sm:grid-cols-2 gap-[1px] bg-[var(--line)] border border-[var(--line)]">
             {service.detail.included.map((item, i) => (
-              <div key={i} className="bg-[var(--paper)] p-[22px_24px] text-[14.5px] text-[var(--ink)] flex gap-[12px] items-start before:content-['—'] before:text-[var(--accent)] before:font-mono before:shrink-0">
+              <div key={i} className="bg-[var(--paper)] p-[22px_24px] text-[14.5px] text-[var(--ink)] flex gap-[14px] items-start">
+                <span className="text-[var(--accent)] shrink-0 pt-[2px]">
+                  <Check size={16} strokeWidth={1.5} />
+                </span>
                 {item}
               </div>
             ))}
@@ -89,9 +108,17 @@ export default async function ServiceDetail(props: { params: Promise<{ slug: str
         <ScrollReveal>
           <Eyebrow>— how it works —</Eyebrow>
           <SectionTitle>Same six steps as everything else here.</SectionTitle>
-          <p className="mt-[18px] text-[16.5px] text-[var(--ink-soft)] leading-[1.75] max-w-[600px]">
-            Consultation, scope, design, build, refine, launch — see the full breakdown on the <LinkArrow href="/process" className="inline-flex">process page →</LinkArrow>
-          </p>
+          <Link href="/process" className="mt-[36px] flex items-center gap-0 group max-w-[560px]">
+            {["Consult", "Scope", "Design", "Build", "Refine", "Launch"].map((step, i) => (
+              <div key={step} className="flex items-center flex-1">
+                <div className="flex flex-col items-center gap-[8px] flex-1">
+                  <div className="w-[8px] h-[8px] rounded-full border-[1.5px] border-[var(--ink-faint)] group-hover:border-[var(--accent)] transition-colors" />
+                  <span className="font-mono text-[9px] uppercase tracking-[0.06em] text-[var(--ink-faint)]">{step}</span>
+                </div>
+                {i < 5 && <div className="h-px flex-1 bg-[var(--line)] -mt-[16px]" />}
+              </div>
+            ))}
+          </Link>
         </ScrollReveal>
       </section>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import {
   motion,
   useMotionValue,
@@ -24,17 +24,29 @@ const RING_SIZE: Record<CursorState, number> = {
 export default function CustomCursor() {
   const prefersReducedMotion = useReducedMotion();
   const [ready, setReady] = useState(false);
-  const [active, setActive] = useState(false);
   const [state, setState] = useState<CursorState>("default");
   const [label, setLabel] = useState("");
   const [isText, setIsText] = useState(false);
   const [isDark, setIsDark] = useState(false);
 
+  // Use refs for hot-path values that don't need React re-renders on every
+  // mouse pixel. The `active` flag only controls opacity — a ref + direct
+  // DOM mutation is far cheaper than setState on every pointermove.
+  const activeRef = useRef(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  // Cache last-known values to skip no-op setState calls
+  const lastState = useRef<CursorState>("default");
+  const lastLabel = useRef("");
+  const lastIsText = useRef(false);
+  const lastIsDark = useRef(false);
+  const rafId = useRef(0);
+
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
 
   const springCfg = prefersReducedMotion
-    ? { stiffness: 1000, damping: 100, mass: 0.2 } // effectively rigid, no visible lag
+    ? { stiffness: 1000, damping: 100, mass: 0.2 }
     : { stiffness: 300, damping: 30, mass: 0.5 };
 
   const ringX = useSpring(mx, springCfg);
@@ -56,6 +68,15 @@ export default function CustomCursor() {
   const scaleX = useTransform(stretch, (s) => 1 + s);
   const scaleY = useTransform(stretch, (s) => 1 - s * 0.6);
 
+  // Set opacity directly on the DOM node — no React re-render needed
+  const setActive = useCallback((value: boolean) => {
+    if (activeRef.current === value) return;
+    activeRef.current = value;
+    if (wrapperRef.current) {
+      wrapperRef.current.style.opacity = value && !lastIsText.current ? "1" : "0";
+    }
+  }, []);
+
   // Only ever activate on devices that actually have a real cursor.
   useEffect(() => {
     const mq = window.matchMedia("(pointer: fine) and (hover: hover)");
@@ -68,22 +89,59 @@ export default function CustomCursor() {
   useEffect(() => {
     if (!ready) return;
 
-    const move = (e: PointerEvent) => {
-      mx.set(e.clientX);
-      my.set(e.clientY);
-      setActive(true);
+    // Throttle the DOM-heavy work (closest() walks) to one per frame.
+    // The motion value updates (mx/my) still fire immediately for smooth dot tracking.
+    let lastEvent: PointerEvent | null = null;
+
+    const processFrame = () => {
+      rafId.current = 0;
+      const e = lastEvent;
+      if (!e) return;
 
       const target = (e.target as HTMLElement)?.closest<HTMLElement>("[data-cursor]");
       const rawCursor = target?.dataset.cursor;
-      const next = (rawCursor as CursorState) || "default";
-      
-      setIsText(rawCursor === "text");
-      setState(rawCursor === "text" ? "default" : next);
-      setLabel(target?.dataset.cursorLabel || "");
 
-      // Check if cursor is over a dark section
-      const isOverDark = !!(e.target as HTMLElement)?.closest(".section-dark");
-      setIsDark(isOverDark);
+      // Compute next values
+      const nextIsText = rawCursor === "text";
+      const nextState: CursorState = nextIsText ? "default" : (rawCursor as CursorState) || "default";
+      const nextLabel = target?.dataset.cursorLabel || "";
+      const nextIsDark = !!(e.target as HTMLElement)?.closest(".section-dark");
+
+      // Only trigger React re-renders when something actually changed
+      if (nextState !== lastState.current) {
+        lastState.current = nextState;
+        setState(nextState);
+      }
+      if (nextLabel !== lastLabel.current) {
+        lastLabel.current = nextLabel;
+        setLabel(nextLabel);
+      }
+      if (nextIsText !== lastIsText.current) {
+        lastIsText.current = nextIsText;
+        setIsText(nextIsText);
+        // Update opacity when isText changes
+        if (wrapperRef.current) {
+          wrapperRef.current.style.opacity = activeRef.current && !nextIsText ? "1" : "0";
+        }
+      }
+      if (nextIsDark !== lastIsDark.current) {
+        lastIsDark.current = nextIsDark;
+        setIsDark(nextIsDark);
+      }
+    };
+
+    const move = (e: PointerEvent) => {
+      // Always update position immediately — this drives the spring, not React
+      mx.set(e.clientX);
+      my.set(e.clientY);
+
+      if (!activeRef.current) setActive(true);
+
+      // Batch the expensive DOM queries to one per frame
+      lastEvent = e;
+      if (!rafId.current) {
+        rafId.current = requestAnimationFrame(processFrame);
+      }
     };
 
     const down = () => setState((s) => (s === "drag" ? "grabbing" : s));
@@ -105,8 +163,9 @@ export default function CustomCursor() {
       document.documentElement.removeEventListener("mouseleave", leave);
       document.documentElement.removeEventListener("mouseenter", enter);
       document.documentElement.classList.remove("has-custom-cursor");
+      if (rafId.current) cancelAnimationFrame(rafId.current);
     };
-  }, [ready, mx, my]);
+  }, [ready, mx, my, setActive]);
 
   if (!ready) return null;
 
@@ -115,9 +174,10 @@ export default function CustomCursor() {
 
   return (
     <div
+      ref={wrapperRef}
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 z-[9999] transition-opacity duration-300"
-      style={{ opacity: active && !isText ? 1 : 0 }}
+      style={{ opacity: 0 }}
     >
       <motion.div
         className="absolute rounded-full transition-colors duration-300"

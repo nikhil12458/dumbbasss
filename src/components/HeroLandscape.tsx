@@ -98,6 +98,7 @@ export default function HeroLandscape() {
         src="/home_bg_img.webp"
         alt=""
         fill
+        priority
         sizes="100vw"
         className="object-cover opacity-0 group-data-[hovering=true]:opacity-[1] transition-opacity duration-500 ease-[var(--ease)]"
         style={{
