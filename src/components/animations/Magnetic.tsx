@@ -34,6 +34,7 @@ export default function Magnetic({ children, strength = 18, className = "" }: Ma
   }
 
   const handleMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType === "touch") return;
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();

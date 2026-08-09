@@ -37,15 +37,35 @@ export default function DealLandscape() {
     };
 
     const move = (e: PointerEvent) => {
+      if (e.pointerType === "touch") return;
       pending = { x: e.pageX - rect.left, y: e.pageY - rect.top };
       if (!raf) raf = requestAnimationFrame(apply);
     };
 
-    const enter = () => {
+    const enter = (e: PointerEvent) => {
+      if (e.pointerType === "touch") return;
       el.dataset.hovering = "true";
     };
 
-    const leave = () => {
+    const leave = (e: PointerEvent) => {
+      if (e.pointerType === "touch") return;
+      el.dataset.hovering = "false";
+    };
+
+    const touchStart = (e: TouchEvent) => {
+      el.dataset.hovering = "true";
+      const touch = e.touches[0];
+      pending = { x: touch.pageX - rect.left, y: touch.pageY - rect.top };
+      if (!raf) raf = requestAnimationFrame(apply);
+    };
+
+    const touchMove = (e: TouchEvent) => {
+      const touch = e.touches[0];
+      pending = { x: touch.pageX - rect.left, y: touch.pageY - rect.top };
+      if (!raf) raf = requestAnimationFrame(apply);
+    };
+
+    const touchEnd = () => {
       el.dataset.hovering = "false";
     };
 
@@ -56,12 +76,22 @@ export default function DealLandscape() {
     section.addEventListener("pointerenter", enter);
     section.addEventListener("pointerleave", leave);
     section.addEventListener("pointermove", move, { passive: true });
+    
+    section.addEventListener("touchstart", touchStart, { passive: true });
+    section.addEventListener("touchmove", touchMove, { passive: true });
+    section.addEventListener("touchend", touchEnd);
+    section.addEventListener("touchcancel", touchEnd);
 
     return () => {
       ro.disconnect();
       section.removeEventListener("pointerenter", enter);
       section.removeEventListener("pointerleave", leave);
       section.removeEventListener("pointermove", move);
+      
+      section.removeEventListener("touchstart", touchStart);
+      section.removeEventListener("touchmove", touchMove);
+      section.removeEventListener("touchend", touchEnd);
+      section.removeEventListener("touchcancel", touchEnd);
       cancelAnimationFrame(raf);
     };
   }, []);
