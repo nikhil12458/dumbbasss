@@ -55,7 +55,7 @@ export default function AmbientGrid() {
       className="fixed inset-0 z-0 pointer-events-none"
       style={{
         backgroundImage:
-          "radial-gradient(circle, var(--ink-faint) 1px, transparent 5px)",
+          "radial-gradient(circle, var(--ink-faint) 1px, transparent 3px)",
         backgroundSize: "28px 28px",
         // The grid is nearly invisible everywhere except a soft radius
         // around the cursor — this mask is what makes it feel alive

@@ -2,6 +2,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import ToriiGate from "@/components/animations/ToriiGate";
 import Parallax from "@/components/animations/Parallax";
+import HeroLandscape from "@/components/HeroLandscape";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Btn from "@/components/ui/Btn";
 import LinkArrow from "@/components/ui/LinkArrow";
@@ -38,8 +39,10 @@ export default function Home() {
   return (
     <div className={`${fraunces.variable} contents`}>
       {/* Hero */}
-      <section className="pt-[64px] pb-[40px] relative overflow-hidden">
-        <div className="wrap grid grid-cols-1 md:grid-cols-[0.62fr_1.38fr] gap-0 items-stretch min-h-[640px]">
+      <section className="pt-[64px] pb-[40px] relative overflow-hidden bg-paper">
+        <div className="texture-layer" aria-hidden="true" />
+        <HeroLandscape />
+        <div className="relative z-10 wrap grid grid-cols-1 md:grid-cols-[0.62fr_1.38fr] gap-0 items-stretch min-h-[640px]">
           <div className="hidden md:block relative" aria-hidden="true">
             <Parallax
               offset={100}
