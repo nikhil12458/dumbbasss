@@ -33,9 +33,11 @@ src/
 │       └── [slug]/page.tsx  # 🤖 AI — Dynamic service detail
 ├── components/
 │   ├── animations/
+│   │   ├── IntroLoader.tsx  # 🤖 AI — Cinematic session intro loader
 │   │   ├── KineticWord.tsx  # 🤖 AI — Canvas physics typography wrapper
 │   │   ├── ScrollReveal.tsx # 🤖 AI — Framer Motion scroll reveal
 │   │   └── ToriiGate.tsx    # 🤖 AI — Animated SVG hero illustration
+│   ├── HeroLandscape.tsx    # 🤖 AI — Hero image with priority loading
 │   ├── consultation/
 │   │   ├── ConsultFlow.tsx  # 🤖 AI — Multi-step intake wizard
 │   │   └── ConsultPanel.tsx # 🤖 AI — Floating slide-out panel
@@ -119,6 +121,8 @@ src/
 - `src/app/services/page.tsx` — Services overview
 - `src/app/services/[slug]/page.tsx` — Service detail (dynamic)
 - `src/app/sitemap.ts` — Search engine sitemap
+- `src/components/HeroLandscape.tsx` — Hero image with priority loading
+- `src/components/animations/IntroLoader.tsx` — Cinematic session intro loader
 - `src/components/animations/KineticWord.tsx` — Canvas physics wrapper
 - `src/components/animations/ScrollReveal.tsx` — Framer Motion scroll reveal
 - `src/components/animations/ToriiGate.tsx` — Animated hero illustration

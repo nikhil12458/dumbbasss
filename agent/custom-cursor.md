@@ -66,3 +66,16 @@ The `CustomCursor` component is intrinsically coupled with a few global styles i
 ```
 
 The `.has-custom-cursor` class is automatically added to the `<html>` node when the component mounts successfully on a pointer-enabled device.
+
+## Performance Architecture (Crucial)
+
+To prevent severe browser jank and layout thrashing (since this component fires events constantly on mouse movement), it strictly adheres to a **React-Bypass Performance Model**:
+
+1. **Direct DOM Mutation for High-Frequency Updates**: 
+   Properties like `opacity`, which change rapidly when moving between the window and iframes, are NEVER stored in React state. They are mutated directly via DOM refs (`wrapperRef.current.style.opacity = "1"`).
+
+2. **State Guards**:
+   All React state updates (`setState`, `setLabel`) are guarded by `useRef` caches (e.g., `currentStateRef`, `currentLabelRef`). State is *only* updated if the new value differs from the ref cache. This prevents React from enqueuing useless re-renders when hovering inside a large `data-cursor` block.
+
+3. **RequestAnimationFrame (rAF) Throttling**:
+   Heavy DOM queries like `e.target.closest("[data-cursor]")` or `closest(".section-dark")` are NEVER run directly inside the `pointermove` event handler. They are pushed into a `requestAnimationFrame` loop to ensure they only execute once per frame, preventing event-queue flooding.
