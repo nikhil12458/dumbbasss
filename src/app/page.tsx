@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import ToriiGate from "@/components/animations/ToriiGate";
 import Parallax from "@/components/animations/Parallax";
 import HeroLandscape from "@/components/HeroLandscape";
+import DealLandscape from "@/components/DealLandscape";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Btn from "@/components/ui/Btn";
 import LinkArrow from "@/components/ui/LinkArrow";
@@ -131,8 +132,9 @@ export default function Home() {
       </section>
 
       {/* Dark Stats Section */}
-      <section className="section-dark py-[110px]">
-        <ScrollReveal variant="up-strong" className="wrap">
+      <section className="section-dark py-[110px] relative overflow-hidden">
+        <DealLandscape />
+        <ScrollReveal variant="up-strong" className="relative z-10 wrap">
           <Eyebrow accent>— the deal —</Eyebrow>
           <p className="serif-italic text-[clamp(26px,3.6vw,44px)] leading-[1.5] max-w-[900px]">
             The name gets to be ridiculous.{" "}
