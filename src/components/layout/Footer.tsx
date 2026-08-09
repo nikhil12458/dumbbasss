@@ -27,14 +27,14 @@ export default function Footer() {
           <span className="font-mono text-[10.5px] tracking-[0.12em] uppercase text-[var(--ink-faint)] mb-[4px]">
             Say hello
           </span>
-          <a href="mailto:hello@dumbbasss.studio" className="text-[14px] text-[var(--ink-soft)] hover:text-[var(--ink)] flex items-center">
-            <Mail size={14} className="mr-[8px] opacity-70" /> hello@dumbbasss.studio
+          <a href="mailto:contact@example.com" className="text-[14px] text-[var(--ink-soft)] hover:text-[var(--ink)] flex items-center">
+            <Mail size={14} className="mr-[8px] opacity-70" /> contact@example.com
           </a>
           <a href="#" className="text-[14px] text-[var(--ink-soft)] hover:text-[var(--ink)] flex items-center">
-            <FiInstagram size={14} className="mr-[8px] opacity-70" /> @dumbbasss.studio
+            <FiInstagram size={14} className="mr-[8px] opacity-70" /> @instagram_handle
           </a>
           <a href="#" className="text-[14px] text-[var(--ink-soft)] hover:text-[var(--ink)] flex items-center">
-            <FiGithub size={14} className="mr-[8px] opacity-70" /> dumbbasss
+            <FiGithub size={14} className="mr-[8px] opacity-70" /> github_handle
           </a>
           <div className="mt-[8px]">
             <LinkArrow href="/consultation">

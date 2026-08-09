@@ -38,7 +38,7 @@ export default function Consultation() {
       </ScrollReveal>
 
       <p className="text-center mt-[30px] font-mono text-[11.5px] text-[var(--ink-faint)]">
-        prefer to just talk? <a href="mailto:hello@dumbbasss.studio" className="text-[var(--ink-soft)] border-b border-[var(--line-strong)] pb-px">email us directly</a>
+        prefer to just talk? <a href="mailto:contact@example.com" className="text-[var(--ink-soft)] border-b border-[var(--line-strong)] pb-px">email us directly</a>
       </p>
     </div>
   );

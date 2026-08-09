@@ -44,7 +44,7 @@ export default function Contact() {
             Send a note. A real person reads every message, usually within a day.
           </p>
           <Magnetic>
-            <Btn href="mailto:hello@dumbbasss.studio" variant="filled" className="self-start mt-[8px]" data-cursor="button">Email hello@dumbbasss.studio</Btn>
+            <Btn href="mailto:contact@example.com" variant="filled" className="self-start mt-[8px]" data-cursor="button">Email contact@example.com</Btn>
           </Magnetic>
         </ScrollReveal>
         
@@ -66,14 +66,14 @@ export default function Contact() {
         <ScrollReveal className="contents">
           <div>
             <div className="font-mono text-[10.5px] tracking-[0.12em] uppercase text-[var(--ink-faint)] mb-[10px]">Email</div>
-            <a href="mailto:hello@dumbbasss.studio" className="font-display text-[19px] font-medium border-b border-[var(--line-strong)] pb-[4px] hover:border-[var(--ink)] transition-colors" data-cursor="link">
-              hello@dumbbasss.studio
+            <a href="mailto:contact@example.com" className="font-display text-[19px] font-medium border-b border-[var(--line-strong)] pb-[4px] hover:border-[var(--ink)] transition-colors" data-cursor="link">
+              contact@example.com
             </a>
           </div>
           <div>
             <div className="font-mono text-[10.5px] tracking-[0.12em] uppercase text-[var(--ink-faint)] mb-[10px]">Instagram</div>
             <a href="#" className="font-display text-[19px] font-medium border-b border-[var(--line-strong)] pb-[4px] hover:border-[var(--ink)] transition-colors" data-cursor="link">
-              @dumbbasss.studio
+              @instagram_handle
             </a>
           </div>
           <div>

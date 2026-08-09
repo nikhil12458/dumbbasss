@@ -63,7 +63,7 @@ export default function ConsultFlow() {
     const bodyText = encodeURIComponent(
       STEPS.map(s => `${s.q}\n${answers[s.key] || '—'}`).join('\n\n')
     );
-    return `mailto:hello@dumbbasss.studio?subject=${subject}&body=${bodyText}`;
+    return `mailto:contact@example.com?subject=${subject}&body=${bodyText}`;
   };
 
   return (
