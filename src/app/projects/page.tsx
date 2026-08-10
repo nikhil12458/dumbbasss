@@ -1,5 +1,6 @@
 import { projects } from "@/data/projects";
 import Link from "next/link";
+import Image from "next/image";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Eyebrow from "@/components/ui/Eyebrow";
 import TagRow from "@/components/ui/TagRow";
@@ -65,10 +66,12 @@ export default function ProjectsArchive() {
                 <article className={`border-t border-[var(--line)] py-[64px] grid gap-[40px] ${layoutClass} ${i === projects.length - 1 ? 'border-b border-[var(--line)]' : ''}`}>
                 <div className={`relative bg-gradient-to-br from-[var(--paper-deep)] to-[var(--paper)] border border-[var(--line)] overflow-hidden ${visualClass}`}>
                   {proj.images?.[0] && (
-                    <img 
+                    <Image 
                       src={proj.images[0]} 
                       alt={proj.title} 
-                      className="absolute inset-0 w-full h-full object-cover grayscale mix-blend-luminosity opacity-40 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover grayscale mix-blend-luminosity opacity-40 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0"
                     />
                   )}
                 </div>

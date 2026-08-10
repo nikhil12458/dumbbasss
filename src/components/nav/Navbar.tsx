@@ -5,6 +5,15 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const NAV_LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/projects", label: "Projects" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/process", label: "Process" },
+  { href: "/contact", label: "Contact" },
+] as const;
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -25,12 +34,9 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-[34px]">
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/projects">Projects</NavLink>
-          <NavLink href="/services">Services</NavLink>
-          <NavLink href="/about">About</NavLink>
-          <NavLink href="/process">Process</NavLink>
-          <NavLink href="/contact">Contact</NavLink>
+          {NAV_LINKS.map(({ href, label }) => (
+            <NavLink key={href} href={href}>{label}</NavLink>
+          ))}
         </nav>
 
         {/* Mobile Toggle */}
@@ -67,12 +73,11 @@ const Navbar = () => {
             transition={{ duration: 0.3, ease: [0.65, 0, 0.35, 1] }}
             className="md:hidden absolute top-[74px] left-0 right-0 bg-[var(--paper)] px-[var(--gutter)] pb-[26px] pt-[10px] flex flex-col gap-[18px] border-b-[1px] border-[var(--line)] overflow-hidden"
           >
-            <div onClick={closeMenu}><NavLink href="/">Home</NavLink></div>
-            <div onClick={closeMenu}><NavLink href="/projects">Projects</NavLink></div>
-            <div onClick={closeMenu}><NavLink href="/services">Services</NavLink></div>
-            <div onClick={closeMenu}><NavLink href="/about">About</NavLink></div>
-            <div onClick={closeMenu}><NavLink href="/process">Process</NavLink></div>
-            <div onClick={closeMenu}><NavLink href="/contact">Contact</NavLink></div>
+            {NAV_LINKS.map(({ href, label }) => (
+              <div key={href} onClick={closeMenu}>
+                <NavLink href={href}>{label}</NavLink>
+              </div>
+            ))}
           </motion.nav>
         )}
       </AnimatePresence>

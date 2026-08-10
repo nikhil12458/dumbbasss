@@ -2,6 +2,7 @@ import {
   Inter,
   Space_Grotesk,
   JetBrains_Mono,
+  Fraunces,
 } from "next/font/google";
 
 export const inter = Inter({
@@ -22,5 +23,13 @@ export const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   variable: "--font-jetbrains-mono",
+  display: "swap",
+});
+
+export const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-fraunces",
   display: "swap",
 });

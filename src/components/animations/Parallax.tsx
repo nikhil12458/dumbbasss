@@ -1,7 +1,9 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, type UseScrollOptions } from "framer-motion";
+
+type ScrollOffset = NonNullable<UseScrollOptions["offset"]>[number];
 
 export default function Parallax({
   children,
@@ -13,8 +15,8 @@ export default function Parallax({
   children: React.ReactNode;
   offset?: number;
   className?: string;
-  startScroll?: any;
-  endScroll?: any;
+  startScroll?: ScrollOffset;
+  endScroll?: ScrollOffset;
 }) {
   const ref = useRef(null);
   

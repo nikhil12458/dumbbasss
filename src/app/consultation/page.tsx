@@ -1,6 +1,5 @@
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Eyebrow from "@/components/ui/Eyebrow";
-import Link from "next/link";
 import ConsultFlow from "@/components/consultation/ConsultFlow";
 
 export const metadata = {

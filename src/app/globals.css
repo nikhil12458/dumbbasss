@@ -81,9 +81,7 @@
   box-sizing: border-box;
 }
 
-html {
-  /* scroll-behavior is handled by Lenis */
-}
+/* scroll-behavior is handled by Lenis */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

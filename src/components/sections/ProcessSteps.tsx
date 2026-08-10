@@ -1,9 +1,16 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 
-const steps = [
+type Step = {
+  num: string;
+  title: string;
+  desc: string;
+  output: string;
+};
+
+const steps: Step[] = [
   {
     num: "01",
     title: "Consultation",
@@ -42,7 +49,7 @@ const steps = [
   }
 ];
 
-function StepItem({ step, i, totalSteps, scrollYProgress }: { step: any, i: number, totalSteps: number, scrollYProgress: any }) {
+function StepItem({ step, i, totalSteps, scrollYProgress }: { step: Step; i: number; totalSteps: number; scrollYProgress: MotionValue<number> }) {
   const start = i / totalSteps;
   const end = (i + 1) / totalSteps;
   

@@ -1,6 +1,8 @@
 // Same visual grammar as SectionDivider: 1.4px stroke, var(--ink-faint),
 // rounded caps, no fill. One consistent hand, five marks.
 
+import React from "react";
+
 export const WebsiteIcon = () => (
   <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
     <rect x="2" y="4" width="18" height="14" rx="1" stroke="currentColor" strokeWidth="1.4" />
@@ -41,3 +43,17 @@ export const GrowthIcon = () => (
     <path d="M14 4 L20 4 L20 10" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
+
+const SERVICE_ICONS: Record<string, React.FC> = {
+  websites: WebsiteIcon,
+  software: SoftwareIcon,
+  ai: AiIcon,
+  "business-systems": BusinessSystemsIcon,
+  growth: GrowthIcon,
+};
+
+/** Lookup a service icon by slug. Returns null for unknown slugs. */
+export function getServiceIcon(slug: string): React.ReactNode {
+  const Icon = SERVICE_ICONS[slug];
+  return Icon ? <Icon /> : null;
+}

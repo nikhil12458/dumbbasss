@@ -1,8 +1,7 @@
 import { MetadataRoute } from 'next';
 import { projects } from '../data/projects';
 import { services } from '../data/services';
-
-const BASE_URL = 'https://dumbbasss.com';
+import { BASE_URL } from '@/constants';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [

@@ -5,19 +5,10 @@ import ScrollReveal from "@/components/animations/ScrollReveal";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Btn from "@/components/ui/Btn";
 import SectionTitle from "@/components/ui/SectionTitle";
-import { WebsiteIcon, SoftwareIcon, AiIcon, BusinessSystemsIcon, GrowthIcon } from "@/components/icons/ServiceIcons";
+import { getServiceIcon } from "@/components/icons/ServiceIcons";
 import { Check } from "lucide-react";
 
-const getServiceIcon = (slug: string) => {
-  switch (slug) {
-    case "websites": return <WebsiteIcon />;
-    case "software": return <SoftwareIcon />;
-    case "ai": return <AiIcon />;
-    case "business-systems": return <BusinessSystemsIcon />;
-    case "growth": return <GrowthIcon />;
-    default: return null;
-  }
-};
+
 
 export async function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));

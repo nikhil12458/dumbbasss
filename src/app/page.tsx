@@ -9,28 +9,14 @@ import Btn from "@/components/ui/Btn";
 import LinkArrow from "@/components/ui/LinkArrow";
 import Eyebrow from "@/components/ui/Eyebrow";
 import SectionTitle from "@/components/ui/SectionTitle";
-import { Fraunces } from "next/font/google";
+import { fraunces } from "@/app/font";
 import { services } from "@/data/services";
 import { projects } from "@/data/projects";
 import Faq from "@/components/sections/Faq";
 import Testimonials from "@/components/sections/Testimonials";
 import AnimatedNumber from "@/components/animations/AnimatedNumber";
 import Magnetic from "@/components/animations/Magnetic";
-import {
-  WebsiteIcon,
-  SoftwareIcon,
-  AiIcon,
-  BusinessSystemsIcon,
-  GrowthIcon,
-} from "@/components/icons/ServiceIcons";
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-fraunces",
-  display: "swap",
-});
+import { getServiceIcon } from "@/components/icons/ServiceIcons";
 
 const KineticWord = dynamic(
   () => import("@/components/animations/KineticWord"),
@@ -108,13 +94,7 @@ export default function Home() {
                 className={`group p-[30px_22px] border-b border-[var(--line)] transition-colors duration-300 ease-[var(--ease)] hover:bg-[var(--paper-deep)] ${i < 4 ? "md:border-r" : ""}`}
               >
                 <div className="text-[var(--ink-faint)] transition-colors duration-300 group-hover:text-[var(--accent)] mb-[12px]">
-                  {service.slug === "websites" && <WebsiteIcon />}
-                  {service.slug === "software" && <SoftwareIcon />}
-                  {service.slug === "ai" && <AiIcon />}
-                  {service.slug === "business-systems" && (
-                    <BusinessSystemsIcon />
-                  )}
-                  {service.slug === "growth" && <GrowthIcon />}
+                  {getServiceIcon(service.slug)}
                 </div>
                 <span className="font-mono text-[11px] text-[var(--accent)]">
                   {service.index}

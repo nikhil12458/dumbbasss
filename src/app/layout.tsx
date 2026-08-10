@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Analytics } from '@vercel/analytics/next';
+import { BASE_URL } from "@/constants";
 import "./globals.css";
 import Navbar from "@/components/nav/Navbar";
 import Footer from "@/components/layout/Footer";
 import ConsultPanel from "@/components/consultation/ConsultPanel";
 import CustomCursor from "@/components/cursor/CustomCursor";
-import { inter, spaceGrotesk, jetbrainsMono } from "@/app/font";
+import { inter, spaceGrotesk, jetbrainsMono, fraunces } from "@/app/font";
 import AgentationProvider from "@/components/dev/AgentationProvider";
 import SmoothScrolling from "@/components/layout/SmoothScrolling";
 import AmbientGrid from "@/components/layout/AmbientGrid";
@@ -13,7 +14,7 @@ import EasterEgg from "@/components/layout/EasterEgg";
 import IntroLoader from "@/components/animations/IntroLoader";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://dumbbasss.vercel.app"),
+  metadataBase: new URL(BASE_URL),
   title: {
     template: "%s | dumbbasss",
     default: "dumbbasss — a very serious studio, unseriously named",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "dumbbasss — a very serious studio, unseriously named",
     description: "A small studio building websites, software, and AI systems.",
-    url: "https://dumbbasss.vercel.app",
+    url: BASE_URL,
     siteName: "dumbbasss studio",
     images: [
       {
@@ -56,7 +57,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${fraunces.variable}`}
     >
       <body className="min-h-full flex flex-col relative">
         <IntroLoader />

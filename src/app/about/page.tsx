@@ -2,6 +2,7 @@ import ScrollReveal from "@/components/animations/ScrollReveal";
 import KineticWord from "@/components/animations/KineticWord";
 import Eyebrow from "@/components/ui/Eyebrow";
 import SectionTitle from "@/components/ui/SectionTitle";
+import Image from "next/image";
 import { Check, X } from "lucide-react";
 
 export const metadata = {
@@ -77,7 +78,7 @@ export default function About() {
       <section className="wrap pb-[80px]">
         <ScrollReveal>
           <div className="w-full aspect-[16/9] md:aspect-[2.5/1] bg-[var(--surface-sunken)] rounded-xl overflow-hidden relative border border-[var(--line)]">
-            <img src="/founder.png" alt="Founder" className="w-full h-full object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700" />
+            <Image src="/founder.png" alt="Founder" fill className="object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700" sizes="(max-width: 768px) 100vw, 920px" />
           </div>
         </ScrollReveal>
       </section>

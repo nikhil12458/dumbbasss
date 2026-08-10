@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
+import { BASE_URL } from '@/constants';
 
 export default function robots(): MetadataRoute.Robots {
-  const BASE_URL = 'https://dumbbasss.com';
 
   return {
     rules: {
