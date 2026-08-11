@@ -115,7 +115,7 @@ An automated image slideshow component built with Framer Motion, used for projec
 
 ## SectionDivider.tsx
 
-A standardized visual separator used between major sections of a page.
+A stylized hairline rule broken by a small inline SVG torii gate symbol in the center, used to divide major content sections.
 
 ### Props
 
@@ -124,37 +124,41 @@ A standardized visual separator used between major sections of a page.
 | `className` | `string?` | Additional classes |
 
 ### Behavior
-Renders a full-width container with a top border (`border-[var(--line)]`). Typically used to add visual structure to pages lacking illustrations or heavy background changes.
+Renders a horizontal rule built with flex layout, thin hairlines (`h-px bg-[var(--line)]`), and a custom center SVG drawing (`28x16` viewbox) replicating the Torii Gate motif in a minimal wireframe style. Set with `aria-hidden="true"`.
 
 ---
 
 ## TechTag.tsx
 
-A small visual indicator for a specific technology, featuring an icon and a label.
+A technology badge that displays a specific brand name along with its official brand logo.
 
 ### Props
 
 | Prop | Type | Description |
 |------|------|-------------|
-| `icon` | `React.ElementType` | The SVG icon component (e.g., from `lucide-react` or `react-icons`) |
-| `label` | `string` | The text label for the technology |
-| `className` | `string?` | Additional classes |
+| `tag` | `string` | The technology brand name (e.g., `"Kotlin"`, `"TypeScript"`, `"React"`) |
 
 ### Behavior
-Renders a small flex pill with a dashed border (`border-[var(--line-strong)]`) and soft ink text. Designed to fit inline within service descriptions or project spec lists.
+- Renders a small inline flex pill with a solid border (`border-[var(--line-strong)]`) and soft ink text.
+- Maps the `tag` string to its respective React Simple Icon (e.g., `SiKotlin` for `"Kotlin"`, `SiReact` for `"React"`) using an internal `ICON_MAP`.
+- Renders only the text label if the brand does not exist in `ICON_MAP`.
 
 ---
 
 ## AnimatedNumber.tsx
 
-A number that animates (counts up) from zero to its target value when it scrolls into the viewport.
+A custom number counter ticker that animates from `0` to its target value once scrolled into the viewport.
 
 ### Props
 
 | Prop | Type | Description |
 |------|------|-------------|
-| `value` | `number \| string` | The target value. If a string (e.g., "40+"), it parses the number for animation and appends the non-numeric suffix ("+") automatically. |
+| `value` | `string` | The string value to animate (e.g., `"40+"`, `"100%"`, `"0"`). |
+| `duration` | `number?` | The animation length in seconds. Defaults to `1.1`. |
 | `className` | `string?` | Additional classes |
 
 ### Behavior
-Uses `framer-motion`'s `useInView` and `animate()` to tween a numeric state from 0 to the parsed target value over a spring physics duration. Can handle raw numbers or suffixed strings like `15x` or `40+`.
+- Uses Framer Motion's `useInView` to trigger the count-up sequence once.
+- Parses the target string using regex `^(\D*)(\d+)(\D*)$` to isolate prefixes, target numbers, and suffixes (e.g. `100` and `%` from `100%`).
+- Tweens the count-up frame by frame using `requestAnimationFrame` and an `easeOutExpo` timing curve.
+- Hides the animation and outputs the raw value instantly if `useReducedMotion()` returns true.

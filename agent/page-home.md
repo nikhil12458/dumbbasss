@@ -13,9 +13,10 @@ The landing page of the site — the first thing visitors see.
 ## Sections
 
 ### 1. Hero
-- Left column: `<ToriiGate />` animated SVG illustration (desktop only)
+- Left column: `<ToriiGate />` animated SVG illustration wrapped in a `<Parallax>` container (desktop only)
 - Right column: mono tagline → KineticWord canvas → subtitle → two CTAs
 - Bottom-left: "grab a letter" hint
+- Background: `<HeroLandscape />` component overlaying a radial gradient mask centered at the cursor coordinates.
 - **Note:** The `KineticWord` component is lazily loaded via `next/dynamic` to ensure a rapid First Contentful Paint.
 
 ### 2. Services Preview ("Five ways in")
@@ -26,13 +27,15 @@ The landing page of the site — the first thing visitors see.
 ### 3. Dark Stats Section ("The deal")
 - `.section-dark` inverted palette
 - Serif italic pull quote with accent highlight
-- Three stat blocks: "40+ screens shipped", "100% self-taught", "0 ten-slide decks"
+- Background: `<DealLandscape />` component overlaying a radial gradient mask of Mount Fuji centered at the cursor coordinates.
+- Three stat blocks: "0 templates", "0 unnecessary meetings", "0 buzzwords" with `<AnimatedNumber />` tickers.
 
 ### 4. Projects Preview ("A few recent ones")
 - 2-column grid showing recent work
 - Dynamically populated by slicing the first 2 entries from `src/data/projects.ts`
 - Hover: background scale-up effect
 - "See the full archive" link
+
 
 ### 5. Testimonials ("Kind words")
 - 3-column hanging kakemono-card layout swaying gently

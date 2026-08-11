@@ -18,6 +18,7 @@ src/
 │   ├── font.ts             # 👤 User — Google Fonts config
 │   ├── globals.css          # 🤖 AI — Design system tokens & shared styles
 │   ├── layout.tsx           # 🤖 AI — Root layout (metadata, fonts, chrome)
+│   ├── not-found.tsx        # 🤖 AI — 404 page
 │   ├── page.tsx             # 🤖 AI — Home page
 │   ├── robots.ts            # 🤖 AI — Search engine indexing config
 │   ├── sitemap.ts           # 🤖 AI — Search engine XML sitemap
@@ -32,12 +33,16 @@ src/
 │       ├── page.tsx         # 🤖 AI — Services overview
 │       └── [slug]/page.tsx  # 🤖 AI — Dynamic service detail
 ├── components/
+│   ├── DealLandscape.tsx    # 🤖 AI — Dark section image with cursor mask
+│   ├── HeroLandscape.tsx    # 🤖 AI — Hero image with priority loading
 │   ├── animations/
+│   │   ├── AnimatedNumber.tsx # 🤖 AI — Animated ticker number
 │   │   ├── IntroLoader.tsx  # 🤖 AI — Cinematic session intro loader
 │   │   ├── KineticWord.tsx  # 🤖 AI — Canvas physics typography wrapper
+│   │   ├── Magnetic.tsx     # 🤖 AI — Magnetic pull wrapper
+│   │   ├── Parallax.tsx     # 🤖 AI — Scroll parallax wrapper
 │   │   ├── ScrollReveal.tsx # 🤖 AI — Framer Motion scroll reveal
 │   │   └── ToriiGate.tsx    # 🤖 AI — Animated SVG hero illustration
-│   ├── HeroLandscape.tsx    # 🤖 AI — Hero image with priority loading
 │   ├── consultation/
 │   │   ├── ConsultFlow.tsx  # 🤖 AI — Multi-step intake wizard
 │   │   └── ConsultPanel.tsx # 🤖 AI — Floating slide-out panel
@@ -45,23 +50,36 @@ src/
 │   │   └── CustomCursor.tsx # 🤖 AI — Custom cursor component
 │   ├── dev/
 │   │   └── AgentationProvider.tsx # 🤖 AI — Development wrapper
+│   ├── icons/
+│   │   └── ServiceIcons.tsx # 🤖 AI — Custom inline raw SVGs for services
 │   ├── layout/
-│   │   └── Footer.tsx       # 🤖 AI — Site footer
-│   ├── nav/
-│   │   └── Navbar.tsx       # 🤖 AI (upgraded from 👤 User original)
+│   │   ├── AmbientGrid.tsx  # 🤖 AI — spotlight dot grid background
+│   │   ├── EasterEgg.tsx    # 🤖 AI — Easter egg triggers and hints
+│   │   ├── Footer.tsx       # 🤖 AI — Site footer
+│   │   └── SmoothScrolling.tsx # 🤖 AI — Lenis scroll wrapper
+│   ├── sections/
+│   │   ├── Faq.tsx          # 🤖 AI — FAQ accordion section
+│   │   ├── ProcessSteps.tsx # 🤖 AI — Pinned timeline slider section
+│   │   └── Testimonials.tsx # 🤖 AI — Swaying testimonial cards section
 │   └── ui/
 │       ├── Btn.tsx          # 🤖 AI — Button component
 │       ├── Eyebrow.tsx      # 🤖 AI — Section eyebrow label
 │       ├── LinkArrow.tsx    # 🤖 AI — Animated link arrow
 │       ├── ProjectCarousel.tsx # 🤖 AI — Project image slideshow
+│       ├── SectionDivider.tsx # 🤖 AI — Reusable section divider with SVG
 │       ├── SectionTitle.tsx # 🤖 AI — Reusable section heading
-│       └── TagRow.tsx       # 🤖 AI — Tag/chip row
+│       ├── TagRow.tsx       # 🤖 AI — Tag/chip row
+│       └── TechTag.tsx      # 🤖 AI — Technical stack badge with icon
 ├── data/
 │   ├── projects.ts          # 🤖 AI — Typed project data (6 entries)
 │   └── services.ts          # 🤖 AI — Typed service data (5 entries)
-└── utils/
-    ├── Navlink.tsx          # 👤 User — Active-link navigation component
-    └── kinetic-type.ts      # 🤖 AI & 👤 User — Ported Verlet physics engine
+├── hooks/
+│   └── useCursorReveal.ts   # 🤖 AI — Spotlight reveal cursor coordinates tracker
+├── utils/
+│   ├── cn.ts                # 🤖 AI — Tailwind merge utility
+│   ├── Navlink.tsx          # 👤 User — Active-link navigation component
+│   └── kinetic-type.ts      # 🤖 AI & 👤 User — Ported Verlet physics engine
+├── constants.ts             # 🤖 AI — Canonical base URL
 ```
 
 ---
@@ -108,8 +126,10 @@ src/
 - `src/utils/Navlink.tsx` — NavLink active-state component
 
 ### 🤖 AI-generated files
+- `src/constants.ts` — Canonical base URL
 - `src/app/globals.css` — Design system
 - `src/app/layout.tsx` — Root layout
+- `src/app/not-found.tsx` — 404 page
 - `src/app/page.tsx` — Home page
 - `src/app/about/page.tsx` — About page
 - `src/app/contact/page.tsx` — Contact page
@@ -122,24 +142,36 @@ src/
 - `src/app/services/[slug]/page.tsx` — Service detail (dynamic)
 - `src/app/sitemap.ts` — Search engine sitemap
 - `src/components/HeroLandscape.tsx` — Hero image with priority loading
+- `src/components/DealLandscape.tsx` — Deal landscape image reveal mask
+- `src/components/animations/AnimatedNumber.tsx` — Animated ticker number
 - `src/components/animations/IntroLoader.tsx` — Cinematic session intro loader
 - `src/components/animations/KineticWord.tsx` — Canvas physics wrapper
+- `src/components/animations/Magnetic.tsx` — Magnetic hover pull wrapper
+- `src/components/animations/Parallax.tsx` — Scroll parallax wrapper
 - `src/components/animations/ScrollReveal.tsx` — Framer Motion scroll reveal
 - `src/components/animations/ToriiGate.tsx` — Animated hero illustration
 - `src/components/consultation/ConsultFlow.tsx` — Intake wizard
 - `src/components/consultation/ConsultPanel.tsx` — Floating panel
 - `src/components/cursor/CustomCursor.tsx` — Custom cursor component
 - `src/components/dev/AgentationProvider.tsx` — Development wrapper
+- `src/components/icons/ServiceIcons.tsx` — Service inline raw SVGs
+- `src/components/layout/AmbientGrid.tsx` — Ambient spotlight grid
+- `src/components/layout/EasterEgg.tsx` — Easter egg listeners and cursor hint
 - `src/components/layout/Footer.tsx` — Footer
-- `src/components/nav/Navbar.tsx` — Navbar (upgraded from user original)
+- `src/components/layout/SmoothScrolling.tsx` — Lenis scroll provider
+- `src/components/sections/Faq.tsx` — Accordion FAQ
+- `src/components/sections/ProcessSteps.tsx` — Scroll timeline process steps
+- `src/components/sections/Testimonials.tsx` — Swaying testimonials kakemono
 - `src/components/ui/Btn.tsx` — Button
 - `src/components/ui/Eyebrow.tsx` — Eyebrow label
 - `src/components/ui/LinkArrow.tsx` — Arrow link
 - `src/components/ui/ProjectCarousel.tsx` — Image carousel
+- `src/components/ui/SectionDivider.tsx` — Torii symbol hairline divider
 - `src/components/ui/SectionTitle.tsx` — Section title
 - `src/components/ui/TagRow.tsx` — Tag row
-- `src/data/projects.ts` — Project data
-- `src/data/services.ts` — Service data
+- `src/components/ui/TechTag.tsx` — Technology logo badge
+- `src/hooks/useCursorReveal.ts` — Page spotlight coords hook
+- `src/utils/cn.ts` — Style class merger helper
 
 ### 🤖 AI & 👤 User (Collaborative)
 - `src/utils/kinetic-type.ts` — Physics engine (Base ported by AI, Physics tweaked by user)

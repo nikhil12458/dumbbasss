@@ -23,4 +23,10 @@ The root layout wrapping every page. It provides the HTML skeleton, font class i
 - `@/components/consultation/ConsultPanel`
 - `@/components/dev/AgentationProvider`
 - `@/components/layout/SmoothScrolling`
+- `@/components/layout/AmbientGrid`
+- `@/components/layout/EasterEgg`
+- `@/components/animations/IntroLoader`
+- `@/components/cursor/CustomCursor`
 - `@/app/font` (Inter, Space Grotesk, JetBrains Mono, Fraunces)
+- `@vercel/analytics/next`
+

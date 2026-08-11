@@ -23,5 +23,6 @@ All fonts use `display: "swap"` and the `"latin"` subset.
 
 ## Usage Notes
 
-- `inter`, `spaceGrotesk`, and `jetbrainsMono` are injected globally in `src/app/layout.tsx`.
-- `fraunces` is instantiated and injected only in `src/app/page.tsx` to optimize performance on secondary pages.
+- All four fonts (`inter`, `spaceGrotesk`, `jetbrainsMono`, and `fraunces`) are configured in `font.ts` and loaded globally at the root layout level in `src/app/layout.tsx`.
+- They are applied to the `<html>` element using Next.js variable classes (e.g. `${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${fraunces.variable}`).
+

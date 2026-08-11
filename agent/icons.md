@@ -17,9 +17,11 @@ The site strictly uses "thin single-stroke line" icons (1.4px to 1.5px stroke we
 
 ## ServiceIcons.tsx
 
-A specialized component (`src/components/icons/ServiceIcons.tsx`) that exports semantic icon wrappers for the Services section.
+A specialized module (`src/components/icons/ServiceIcons.tsx`) that exports custom SVG components tailored for each service type: Websites, Software, AI, Business Systems, and Growth.
 
 ### Features
-- Pre-configured with the standard `strokeWidth={1.5}` and `size={24}`.
-- Colors mapped to `text-[var(--ink-faint)]` by default.
-- Uses `lucide-react` for all structural services (Websites, Software, AI, Design).
+- Implements custom inline SVG elements with a uniform `1.4px` stroke width, matching the site's thin hairline aesthetic.
+- Color set to inherit (`currentColor`) so they automatically adapt to parent styles.
+- Avoids external dependencies like `lucide-react` or `react-icons` for service sections, optimizing load times and visual consistency.
+- Includes a `getServiceIcon(slug)` helper to dynamically load service icons based on string identifiers.
+

@@ -25,8 +25,10 @@ import Btn from "@/components/ui/Btn";
 
 ## Behavior
 
-- Hooks into `onMouseMove` and `onMouseLeave`.
+- Hooks into `onPointerMove` and `onPointerLeave` for touch/pointer compatibility.
+- Ignores touch movements directly via `e.pointerType === "touch"`.
 - Calculates the bounding client rect of the wrapped element.
-- Derives a `clientX` and `clientY` offset from the center of the element.
-- Translates the element via `motion.div` slightly towards the cursor using a spring animation (`type: "spring", stiffness: 150, damping: 15, mass: 0.1`).
-- Instantly snaps back to `x: 0, y: 0` on mouse leave.
+- Derives a `clientX` and `clientY` offset relative to the center of the element.
+- Translates the element via `motion.div` slightly towards the cursor using standard Framer Motion springs (`stiffness: 200, damping: 18, mass: 0.4`).
+- Instantly returns to `x: 0, y: 0` on pointer leave.
+
