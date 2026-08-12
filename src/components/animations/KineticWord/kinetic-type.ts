@@ -462,8 +462,10 @@ export function mountKineticWord(
     private down(e: PointerEvent) {
       if (e.target !== this.canvas) return;
       this.setMouse(e);
+      const isTouch = e.pointerType === "touch" || (typeof window !== "undefined" && window.innerWidth < 640);
+      const radius = isTouch ? Math.max(this.cfg.grabRadius, 32) : this.cfg.grabRadius;
       for (const p of this.particles) {
-        if (this.mouse.subtractNew(p.pos).length < this.cfg.grabRadius) {
+        if (this.mouse.subtractNew(p.pos).length < radius) {
           this.grabbed = p;
           this.grabbed._wasPinned = p.pinned;
           p.pinned = true;

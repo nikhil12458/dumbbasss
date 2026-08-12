@@ -26,10 +26,10 @@ export default function Home() {
   return (
     <div className={`${fraunces.variable} contents`}>
       {/* Hero */}
-      <section className="pt-[64px] pb-[40px] relative overflow-hidden bg-paper">
+      <section className="pt-[24px] sm:pt-[64px] pb-[40px] relative overflow-hidden bg-paper">
         <div className="texture-layer" aria-hidden="true" />
         <HeroLandscape />
-        <div className="relative z-10 wrap grid grid-cols-1 md:grid-cols-[0.62fr_1.38fr] gap-0 items-stretch min-h-[640px]">
+        <div className="relative z-10 wrap grid grid-cols-1 md:grid-cols-[0.62fr_1.38fr] gap-0 items-stretch min-h-[460px] md:min-h-[640px]">
           <div className="hidden md:block relative" aria-hidden="true">
             <Parallax
               offset={100}
@@ -45,7 +45,7 @@ export default function Home() {
               an unserious name, a very serious studio
             </p>
 
-            <ScrollReveal className="w-full max-w-[760px] h-[230px] md:h-[280px]">
+            <ScrollReveal className="w-full max-w-[760px] h-[190px] sm:h-[230px] md:h-[280px]">
               <div
                 data-cursor="drag"
                 data-cursor-label="Drag"
@@ -74,7 +74,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <p className="absolute left-[var(--gutter)] bottom-[14px] font-mono text-[10.5px] tracking-[0.1em] uppercase text-[var(--ink-faint)]">
+        <p className="absolute left-[var(--gutter)] right-[140px] sm:right-auto bottom-[70px] sm:bottom-[14px] font-mono text-[10.5px] tracking-[0.1em] uppercase text-[var(--ink-faint)]">
           grab a letter — it doesn't mind
         </p>
       </section>

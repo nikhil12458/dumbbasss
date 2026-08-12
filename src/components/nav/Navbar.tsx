@@ -41,7 +41,7 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden flex flex-col gap-[5px] bg-transparent border-none cursor-pointer p-[8px]"
+          className="md:hidden flex flex-col gap-[5px] items-center justify-center bg-transparent border-none cursor-pointer min-w-[44px] min-h-[44px]"
           onClick={toggleMenu}
           aria-label="Toggle menu"
           aria-expanded={isOpen}
