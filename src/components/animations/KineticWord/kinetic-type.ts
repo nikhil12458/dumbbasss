@@ -1,17 +1,5 @@
 import type { KineticWordOptions, KineticWordInstance } from "./types";
 
-/**
- * kinetic-type — samples a word set in a large display font into a grid of
- * "lit" pixels, builds a particle for each lit cell, connects neighboring
- * particles with distance constraints (a cloth-like mesh), and pins the
- * topmost particle in each column. The result: the word hangs from its own
- * silhouette and can sway, drift, and be dragged, while a spring-back force
- * keeps it legible instead of collapsing under gravity.
- *
- * This file has zero framework dependencies — it's plain DOM + Canvas 2D.
- * See KineticWord.tsx for the React wrapper.
- */
-
 export function smoothstep(edge0: number, edge1: number, x: number): number {
   const t = Math.min(1, Math.max(0, (x - edge0) / (edge1 - edge0)));
   return t * t * (3 - 2 * t);
@@ -48,7 +36,10 @@ const DEFAULTS: ResolvedOptions = {
 };
 
 class Vec2 {
-  constructor(public x = 0, public y = 0) {}
+  constructor(
+    public x = 0,
+    public y = 0,
+  ) {}
   reset(x = 0, y = 0) {
     this.x = x;
     this.y = y;
@@ -231,7 +222,9 @@ export function mountKineticWord(
   let lastDelta = 0;
   let timeAccumulator = 0;
   let loadWobbleTimer: ReturnType<typeof setTimeout> | undefined;
-  const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const reduceMotionQuery = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  );
 
   function measureAndBuildMask(stageW: number, stageH: number) {
     const probe = document.createElement("canvas").getContext("2d")!;
@@ -268,8 +261,14 @@ export function mountKineticWord(
 
     for (let cx = 0; cx < cols; cx++) {
       for (let cy = 0; cy < rows; cy++) {
-        const px = Math.min(off.width - 1, cx * spacing + Math.floor(spacing / 2));
-        const py = Math.min(off.height - 1, cy * spacing + Math.floor(spacing / 2));
+        const px = Math.min(
+          off.width - 1,
+          cx * spacing + Math.floor(spacing / 2),
+        );
+        const py = Math.min(
+          off.height - 1,
+          cy * spacing + Math.floor(spacing / 2),
+        );
         const alpha = img[(py * off.width + px) * 4 + 3];
         if (alpha > 110) {
           grid.set(cx + "," + cy, { x: cx * spacing, y: cy * spacing });
@@ -328,7 +327,10 @@ export function mountKineticWord(
     canvas.height = Math.round(heightPx * dpr);
     ctx = canvas.getContext("2d")!;
 
-    const { grid, topOfCol, spacing, offsetX, offsetY } = measureAndBuildMask(widthPx, heightPx);
+    const { grid, topOfCol, spacing, offsetX, offsetY } = measureAndBuildMask(
+      widthPx,
+      heightPx,
+    );
     const atlas = buildGlyphAtlas(spacing);
 
     particles = new Map();
@@ -339,7 +341,17 @@ export function mountKineticWord(
       const pinned = topOfCol.get(col) === row;
       const ch = charList[i % charList.length];
       i++;
-      particles.set(key, new Particle({ x: pos.x + offsetX, y: pos.y + offsetY, pinned, col, row, char: ch }));
+      particles.set(
+        key,
+        new Particle({
+          x: pos.x + offsetX,
+          y: pos.y + offsetY,
+          pinned,
+          col,
+          row,
+          char: ch,
+        }),
+      );
     });
 
     constraints = [];
@@ -349,12 +361,24 @@ export function mountKineticWord(
       const downKey = col + "," + (row + 1);
       if (particles.has(rightKey)) {
         constraints.push(
-          new Constraint({ p1: p, p2: particles.get(rightKey)!, length: spacing, compress: cfg.compressH, stretch: cfg.stretchH }),
+          new Constraint({
+            p1: p,
+            p2: particles.get(rightKey)!,
+            length: spacing,
+            compress: cfg.compressH,
+            stretch: cfg.stretchH,
+          }),
         );
       }
       if (particles.has(downKey)) {
         const down = particles.get(downKey)!;
-        const con = new Constraint({ p1: p, p2: down, length: spacing, compress: cfg.compressV, stretch: cfg.stretchV });
+        const con = new Constraint({
+          p1: p,
+          p2: down,
+          length: spacing,
+          compress: cfg.compressV,
+          stretch: cfg.stretchV,
+        });
         constraints.push(con);
         p.downConstraint = con;
       }
@@ -367,8 +391,6 @@ export function mountKineticWord(
     }
 
     if (cfg.loadWobble && !reduceMotion) {
-      // A single small random nudge shortly after the mesh first settles,
-      // so it visibly "drops" into place instead of appearing static.
       loadWobbleTimer = setTimeout(() => {
         if (!running || isPaused) return;
         particleList.forEach((p) => {
@@ -395,7 +417,14 @@ export function mountKineticWord(
         }
         const tx = p.pos.x;
         const ty = p.pos.y;
-        ctx.setTransform(dpr * cos, dpr * sin, -dpr * sin, dpr * cos, dpr * tx, dpr * ty);
+        ctx.setTransform(
+          dpr * cos,
+          dpr * sin,
+          -dpr * sin,
+          dpr * cos,
+          dpr * tx,
+          dpr * ty,
+        );
         const half = img.logicalSize / 2;
         ctx.drawImage(img, -half, -half, img.logicalSize, img.logicalSize);
       });
@@ -411,16 +440,20 @@ export function mountKineticWord(
 
       let delta = t - lastDelta;
       if (lastDelta === 0) delta = 16.666;
-      delta = Math.min(delta, 50); // clamp so a dropped/backgrounded frame can't cause a physics explosion
+      delta = Math.min(delta, 50);
       lastDelta = t;
-
-      // fixed-timestep accumulator: the simulation always advances in
-      // constant 16.666ms steps, however often the browser actually calls
-      // this loop — keeps behavior consistent across 60Hz/120Hz+ displays
       timeAccumulator += delta;
       while (timeAccumulator >= 16.666) {
         particleList.forEach((p) =>
-          p.update(16.666, effectiveGravity, cfg.damping, effectiveWindAmp, cfg.windFreq, t, cfg.restoreStrength),
+          p.update(
+            16.666,
+            effectiveGravity,
+            cfg.damping,
+            effectiveWindAmp,
+            cfg.windFreq,
+            t,
+            cfg.restoreStrength,
+          ),
         );
         for (let k = 0; k < cfg.iterations; k++) {
           for (let j = 0; j < constraints.length; j++) constraints[j].solve();
@@ -448,9 +481,13 @@ export function mountKineticWord(
       this.boundDown = this.down.bind(this);
       this.boundUp = this.up.bind(this);
       this.boundMove = this.move.bind(this);
-      document.addEventListener("pointerdown", this.boundDown, { passive: true });
+      document.addEventListener("pointerdown", this.boundDown, {
+        passive: true,
+      });
       document.addEventListener("pointerup", this.boundUp, { passive: true });
-      document.addEventListener("pointermove", this.boundMove, { passive: true });
+      document.addEventListener("pointermove", this.boundMove, {
+        passive: true,
+      });
     }
 
     private setMouse(e: PointerEvent) {
@@ -462,8 +499,12 @@ export function mountKineticWord(
     private down(e: PointerEvent) {
       if (e.target !== this.canvas) return;
       this.setMouse(e);
-      const isTouch = e.pointerType === "touch" || (typeof window !== "undefined" && window.innerWidth < 640);
-      const radius = isTouch ? Math.max(this.cfg.grabRadius, 32) : this.cfg.grabRadius;
+      const isTouch =
+        e.pointerType === "touch" ||
+        (typeof window !== "undefined" && window.innerWidth < 640);
+      const radius = isTouch
+        ? Math.max(this.cfg.grabRadius, 32)
+        : this.cfg.grabRadius;
       for (const p of this.particles) {
         if (this.mouse.subtractNew(p.pos).length < radius) {
           this.grabbed = p;
@@ -487,11 +528,6 @@ export function mountKineticWord(
         this.grabbed.pos.reset(this.mouse.x, this.mouse.y);
         this.grabbed.oldPos.reset(this.mouse.x, this.mouse.y);
       }
-
-      // This listener is bound to `document` (so a drag can continue past
-      // the canvas edge), not the canvas itself — it fires on every mouse
-      // move anywhere on the page. Skip the O(n) proximity scan entirely
-      // when the pointer is nowhere near the canvas.
       const pad = Math.sqrt(this.cfg.mouseRadius);
       if (
         this.mouse.x < -pad ||
@@ -508,8 +544,13 @@ export function mountKineticWord(
         const ls = diff.lengthSquared;
         if (ls < this.cfg.mouseRadius) {
           const a = diff.angle - Math.PI;
-          const strength = (smoothstep(this.cfg.mouseRadius, -2000, ls) * this.cfg.mouseStrength) / 300;
-          p.applyForce(new Vec2(Math.cos(a) * strength, Math.sin(a) * strength));
+          const strength =
+            (smoothstep(this.cfg.mouseRadius, -2000, ls) *
+              this.cfg.mouseStrength) /
+            300;
+          p.applyForce(
+            new Vec2(Math.cos(a) * strength, Math.sin(a) * strength),
+          );
         }
       }
     }
@@ -529,9 +570,6 @@ export function mountKineticWord(
     resizeTimer = setTimeout(build, 250);
   };
   window.addEventListener("resize", handleResize);
-  // If the OS-level preference changes while this is mounted (rare, but
-  // easy to hit while testing), rebuild so it takes effect immediately
-  // rather than waiting for the next resize or remount.
   reduceMotionQuery.addEventListener("change", handleResize);
 
   return {
