@@ -73,7 +73,8 @@ export default function CustomCursor() {
     if (activeRef.current === value) return;
     activeRef.current = value;
     if (wrapperRef.current) {
-      wrapperRef.current.style.opacity = value && !lastIsText.current ? "1" : "0";
+      wrapperRef.current.style.opacity =
+        value && !lastIsText.current ? "1" : "0";
     }
   }, []);
 
@@ -98,12 +99,16 @@ export default function CustomCursor() {
       const e = lastEvent;
       if (!e) return;
 
-      const target = (e.target as HTMLElement)?.closest<HTMLElement>("[data-cursor]");
+      const target = (e.target as HTMLElement)?.closest<HTMLElement>(
+        "[data-cursor]",
+      );
       const rawCursor = target?.dataset.cursor;
 
       // Compute next values
       const nextIsText = rawCursor === "text";
-      const nextState: CursorState = nextIsText ? "default" : (rawCursor as CursorState) || "default";
+      const nextState: CursorState = nextIsText
+        ? "default"
+        : (rawCursor as CursorState) || "default";
       const nextLabel = target?.dataset.cursorLabel || "";
       const nextIsDark = !!(e.target as HTMLElement)?.closest(".section-dark");
 
@@ -121,7 +126,8 @@ export default function CustomCursor() {
         setIsText(nextIsText);
         // Update opacity when isText changes
         if (wrapperRef.current) {
-          wrapperRef.current.style.opacity = activeRef.current && !nextIsText ? "1" : "0";
+          wrapperRef.current.style.opacity =
+            activeRef.current && !nextIsText ? "1" : "0";
         }
       }
       if (nextIsDark !== lastIsDark.current) {
@@ -181,7 +187,15 @@ export default function CustomCursor() {
     >
       <motion.div
         className="absolute rounded-full transition-colors duration-300"
-        style={{ width: 6, height: 6, x: mx, y: my, translateX: "-50%", translateY: "-50%", backgroundColor: primaryColor }}
+        style={{
+          width: 6,
+          height: 6,
+          x: mx,
+          y: my,
+          translateX: "-50%",
+          translateY: "-50%",
+          backgroundColor: primaryColor,
+        }}
       />
       <motion.div
         className="absolute flex items-center justify-center border transition-[width,height,border-radius,background-color,border-color,color] duration-300 ease-out"
@@ -197,7 +211,8 @@ export default function CustomCursor() {
           scaleY: prefersReducedMotion ? 1 : scaleY,
           rotate: prefersReducedMotion ? 0 : angle,
           borderRadius: state === "view" ? 6 : 999,
-          borderStyle: state === "drag" || state === "grabbing" ? "dashed" : "solid",
+          borderStyle:
+            state === "drag" || state === "grabbing" ? "dashed" : "solid",
           borderColor: state === "button" ? "var(--accent)" : primaryColor,
           backgroundColor: "transparent",
           opacity: state === "button" ? undefined : 1,
@@ -207,7 +222,10 @@ export default function CustomCursor() {
           <div className="absolute inset-0 rounded-full bg-[var(--accent)] opacity-10" />
         )}
         {label && (
-          <span className="relative font-mono text-[9px] tracking-[0.1em] uppercase whitespace-nowrap transition-colors duration-300" style={{ color: primaryColor }}>
+          <span
+            className="relative font-mono text-[9px] tracking-[0.1em] uppercase whitespace-nowrap transition-colors duration-300"
+            style={{ color: primaryColor }}
+          >
             {label}
           </span>
         )}

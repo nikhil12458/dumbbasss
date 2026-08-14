@@ -15,20 +15,20 @@ export default function ConsultPanel() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setIsOpen(false);
+      if (e.key === "Escape") setIsOpen(false);
     };
-    
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   useEffect(() => {
-    const footer = document.querySelector('footer');
+    const footer = document.querySelector("footer");
     if (!footer) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => setIsFooterVisible(entry.isIntersecting),
-      { root: null, threshold: 0 }
+      { root: null, threshold: 0 },
     );
     observer.observe(footer);
     return () => observer.disconnect();
@@ -48,7 +48,7 @@ export default function ConsultPanel() {
       <button
         ref={triggerRef}
         onClick={() => setIsOpen(true)}
-        className={`fixed right-[28px] bottom-[28px] z-[500] flex items-center gap-[10px] bg-[var(--ink)] text-[var(--paper)] font-mono text-[12px] tracking-[0.06em] uppercase p-[15px_20px] border-none cursor-pointer shadow-[0_18px_36px_-18px_rgba(24,20,15,0.45)] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[var(--accent)] group ${isFooterVisible ? 'opacity-0 translate-y-8 pointer-events-none' : 'opacity-100'}`}
+        className={`fixed right-[28px] bottom-[28px] z-[500] flex items-center gap-[10px] bg-[var(--ink)] text-[var(--paper)] font-mono text-[12px] tracking-[0.06em] uppercase p-[15px_20px] border-none cursor-pointer shadow-[0_18px_36px_-18px_rgba(24,20,15,0.45)] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[var(--accent)] group ${isFooterVisible ? "opacity-0 translate-y-8 pointer-events-none" : "opacity-100"}`}
       >
         <span className="w-[6px] h-[6px] rounded-full bg-[var(--accent)] group-hover:bg-[var(--paper)] transition-colors duration-300" />
         Start a project
@@ -64,7 +64,7 @@ export default function ConsultPanel() {
               onClick={() => setIsOpen(false)}
               className="absolute inset-0 bg-[rgba(24,20,15,0.28)] backdrop-blur-[2px]"
             />
-            
+
             <FocusTrap active={isOpen}>
               <motion.div
                 role="dialog"
@@ -78,8 +78,15 @@ export default function ConsultPanel() {
               >
                 <div className="flex justify-between items-start mb-[20px]">
                   <div>
-                    <h3 id="consult-title" className="text-[19px] font-display font-bold tracking-[-0.01em]">Let's figure out what you need.</h3>
-                    <p className="font-mono text-[11px] text-[var(--ink-soft)] mt-[6px] tracking-[0.04em]">five quick questions — no pressure</p>
+                    <h3
+                      id="consult-title"
+                      className="text-[19px] font-display font-bold tracking-[-0.01em]"
+                    >
+                      Let's figure out what you need.
+                    </h3>
+                    <p className="font-mono text-[11px] text-[var(--ink-soft)] mt-[6px] tracking-[0.04em]">
+                      five quick questions — no pressure
+                    </p>
                   </div>
                   <button
                     ref={closeRef}
@@ -89,7 +96,7 @@ export default function ConsultPanel() {
                     Close ✕
                   </button>
                 </div>
-                
+
                 <ConsultFlow />
               </motion.div>
             </FocusTrap>
