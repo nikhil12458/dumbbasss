@@ -84,7 +84,7 @@ export function useCursorReveal() {
     section.addEventListener("pointerenter", enter);
     section.addEventListener("pointerleave", leave);
     section.addEventListener("pointermove", move, { passive: true });
-    
+
     section.addEventListener("touchstart", touchStart, { passive: true });
     section.addEventListener("touchmove", touchMove, { passive: true });
     section.addEventListener("touchend", touchEnd);
@@ -95,7 +95,7 @@ export function useCursorReveal() {
       section.removeEventListener("pointerenter", enter);
       section.removeEventListener("pointerleave", leave);
       section.removeEventListener("pointermove", move);
-      
+
       section.removeEventListener("touchstart", touchStart);
       section.removeEventListener("touchmove", touchMove);
       section.removeEventListener("touchend", touchEnd);

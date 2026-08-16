@@ -29,13 +29,17 @@ const Navbar = () => {
           onClick={closeMenu}
         >
           dumbbasss
-          <sup className="text-[9px] text-[var(--ink-faint)] font-medium">™</sup>
+          <sup className="text-[9px] text-[var(--ink-faint)] font-medium">
+            ™
+          </sup>
         </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-[34px]">
           {NAV_LINKS.map(({ href, label }) => (
-            <NavLink key={href} href={href}>{label}</NavLink>
+            <NavLink key={href} href={href}>
+              {label}
+            </NavLink>
           ))}
         </nav>
 

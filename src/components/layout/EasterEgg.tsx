@@ -32,7 +32,9 @@ const MESSAGES = [
 export default function EasterEgg() {
   const [message, setMessage] = useState<string | null>(null);
   const bufferRef = useRef("");
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(
+    undefined,
+  );
 
   const fire = () => {
     setMessage(MESSAGES[Math.floor(Math.random() * MESSAGES.length)]);
@@ -44,19 +46,25 @@ export default function EasterEgg() {
     console.log(
       "%cpsst.%c\ntry typing our name somewhere on this page.",
       "font-family: monospace; font-size: 14px; color: #9c4a2c; font-weight: bold;",
-      "font-family: monospace; font-size: 12px; color: #6e6656;"
+      "font-family: monospace; font-size: 12px; color: #6e6656;",
     );
 
     const isTypingContext = (el: EventTarget | null) => {
       const tag = (el as HTMLElement)?.tagName?.toLowerCase();
-      return tag === "input" || tag === "textarea" || (el as HTMLElement)?.isContentEditable;
+      return (
+        tag === "input" ||
+        tag === "textarea" ||
+        (el as HTMLElement)?.isContentEditable
+      );
     };
 
     const onKeydown = (e: KeyboardEvent) => {
       if (isTypingContext(document.activeElement)) return;
       if (e.key.length !== 1) return;
 
-      bufferRef.current = (bufferRef.current + e.key.toLowerCase()).slice(-TRIGGER.length);
+      bufferRef.current = (bufferRef.current + e.key.toLowerCase()).slice(
+        -TRIGGER.length,
+      );
 
       clearTimeout(timeoutRef.current);
       timeoutRef.current = setTimeout(() => {
