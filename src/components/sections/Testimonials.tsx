@@ -32,17 +32,20 @@ type Testimonial = {
 
 const testimonials: Testimonial[] = [
   {
-    quote: "They completely overhauled our platform's frontend. What used to feel clunky and slow now feels like a premium product. Our user engagement shot up within weeks.",
+    quote:
+      "They completely overhauled our platform's frontend. What used to feel clunky and slow now feels like a premium product. Our user engagement shot up within weeks.",
     name: "Arjun Mehta",
     role: "Founder, TechFlow",
   },
   {
-    quote: "Working with dumbbasss was refreshing. No corporate jargon, no unnecessary meetings—just sharp design, solid code, and a final product that exceeded expectations.",
+    quote:
+      "Working with dumbbasss was refreshing. No corporate jargon, no unnecessary meetings—just sharp design, solid code, and a final product that exceeded expectations.",
     name: "Sarah Jenkins",
     role: "Marketing Director, Vira",
   },
   {
-    quote: "They didn't just build what we asked for; they built what we actually needed. The custom CMS saves our team hours every single week.",
+    quote:
+      "They didn't just build what we asked for; they built what we actually needed. The custom CMS saves our team hours every single week.",
     name: "Rohan Patel",
     role: "Operations Lead, Nimbus",
   },
