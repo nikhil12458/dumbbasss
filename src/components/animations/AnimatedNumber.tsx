@@ -10,7 +10,11 @@ type AnimatedNumberProps = {
   className?: string;
 };
 
-export default function AnimatedNumber({ value, duration = 1.1, className = "" }: AnimatedNumberProps) {
+export default function AnimatedNumber({
+  value,
+  duration = 1.1,
+  className = "",
+}: AnimatedNumberProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-10%" });
   const shouldReduce = useReducedMotion();

@@ -27,7 +27,9 @@ const SETTLE = 800;
 const ZOOM_DURATION = 1200;
 
 export default function IntroLoader() {
-  const [phase, setPhase] = useState<"check" | "dance" | "reveal" | "done">("check");
+  const [phase, setPhase] = useState<"check" | "dance" | "reveal" | "done">(
+    "check",
+  );
   const [zoomOrigin, setZoomOrigin] = useState("50% 50%");
   const wordRef = useRef<HTMLDivElement>(null);
   const didRun = useRef(false);
@@ -50,19 +52,22 @@ export default function IntroLoader() {
     // Do this after a short delay so fonts have rendered
     setTimeout(() => {
       if (wordRef.current) {
-        const letterElements = wordRef.current.querySelectorAll(".intro-letter");
+        const letterElements =
+          wordRef.current.querySelectorAll(".intro-letter");
         const centerLetter = letterElements[4]; // the second 'b'
         if (centerLetter) {
           const wordRect = wordRef.current.getBoundingClientRect();
           const letterRect = centerLetter.getBoundingClientRect();
-          
+
           // Target the left 20% of the 'b' (the solid vertical stem)
-          const targetX = letterRect.left - wordRect.left + letterRect.width * 0.2;
-          const targetY = letterRect.top - wordRect.top + letterRect.height * 0.5;
-          
+          const targetX =
+            letterRect.left - wordRect.left + letterRect.width * 0.2;
+          const targetY =
+            letterRect.top - wordRect.top + letterRect.height * 0.5;
+
           const originX = (targetX / wordRect.width) * 100;
           const originY = (targetY / wordRect.height) * 100;
-          
+
           setZoomOrigin(`${originX}% ${originY}%`);
         }
       }
@@ -96,9 +101,7 @@ export default function IntroLoader() {
   if (phase === "done") return null;
 
   if (phase === "check") {
-    return (
-      <div className="intro-screen" aria-hidden="true" />
-    );
+    return <div className="intro-screen" aria-hidden="true" />;
   }
 
   return (
